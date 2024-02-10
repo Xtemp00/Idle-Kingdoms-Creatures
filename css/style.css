@@ -1,0 +1,65 @@
+/* Fichier CSS pour la page d'accueil */
+body {
+    font-family: 'MedievalSharp', cursive; /* Police médiévale */
+    margin: 0;
+    height: 100vh;
+    background-image: url('../assets/images/backgrounds/index_background.jpg'); /* Remplacez par le chemin de votre image */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Conteneur du menu */
+#menu-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Titre */
+h1 {
+    margin: 0 0 30px 0;
+    color: #4a7c59;
+}
+
+
+/* Menu */
+.menu-options {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Bouton */
+.menu-button {
+    background-color: #8ab6d6;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    transition: background-color 0.3s;
+}
+
+/* Effet au survol */
+.menu-button:hover {
+    background-color: #659dbd;
+    
+}
+
+/* Effet au clic */
+.menu-button:active {
+    background-color: #4a7c59;
+}
+
+/* Affichez le menue game-container seulemnt si le joueur a appuyer sur play */
+#game-container {
+    display: none;
+}
+

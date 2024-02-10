@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Idle Kingdoms & Creatures</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=MedievalSharp&display=swap"> <!-- Police personnalisée -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="menu-container">
+        <h1>Idle Kingdoms & Creatures</h1>
+        <div class="menu-options">
+            <button id="play-button" class="menu-button">Jouer / Continuer</button>
+            <button class="menu-button">Nouvelle Partie</button>
+            <button class="menu-button">Charger Partie</button>
+            <button class="menu-button">Options</button>
+            <button class="menu-button">Quitter</button>
+        </div>
+    </div>
+
+
+    <!--ceci sera un jeu style idle medieval avec des metier bucheron,peche etc des combat et des oeuf a ouvrir avoir des probabilité-->
+    <!--le jeu sera en 2d et en pixel art-->
+    <!--le jeu sera en html css et js-->
+    <!--le jeu sera en ligne-->
+    <!--le jeu sera en francais-->
+    <!--le jeu sera en solo-->
+    
+    <!-- Ce menu se montre seulement si le joueur a appuyer sur play-->
+    <div id="game-container">
+        <div id="game-screen">
+            <div id="game-menu">
+                <button id="back-button" class="menu-button">Retour</button>
+                <button id="save-button" class="menu-button">Sauvegarder</button>
+                <button id="load-button" class="menu-button">Charger</button>
+                <button id="options-button" class="menu-button">Options</button>
+                <button id="quit-button" class="menu-button">Quitter</button>
+            </div>
+            <div id="game-content">
+                <div id="game-map">
+                    <div id="map-tiles"></div>
+                    <div id="map-entities"></div>
+                </div>
+                <div id="game-info">
+                    <div id="info-resources"></div>
+                    <div id="info-kingdom"></div>
+                    <div id="info-creatures"></div>
+                </div>
+            </div>
+        </div>
+
+    <script src="js/main.js"></script>
+
+
+</body>
+</html>
