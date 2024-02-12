@@ -169,6 +169,21 @@ h1 {
     background-color: #659dbd;
 }
 
+.unlock-wood-button {
+    /*couleur un peu rouge*/
+    background-color: #b03e24;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.unlock-wood-button:hover {
+    background-color: #bc613a;
+}
+
 #oak-amount {
     font-size: 1.5em;
     color: #4a7c59;

@@ -3,72 +3,72 @@
   "woods": [
     {
       "name": "Oak",
-      "hardness": 1.5,
-      "harvestTime": 2.3,
-      "value": 10.0,
+      "hardness": 1,
+      "harvestTime": 0.2,
+      "value": 2.0,
       "next" : "Birch"
     },
     {
         "name": "Birch",
-        "hardness": 1.3,
-        "harvestTime": 2.2,
-        "value": 9.0,
+        "hardness": 1.5,
+        "harvestTime": 0.3,
+        "value": 3.5,
         "next" : "Pine"
     },
     {
       "name": "Pine",
-      "hardness": 1.2,
-      "harvestTime": 2.1,
-      "value": 8.5,
-        "next" : "Maple"
+      "hardness": 2,
+      "harvestTime": 0.5,
+      "value": 7,
+      "next" : "Maple"
     },
     {
       "name": "Maple",
-      "hardness": 1.8,
-      "harvestTime": 2.5,
-      "value": 12.0,
-        "next" : "Cherry"
+      "hardness": 5,
+      "harvestTime": 2.0,
+      "value": 15.0,
+      "next" : "Cherry"
     },
     {
       "name": "Cherry",
-      "hardness": 1.6,
-      "harvestTime": 2.4,
-      "value": 11.0,
+      "hardness": 10.0,
+      "harvestTime": 1.0,
+      "value": 25,
         "next" : "Walnut"
     },
     {
       "name": "Walnut",
-      "hardness": 1.4,
-      "harvestTime": 2.0,
-      "value": 7.5,
-        "next" : "Mahogany"
+      "hardness": 15,
+      "harvestTime": 0.5,
+      "value": 20,
+      "next" : "Mahogany"
     },
     {
       "name": "Mahogany",
-      "hardness": 1.7,
+      "hardness": 30,
       "harvestTime": 2.6,
-      "value": 13.0,
-        "next" : "Teak"
+      "value": 40,
+      "next" : "Teak"
     },
     {
       "name": "Teak",
-      "hardness": 1.1,
-      "harvestTime": 2.3,
-      "value": 9.5,
+      "hardness": 50,
+      "harvestTime": 2.0,
+      "value": 80,
         "next" : "Cedar"
     },
     {
       "name": "Cedar",
-      "hardness": 1.9,
-      "harvestTime": 2.7,
-      "value": 14.0,
+      "hardness": 1000.0,
+      "harvestTime": 20.0,
+      "value": 200,
         "next" : "Bamboo"
     },
     {
       "name": "Bamboo",
-      "hardness": 1.0,
-      "harvestTime": 2.1,
-      "value": 8.0
+      "hardness": 50.0,
+      "harvestTime": 0.001,
+      "value": 10.0
     }
   ]
   

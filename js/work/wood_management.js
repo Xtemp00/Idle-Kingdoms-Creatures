@@ -1,79 +1,96 @@
 export function initWoodManagement(playerData, resourcesData) {
   resourcesData.forEach(resource => {
-      setupResourceButton(resource, playerData, resourcesData);
+      setupResourceButton(resource, playerData);
   });
+
+  // Démarre la vérification périodique
+  periodicCheck(playerData, resourcesData);
 }
 
-function setupResourceButton(resource, playerData, resourcesData) {
-  const resourceName = resource.name;
-  const buttonId = `${resourceName.toLowerCase()}-button`;
-  const amountId = `${resourceName.toLowerCase()}-amount`;
-  const resourceButton = document.getElementById(buttonId);
-  const resourceAmountDisplay = document.getElementById(amountId);
+function setupResourceButton(resource, playerData) {
+  const resourceName = resource.name.toLowerCase();
+  const resourceButton = document.getElementById(`${resourceName}-button`);
+  const unlockButton = document.getElementById(`${resourceName}-unlock-button`);
 
   if (resourceButton) {
-    resourceButton.addEventListener('click', function() {
-        const currentTime = Date.now();
-        const lastHarvestTime = playerData.lastHarvestTime[resourceName] || 0;
-        const elapsedTime = (currentTime - lastHarvestTime) / 1000; // Convertir en secondes
-
-        if (elapsedTime >= resource.harvestTime) {
-            incrementResource(resourceName, playerData, resourcesData);
-            updateResourceDisplay(resourceName, playerData, resourceAmountDisplay);
-            startTimer(resource, playerData);
-            incrementWoodcuttingLevel(playerData);
-            updateWoodcuttingXpBar(playerData);
-        } else {
-            const waitTime = resource.harvestTime - elapsedTime;
-            console.log(`Attendez ${waitTime.toFixed(1)} secondes avant de récolter à nouveau.`);
-        }
-    });
+      resourceButton.addEventListener('click', () => handleResourceClick(resource, playerData));
   } else {
-    console.error(`Button ${buttonId} not found.`);
+      console.error(`Button for ${resourceName} not found.`);
   }
 
-  /*if (resourceName === 'Oak') {
-      updateOakCountProgress(playerData);
-  }*/
+  if (unlockButton) {
+      unlockButton.addEventListener('click', () => unlockNextResource(playerData, resource));
+  }
 }
 
-function incrementResource(resourceName, playerData, resourcesData) {
-  // Incrementation de la ressource
+function handleResourceClick(resource, playerData) {
+  const currentTime = Date.now();
+  const lastHarvestTime = playerData.lastHarvestTime[resource.name] || 0;
+  const elapsedTime = (currentTime - lastHarvestTime) / 1000;
+
+  if (elapsedTime >= resource.harvestTime) {
+      incrementResource(resource, playerData);
+      updateResourceDisplay(resource.name, playerData);
+      startTimer(resource, playerData);
+  } else {
+      const waitTime = resource.harvestTime - elapsedTime;
+      console.log(`Attendez ${waitTime.toFixed(1)} secondes avant de récolter à nouveau.`);
+  }
+}
+
+function periodicCheck(playerData, resourcesData) {
+  setInterval(() => {
+      resourcesData.forEach(resource => {
+          if (shouldUnlockResource(playerData, resource)) {
+              unlockNextResource(playerData, resource);
+          }
+      });
+
+      incrementWoodcuttingLevel(playerData);
+      updateWoodcuttingXpBar(playerData);
+  }, 1000);
+}
+
+function shouldUnlockResource(playerData, resource) {
+  const currentResourceCount = playerData.inventory[resource.name] || 0;
+  return currentResourceCount >= 100 && resource.next;
+}
+
+function unlockNextResource(playerData, resource) {
+  const nextResourceName = resource.next.toLowerCase();
+  const resourceButton = document.getElementById(`${nextResourceName}-button`);
+  const unlockButton = document.getElementById(`${nextResourceName}-unlock-button`);
+
+  if (resourceButton && unlockButton) {
+      unlockButton.style.display = 'none';
+      resourceButton.style.display = 'block';
+  }
+}
+
+function incrementResource(resource, playerData) {
+  const resourceName = resource.name;
   playerData.inventory[resourceName] = (playerData.inventory[resourceName] || 0) + playerData.skills.woodcutting;
-  console.log(`Le joueur a maintenant ${playerData.inventory[resourceName]} ${resourceName}`);
-
-  // Trouver la ressource correspondante dans resourcesData
-  const resource = resourcesData.find(resource => resource.name === resourceName);
-  if (!resource) return;
-
-  // Calculer et ajouter l'XP de woodcutting
+  
   let xpGain = resource.hardness * 0.1 * playerData.skills.woodcutting;
   playerData.SkillsXp["woodcuttingXp"] = (playerData.SkillsXp["woodcuttingXp"] || 0) + xpGain;
 
-  // Vérifier et débloquer la ressource suivante si nécessaire
-  if (resource.next && playerData.inventory[resourceName] >= 100) {
-      checkAndUnlockNextResource(playerData, resource.next, 100);
-  }
+  console.log(`Le joueur a maintenant ${playerData.inventory[resourceName]} ${resourceName}`);
 }
 
-
-//Fonction qui fait augmenter le niveau de compétence de woodcutting
 function incrementWoodcuttingLevel(playerData) {
-  //Ajouter 1 au niveau de compétence de woodcutting si le joueur a assez d'expérience l'experience necessaire pour monter de niveau est de (trouver une formule qui augmente pour chaque niveau) 
-  // nextlvl = 10 * (1.1 ^ lvl)
-  if (playerData.SkillsXp["woodcuttingXp"] >= 10 * (1.1 ^ playerData.skills.woodcutting)) {
-      playerData.skills.woodcutting += 1;
-      playerData.SkillsXp["woodcuttingXp"] = 0;
-      console.log(`Le joueur a maintenant ${playerData.skills.woodcutting} en woodcutting`);
+  let currentLevel = playerData.skills.woodcutting;
+  let currentXp = playerData.SkillsXp["woodcuttingXp"];
+  let xpForNextLevel = 30 * Math.pow(currentLevel, 1.5);
 
-  }
-  else {
-    // le joueur a besoin ... xp
-    console.log(`Le joueur a besoin de ${10 * (1.1 ^ playerData.skills.woodcutting) - playerData.SkillsXp["woodcuttingXp"]} xp pour monter de niveau`);
+  if (currentXp >= xpForNextLevel) {
+      playerData.skills.woodcutting += 1;
+      console.log(`Le joueur a atteint le niveau ${playerData.skills.woodcutting} en woodcutting`);
+  } else {
+      let xpNeeded = xpForNextLevel - currentXp;
+      console.log(`Le joueur a besoin de ${xpNeeded} XP supplémentaires pour atteindre le niveau ${currentLevel + 1} en woodcutting`);
   }
 }
 
-//Fonction qui fait bouger la barre d'xp de woodcutting
 function updateWoodcuttingXpBar(playerData) {
   const woodcuttingXp = playerData.SkillsXp["woodcuttingXp"];
   const progressElement = document.getElementById('woodcutting-xp-progress');
@@ -85,14 +102,17 @@ function updateWoodcuttingXpBar(playerData) {
   }
 }
 
-function updateResourceDisplay(resourceName, playerData, displayElement) {
+function updateResourceDisplay(resourceName, playerData) {
   const resourceAmount = playerData.inventory[resourceName] || 0;
-  displayElement.textContent = resourceAmount;
+  const displayElement = document.getElementById(`${resourceName.toLowerCase()}-amount`);
+  if (displayElement) {
+      displayElement.textContent = resourceAmount;
+  }
 }
 
 function startTimer(resource, playerData) {
   playerData.lastHarvestTime[resource.name] = Date.now();
-  let timerInterval = setInterval(function() {
+  let timerInterval = setInterval(() => {
       const currentTime = Date.now();
       const elapsedTime = (currentTime - playerData.lastHarvestTime[resource.name]) / 1000;
       const remainingTime = Math.max(resource.harvestTime - elapsedTime, 0);
@@ -101,28 +121,10 @@ function startTimer(resource, playerData) {
           clearInterval(timerInterval);
       } else {
           const progressPercent = (1 - remainingTime / resource.harvestTime) * 100;
-          document.getElementById(`${resource.name.toLowerCase()}-timer-progress`).style.width = progressPercent + '%';
+          const progressElement = document.getElementById(`${resource.name.toLowerCase()}-timer-progress`);
+          if (progressElement) {
+              progressElement.style.width = progressPercent + '%';
+          }
       }
   }, 1000);
-}
-
-/*function updateOakCountProgress(playerData) {
-  const oakCount = playerData.inventory['Oak'] || 0;
-  const progressElement = document.getElementById('oak-count-progress');
-  if (progressElement) {
-      const progressPercent = Math.min((oakCount / 100) * 100, 100);
-      progressElement.style.width = progressPercent + '%';
-  } else {
-      console.error('Element oak-count-progress non trouvé');
-  }
-}*/
-
-function checkAndUnlockNextResource(playerData, nextResourceName, unlockThreshold) {
-  const currentResourceCount = playerData.inventory['Oak'] || 0;
-  if (currentResourceCount >= unlockThreshold) {
-      const nextResourceContainer = document.getElementById(nextResourceName);
-      if (nextResourceContainer) {
-          nextResourceContainer.style.display = 'block';
-      }
-  }
 }
