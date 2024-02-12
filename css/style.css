@@ -1,19 +1,18 @@
 /* Fichier CSS pour la page d'accueil */
 body {
-    font-family: 'MedievalSharp', cursive; /* Police médiévale */
+    font-family: 'MedievalSharp', cursive;
     margin: 0;
     height: 100vh;
-    background-image: url('../assets/images/backgrounds/index_background.jpg'); /* Remplacez par le chemin de votre image */
+    background-image: url('../assets/images/backgrounds/index_background.jpg');
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
 /* Conteneur du menu */
 #menu-container {
-    background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -26,13 +25,11 @@ h1 {
     color: #4a7c59;
 }
 
-
 /* Menu */
 .menu-options {
     display: flex;
     flex-direction: column;
 }
-
 
 /* Bouton */
 .menu-button {
@@ -50,7 +47,6 @@ h1 {
 /* Effet au survol */
 .menu-button:hover {
     background-color: #659dbd;
-    
 }
 
 /* Effet au clic */
@@ -64,7 +60,6 @@ h1 {
 }
 
 #game-menu {
-    /*forme de barre de navigation en haut de l'ecran*/
     position: fixed;
     top: 0;
     left: 0;
@@ -77,10 +72,13 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-/*Block de contenue de bois qui les affiche de gauche a droite */
+/* Block de contenu de bois qui les affiche de gauche à droite */
 #game-part-wood {
-    
-
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 80%;
+    padding: 20px;
 }
 
 /* Situer a gauche de l'ecran et au dessus de player info*/
@@ -90,7 +88,6 @@ h1 {
     top : 200px;
 }*/
 
-
 /* situer a gauche de l'ecran */
 /*#player-info {
     position: absolute;
@@ -98,17 +95,14 @@ h1 {
     top : 300px;
 }*/
 
-
-
-
 /* wood-section */
 /* Styles de la section Bois */
 #wood-section {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Colonnes dynamiques */
-    gap: 20px; /* Espacement entre les éléments */
-    justify-items: start; /* Aligner les éléments à gauche */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: start;
 }
 
 .wood {
@@ -127,11 +121,12 @@ h1 {
 }
 
 .wood img {
+    display: block;
     width: 100px;
     height: auto;
     margin-top: 10px;
-    border: 2px solid #c0a080; /* Ajout d'un contour à l'image */
-    border-radius: 5px; /* Arrondir les coins de l'image */
+    border: 2px solid #c0a080;
+    border-radius: 5px;
 }
 
 .wood-button {
@@ -149,10 +144,10 @@ h1 {
 }
 
 #oak-amount {
-    font-size: 1.5em; /* Augmenter la taille du texte */
-    color: #4a7c59; /* Couleur du texte */
-    font-weight: bold; /* Rendre le texte gras */
-    margin: 10px 0; /* Ajouter de l'espace autour du nombre */
+    font-size: 1.5em;
+    color: #4a7c59;
+    font-weight: bold;
+    margin: 10px 0;
 }
 
 #birch-amount {
@@ -169,11 +164,7 @@ h1 {
     margin: 10px 0;
 }
 
-
-
-
 /* progress-bar */
-
 .horizontal-progress-bar {
     width: 100%;
     background-color: #e0e0e0;
@@ -185,12 +176,10 @@ h1 {
     height: 20px;
     background-color: #4a7c59;
     border-radius: 5px;
-    width: 0%; /* Départ à 0% */
+    width: 0%;
 }
 
-
 /* timer */
-
 .oak-timer-progress {
     margin-top: 10px;
 }
