@@ -23,7 +23,6 @@
     /*deux ligne de 5 en utilisant grid*/
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-
     gap: 20px;
     justify-items: start;
     align-items: start;
@@ -57,24 +56,6 @@
     }
     
 }
-
-
-
-/*situer tout au dessus de la box et n'influe pas sur les autre partie*/
-#game-part-wood h1 {
-    margin: 0 0 30px 0;
-    color: #4a7c59;
-    text-align: center;
-    font-size: 2em;
-    font-weight: bold;
-
-    position: relative;
-    top: -30px;
-    left: -20px;
-    z-index: 1;
-    
-}
-
 
 #woodcutting-menu {
     display: flex;
@@ -184,18 +165,6 @@
     font-weight: bold;
     margin: 10px 0;
 }
-
-/* "Oak": 0,
-        "Pine": 0,
-        "Maple": 0,
-        "Birch": 0,
-        "Cherry": 0,
-        "Walnut": 0,
-        "Mahogany": 0,
-        "Teak": 0,
-        "Cedar": 0,
-        "Bamboo": 0,
-        "Divine" : 0*/
 
 #Cherry-amount {
     font-size: 1.5em;
