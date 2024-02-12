@@ -1,0 +1,32 @@
+{
+  "buildings": [
+    {
+      "name": "Sawmill",
+      "speed": 10,
+      "woodPerHit": 100,
+      "GoldCost": 100,
+      "WoodCost": 100
+    },
+    {
+      "name": "Carpentry Workshop",
+      "speed": 5,
+      "woodPerHit": 15,
+        "GoldCost": 200,
+        "WoodCost": 200
+    },
+    {
+      "name": "Woodworking Factory",
+      "speed": 20,
+      "woodPerHit": 400,
+        "GoldCost": 500,
+        "WoodCost": 500
+
+    },
+    {
+      "name": "Lumber Jacks Hut",
+      "speed": 1,
+      "woodPerHit": 2,
+        "GoldCost": 50,
+        "WoodCost": 50}
+  ]
+}

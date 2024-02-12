@@ -1,0 +1,60 @@
+{
+    "name": "Player1",
+    "stats": {
+        "strength": 1,
+        "dexterity": 1,
+        "intelligence": 1,
+        "wisdom": 1,
+        "charisma": 1,
+        "luck": 1,
+        "health": 100,
+        "mana": 100,
+        "lvl" : 1
+
+
+    },
+    "inventory": {
+      "Oak": 0,
+      "Pine": 0,
+      "Maple": 0,
+      "Birch": 0,
+      "Cherry": 0,
+      "Walnut": 0,
+      "Mahogany": 0,
+      "Teak": 0,
+      "Cedar": 0,
+      "Bamboo": 0
+    },
+    "equipment": {
+        "head": "none",
+        "chest": "none",
+        "legs": "none",
+        "feet": "none",
+        "hands": "none",
+        "mainHand": "none",
+        "offHand": "none"
+    },
+    "skills": {
+        "woodcutting": 1000,
+        "fishing": 1,
+        "mining": 1,
+        "cooking": 1,
+        "smithing": 1,
+        "farming": 1,
+        "crafting": 1,
+        "magic": 1,
+        "combat": 1
+    },
+    "lastHarvestTime": {
+        "Oak": 0,
+        "Pine": 0,
+        "Maple": 0,
+        "Birch": 0,
+        "Cherry": 0,
+        "Walnut": 0,
+        "Mahogany": 0,
+        "Teak": 0,
+        "Cedar": 0,
+        "Bamboo": 0
+    }
+  }

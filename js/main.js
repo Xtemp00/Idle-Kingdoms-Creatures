@@ -23,6 +23,7 @@ function attachMenuListeners() {
     function startGame() {
         console.log("Le jeu commence !");
         // Initialisation du jeu, chargement de l'interface, etc.
+        startIntroduction();
     }
 }
 

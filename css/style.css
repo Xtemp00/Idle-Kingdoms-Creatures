@@ -63,3 +63,142 @@ h1 {
     display: none;
 }
 
+#game-menu {
+    /*forme de barre de navigation en haut de l'ecran*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #8ab6d6;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/*Block de contenue de bois qui les affiche de gauche a droite */
+#game-part-wood {
+    
+
+}
+
+/* Situer a gauche de l'ecran et au dessus de player info*/
+/*#test-button {
+    position: absolute;
+    left: 10;
+    top : 200px;
+}*/
+
+
+/* situer a gauche de l'ecran */
+/*#player-info {
+    position: absolute;
+    left: 10;
+    top : 300px;
+}*/
+
+
+
+
+/* wood-section */
+/* Styles de la section Bois */
+#wood-section {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Colonnes dynamiques */
+    gap: 20px; /* Espacement entre les éléments */
+    justify-items: start; /* Aligner les éléments à gauche */
+}
+
+.wood {
+    background-color: #f8f0e3;
+    border: 1px solid #c0a080;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 80%;
+    text-align: center;
+    align-items: right;
+}
+
+.wood h2 {
+    margin: 0;
+}
+
+.wood img {
+    width: 100px;
+    height: auto;
+    margin-top: 10px;
+    border: 2px solid #c0a080; /* Ajout d'un contour à l'image */
+    border-radius: 5px; /* Arrondir les coins de l'image */
+}
+
+.wood-button {
+    background-color: #4a7c59;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.wood-button:hover {
+    background-color: #659dbd;
+}
+
+#oak-amount {
+    font-size: 1.5em; /* Augmenter la taille du texte */
+    color: #4a7c59; /* Couleur du texte */
+    font-weight: bold; /* Rendre le texte gras */
+    margin: 10px 0; /* Ajouter de l'espace autour du nombre */
+}
+
+#birch-amount {
+    font-size: 1.5em;
+    color: #4a7c59;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#pine-amount {
+    font-size: 1.5em;
+    color: #4a7c59;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
+
+
+/* progress-bar */
+
+.horizontal-progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.horizontal-progress {
+    height: 20px;
+    background-color: #4a7c59;
+    border-radius: 5px;
+    width: 0%; /* Départ à 0% */
+}
+
+
+/* timer */
+
+.oak-timer-progress {
+    margin-top: 10px;
+}
+
+.birch-timer-progress {
+    margin-top: 10px;
+}
+
+.pine-timer-progress {
+    margin-top: 10px;
+}
