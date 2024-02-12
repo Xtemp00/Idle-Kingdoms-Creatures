@@ -56,5 +56,16 @@
         "Teak": 0,
         "Cedar": 0,
         "Bamboo": 0
+    },
+    "SkillsXp": {
+        "woodcuttingXp": 1,
+        "fishingXp": 1,
+        "miningXp": 1,
+        "cookingXp": 1,
+        "smithingXp": 1,
+        "farmingXp": 1,
+        "craftingXp": 1,
+        "magicXp": 1,
+        "combatXp": 1
     }
   }
