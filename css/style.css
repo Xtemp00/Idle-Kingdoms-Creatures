@@ -112,9 +112,16 @@ h1 {
     font-weight: bold;
 }
 
-
+/* barre de progression vertical tout a gauche de l'ecran*/
 #woodcutting-xp-progress {
     margin-top: 10px;
+    width: 20px;
+    height: 200px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 

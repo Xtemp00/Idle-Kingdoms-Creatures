@@ -1,6 +1,6 @@
 export function initWoodManagement(playerData, resourcesData) {
   resourcesData.forEach(resource => {
-      setupResourceButton(resource, playerData);
+      setupResourceButton(resource, playerData, resourcesData);
   });
 }
 
@@ -38,51 +38,44 @@ function setupResourceButton(resource, playerData, resourcesData) {
 }
 
 function incrementResource(resourceName, playerData, resourcesData) {
+  // Incrementation de la ressource
   playerData.inventory[resourceName] = (playerData.inventory[resourceName] || 0) + playerData.skills.woodcutting;
   console.log(`Le joueur a maintenant ${playerData.inventory[resourceName]} ${resourceName}`);
 
-  /*
-  "SkillsXp": {
-    "woodcuttingXp": 1,
-    "fishingXp": 1,
-    "miningXp": 1,
-    "cookingXp": 1,
-    "smithingXp": 1,
-    "farmingXp": 1,
-    "craftingXp": 1,
-    "magicXp": 1,
-    "combatXp": 1
-  }*/
+  // Trouver la ressource correspondante dans resourcesData
+  const resource = resourcesData.find(resource => resource.name === resourceName);
+  if (!resource) return;
 
-  if (resourceName === 'Oak') {
-      //updateOakCountProgress(playerData);
-      checkAndUnlockNextResource(playerData, "Birch", 100);
-      playerData.SkillsXp["woodcuttingXp"] = (playerData.inventory[resourceName] || 0) + resourcesData[0].harvestTime * 0.1 * playerData.skills.woodcutting;
-  }
-  if(resourceName === 'Birch') {
-      checkAndUnlockNextResource(playerData, "Pine", 1000);
-      playerData.SkillsXp["woodcuttingXp"] = (playerData.inventory[resourceName] || 0) + resourcesData[1].harvestTime * 0.1 * playerData.skills.woodcutting;
-  }
-  if (resourceName === 'Pine') {
-      /*checkAndUnlockNextResource(playerData, "Maple", 10000);*/
-      playerData.SkillsXp["woodcuttingXp"] = (playerData.inventory[resourceName] || 0) + resourcesData[2].harvestTime * 0.1 * playerData.skills.woodcutting;
+  // Calculer et ajouter l'XP de woodcutting
+  let xpGain = resource.hardness * 0.1 * playerData.skills.woodcutting;
+  playerData.SkillsXp["woodcuttingXp"] = (playerData.SkillsXp["woodcuttingXp"] || 0) + xpGain;
+
+  // Vérifier et débloquer la ressource suivante si nécessaire
+  if (resource.next && playerData.inventory[resourceName] >= 100) {
+      checkAndUnlockNextResource(playerData, resource.next, 100);
   }
 }
+
 
 //Fonction qui fait augmenter le niveau de compétence de woodcutting
 function incrementWoodcuttingLevel(playerData) {
   //Ajouter 1 au niveau de compétence de woodcutting si le joueur a assez d'expérience l'experience necessaire pour monter de niveau est de (trouver une formule qui augmente pour chaque niveau) 
-  // nextlvl = 100 * (1.1 ^ lvl)
-  if (playerData.SkillsXp["woodcuttingXp"] >= 100 * (1.1 ^ playerData.skills.woodcutting)) {
+  // nextlvl = 10 * (1.1 ^ lvl)
+  if (playerData.SkillsXp["woodcuttingXp"] >= 10 * (1.1 ^ playerData.skills.woodcutting)) {
       playerData.skills.woodcutting += 1;
       playerData.SkillsXp["woodcuttingXp"] = 0;
+      console.log(`Le joueur a maintenant ${playerData.skills.woodcutting} en woodcutting`);
+
   }
-  console.log(`Le joueur a maintenant ${playerData.skills.woodcutting} en woodcutting`);
+  else {
+    // le joueur a besoin ... xp
+    console.log(`Le joueur a besoin de ${10 * (1.1 ^ playerData.skills.woodcutting) - playerData.SkillsXp["woodcuttingXp"]} xp pour monter de niveau`);
+  }
 }
 
 //Fonction qui fait bouger la barre d'xp de woodcutting
 function updateWoodcuttingXpBar(playerData) {
-  const woodcuttingXp = playerData.SkillsXp[woodcuttingXp];
+  const woodcuttingXp = playerData.SkillsXp["woodcuttingXp"];
   const progressElement = document.getElementById('woodcutting-xp-progress');
   if (progressElement) {
       const progressPercent = Math.min((woodcuttingXp / 100) * 100, 100);

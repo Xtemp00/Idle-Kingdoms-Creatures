@@ -35,7 +35,7 @@
         "offHand": "none"
     },
     "skills": {
-        "woodcutting": 1000,
+        "woodcutting": 2,
         "fishing": 1,
         "mining": 1,
         "cooking": 1,
@@ -58,7 +58,7 @@
         "Bamboo": 0
     },
     "SkillsXp": {
-        "woodcuttingXp": 1,
+        "woodcuttingXp": 28,
         "fishingXp": 1,
         "miningXp": 1,
         "cookingXp": 1,
