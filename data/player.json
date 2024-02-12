@@ -14,16 +14,17 @@
 
     },
     "inventory": {
-      "Oak": 0,
-      "Pine": 0,
-      "Maple": 0,
-      "Birch": 0,
-      "Cherry": 0,
-      "Walnut": 0,
-      "Mahogany": 0,
-      "Teak": 0,
-      "Cedar": 0,
-      "Bamboo": 0
+        "Oak": 0,
+        "Pine": 0,
+        "Maple": 0,
+        "Birch": 0,
+        "Cherry": 0,
+        "Walnut": 0,
+        "Mahogany": 0,
+        "Teak": 0,
+        "Cedar": 0,
+        "Bamboo": 0,
+        "Divine": 0
     },
     "equipment": {
         "head": "none",
@@ -55,7 +56,8 @@
         "Mahogany": 0,
         "Teak": 0,
         "Cedar": 0,
-        "Bamboo": 0
+        "Bamboo": 0,
+        "Divine": 0
     },
     "SkillsXp": {
         "woodcuttingXp": 280000,

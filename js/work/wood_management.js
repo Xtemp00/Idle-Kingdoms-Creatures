@@ -63,7 +63,8 @@ function unlockNextResource(playerData, resource) {
 
   if (resourceButton && unlockButton) {
       unlockButton.style.display = 'none';
-      resourceButton.style.display = 'block';
+      //faire apparaitre le bouton de récolte
+      resourceButton.style.display = 'inline-block';
   }
 }
 
@@ -114,7 +115,7 @@ function startTimer(resource, playerData) {
   playerData.lastHarvestTime[resource.name] = Date.now();
   let timerInterval = setInterval(() => {
       const currentTime = Date.now();
-      const elapsedTime = (currentTime - playerData.lastHarvestTime[resource.name]) / 1000;
+      const elapsedTime = (currentTime - playerData.lastHarvestTime[resource.name]) / 1000; // Toujours en secondes
       const remainingTime = Math.max(resource.harvestTime - elapsedTime, 0);
 
       if (remainingTime <= 0) {
@@ -126,5 +127,6 @@ function startTimer(resource, playerData) {
               progressElement.style.width = progressPercent + '%';
           }
       }
-  }, 1000);
+  }, 100); // Mise à jour toutes les 100 millisecondes
 }
+
