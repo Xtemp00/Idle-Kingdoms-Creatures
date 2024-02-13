@@ -42,13 +42,33 @@
         <div id="wood-title">
             <h1>Bois</h1>
         </div>
+
+
+        <div id="game-citymap">
+
+            <!--Menu principal de la CityMap-->
+            <!--Chaque bouton mène à une section du jeu-->
+            <div id="citymap-menu">
+                <button id="wood-button" class="citymap-button">Bois</button>
+                <button id="fish-button" class="citymap-button">Pêche</button>
+                <button id="mine-button" class="citymap-button">Mine</button>
+                <button id="farm-button" class="citymap-button">Ferme</button>
+                <button id="combat-button" class="citymap-button">Combat</button>
+                <button id="egg-button" class="citymap-button">Oeuf</button>
+            </div>
+
+
+
+        </div>
+
+
         
 
-        <div id="wood-xp-progress-bar">
+        <div id="wood-xp-progress-bar" style="display: none;">
             <div id="wood-xp-progress"></div>
         </div>
 
-        <div id="game-part-wood">
+        <div id="game-part-wood" style="display: none;">
 
     
             <!--<div id="Wood-lvl">
@@ -168,6 +188,8 @@
             
 
     <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/ui-interactions.js"></script>
+
 
 
 </body>
