@@ -4,193 +4,179 @@
     <meta charset="UTF-8">
     <title>Idle Kingdoms & Creatures</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=MedievalSharp&display=swap"> <!-- Police personnalisée -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/wood.css">
-</head>
-<body>
-    <div id="menu-container">
-        <h1>Idle Kingdoms & Creatures</h1>
-        <div class="menu-options">
-            <button id="play-button" class="menu-button">Jouer / Continuer</button>
-            <button class="menu-button">Nouvelle Partie</button>
-            <button class="menu-button">Charger Partie</button>
-            <button class="menu-button">Options</button>
-            <button id="wiki-button" class="menu-button">Wiki</button>
-            <button class="menu-button">Quitter</button>
-        </div>
-    </div>
-
-
-    <!--ceci sera un jeu style idle medieval avec des metier bucheron,peche etc des combat et des oeuf a ouvrir avoir des probabilité-->
-    <!--le jeu sera en 2d et en pixel art-->
-    <!--le jeu sera en html css et js-->
-    <!--le jeu sera en ligne-->
-    <!--le jeu sera en francais-->
-    <!--le jeu sera en solo-->
-    
-    <!-- Ce menu se montre seulement si le joueur a appuyer sur play-->
-    <div id="game-container">
-
-        <div id="game-menu">
-            <button id="back-button" class="menu-button">Retour</button>
-            <button id="save-button" class="menu-button">Sauvegarder</button>
-            <button id="load-button" class="menu-button">Charger</button>
-            <button id="options-button" class="menu-button">Options</button>
-            <button id="quit-button" class="menu-button">Quitter</button>
+    <!-- FILEPATH: /home/benjamin/Documents/PROJETS/WEB/Idle/Idle-Kingdoms-Creatures/index.html -->
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Idle Kingdoms & Creatures</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/wood.css">
+    </head>
+    <body>
+        <div id="menu-container">
+            <h1>Idle Kingdoms & Creatures</h1>
+            <div class="menu-options">
+                <button id="play-button" class="menu-button">Jouer / Continuer</button>
+                <button class="menu-button">Nouvelle Partie</button>
+                <button class="menu-button">Charger Partie</button>
+                <button class="menu-button">Options</button>
+                <button id="wiki-button" class="menu-button">Wiki</button>
+                <button class="menu-button">Quitter</button>
+            </div>
         </div>
 
-        <div id="wood-title">
-            <h1>Bois</h1>
+        <div id="game-container">
+            <div id="game-menu">
+                <button id="back-button" class="menu-button">Retour</button>
+                <button id="save-button" class="menu-button">Sauvegarder</button>
+                <button id="load-button" class="menu-button">Charger</button>
+                <button id="options-button" class="menu-button">Options</button>
+                <button id="quit-button" class="menu-button">Quitter</button>
+            </div>
+
+            <div id="wood-title">
+                <h1>Bois</h1>
+            </div>
+
+            <div id="game-citymap">
+                <div id="citymap-menu">
+                    <button id="wood-button" class="citymap-button">Bois</button>
+                    <button id="fish-button" class="citymap-button">Pêche</button>
+                    <button id="mine-button" class="citymap-button">Mine</button>
+                    <button id="farm-button" class="citymap-button">Ferme</button>
+                    <button id="combat-button" class="citymap-button">Combat</button>
+                    <button id="egg-button" class="citymap-button">Oeuf</button>
+                </div>
+            </div>
+
+            <div id="global-wood">
+                <div id="wood-minimap" style="display: none;">
+                    <a href="#game-citymap" class="wood-minimap-link">
+                        <img src="assets/images/backgrounds/CityMap.jpg" alt="Map" id="minimap-button">
+                    </a>
+                </div>
+                
+                <div id="wood-xp-progress-bar" style="display: none;">
+                    <div id="wood-xp-progress"></div>
+                </div>
+                
+                <div id="game-part-wood" style="display: none;">
+                    <div id="Oak" class="wood">
+                        <h2>Chêne</h2>
+                        <p id="oak-amount">0</p>
+                        <button id="oak-button" class="wood-button">Couper</button>
+                        <img src="assets/images/ressources/OakWood.jpg" alt="Chêne">
+                        <div class="horizontal-progress-bar">
+                            <div id="oak-timer-progress" class="horizontal-progress"></div>
+                        </div>
+                    </div>
+                    <!--Oak-->
+                    <div id="Birch" class="wood">
+                        <h2>Bouleau</h2>
+                        <p id="birch-amount">0</p>
+                        <button id="birch-button" class="wood-button" style="display: none;">Couper</button>
+                        <button id="birch-unlock-button" class="unlock-wood-button">Débloquer</button>
+                        <img src="assets/images/ressources/BirchWood.jpg" alt="Bouleau">
+                        <div class="horizontal-progress-bar">
+                            <div id="birch-timer-progress" class="horizontal-progress"></div>
+                        </div>
+                    </div>
+                    <!--Birch-->
+                    <div id="Pine" class="wood" >
+                        <h2>Pin</h2>
+                        <p id="pine-amount">0</p>
+                        <button id="pine-button" class="wood-button" style="display: none;">Couper</button>
+                        <button id="pine-unlock-button" class="unlock-wood-button">Débloquer</button>
+                        <img src="assets/images/ressources/PineWood.jpg" alt="Pin">
+                        <div class="horizontal-progress-bar">
+                            <div id="pine-timer-progress" class="horizontal-progress"></div>
+                        </div>
+                    </div>
+                    <!--Pine-->
+                    <div id="Maple" class="wood">
+                        <h2>Érable</h2>
+                        <p id="maple-amount">0</p>
+                        <button id="maple-button" class="wood-button" style="display: none;">Couper</button>
+                        <button id="maple-unlock-button" class="unlock-wood-button">Débloquer</button>
+                        <img src="assets/images/ressources/MapleWood.jpg" alt="Érable">
+                        <div class="horizontal-progress-bar">
+                            <div id="maple-timer-progress" class="horizontal-progress"></div>
+                        </div>
+                    </div>
+                    <!--Maple-->
+                    <div id="Cherry" class="wood">
+                        <h2>Cerisier</h2>
+                        <p id="cherry-amount">0</p>
+                        <button id="cherry-button" class="wood-button" style="display: none;">Couper</button>
+                        <button id="cherry-unlock-button" class="unlock-wood-button">Débloquer</button>
+                        <img src="assets/images/ressources/CherryWood.jpg" alt="Cerisier">
+                        <div class="horizontal-progress-bar">
+                            <div id="cherry-timer-progress" class="horizontal-progress"></div>
+                        </div>
+                    </div>
+                    <!--Cherry-->
+                    <div id="Walnut" class="wood">
+                        <h2>Noyer</h2>
+                        <p id="walnut-amount">0</p>
+                        <button id="walnut-button" class="wood-button" style="display: none;">Couper</button>
+                        <button id="walnut-unlock-button" class="unlock-wood-button">Débloquer</button>
+                        <img src="assets/images/ressources/WalnutWood.jpg" alt="Noyer">
+                        <div class="horizontal-progress-bar">
+                            <div id="walnut-timer-progress" class="horizontal-progress"></div>
+                        </div>
+                    </div>
+                    <!--Walnut-->
+                    <div id="Mahogany" class="wood">
+                        <h2>Acajou</h2>
+                        <p id="mahogany-amount">0</p>
+                        <button id="mahogany-button" class="wood-button" style="display: none;">Couper</button>
+                        <button id="mahogany-unlock-button" class="unlock-wood-button">Débloquer</button>
+                        <img src="assets/images/ressources/MahoganyWood.jpg" alt="Acajou">
+                        <div class="horizontal-progress-bar">
+                            <div id="mahogany-timer-progress" class="horizontal-progress"></div>
+                        </div>
+                    </div>
+                    <!--Mahogany-->
+                    <div id="Cedar" class="wood">
+                        <h2>Cèdre</h2>
+                        <p id="cedar-amount">0</p>
+                        <button id="cedar-button" class="wood-button" style="display: none;">Couper</button>
+                        <button id="cedar-unlock-button" class="unlock-wood-button">Débloquer</button>
+                        <img src="assets/images/ressources/CedarWood.jpg" alt="Cèdre">
+                        <div class="horizontal-progress-bar">
+                            <div id="cedar-timer-progress" class="horizontal-progress"></div>
+                        </div>
+                    </div>
+                    <!--Cedar-->
+                    <div id="Bamboo" class="wood">
+                        <h2>Bambou</h2>
+                        <p id="bamboo-amount">0</p>
+                        <button id="bamboo-button" class="wood-button" style="display: none;">Couper</button>
+                        <button id="bamboo-unlock-button" class="unlock-wood-button">Débloquer</button>
+                        <img src="assets/images/ressources/BambooWood.jpg" alt="Bambou">
+                        <div class="horizontal-progress-bar">
+                            <div id="bamboo-timer-progress" class="horizontal-progress"></div>
+                        </div>
+                    </div>
+                    <!--Bamboo-->
+                    <div id="Divine" class="wood">
+                        <h2>Divin</h2>
+                        <p id="divine-amount">0</p>
+                        <button id="divine-button" class="wood-button" style="display: none;">Couper</button>
+                        <button id="divine-unlock-button" class="unlock-wood-button">Débloquer</button>
+                        <img src="assets/images/ressources/DivineWood.jpg" alt="Divin">
+                        <div class="horizontal-progress-bar">
+                            <div id="divine-timer-progress" class="horizontal-progress"></div>
+                        </div>
+                    </div>
+                    <!--Divine-->
+                </div>  
+            </div>
         </div>
 
-
-        <div id="game-citymap">
-
-            <!--Menu principal de la CityMap-->
-            <!--Chaque bouton mène à une section du jeu-->
-            <div id="citymap-menu">
-                <button id="wood-button" class="citymap-button">Bois</button>
-                <button id="fish-button" class="citymap-button">Pêche</button>
-                <button id="mine-button" class="citymap-button">Mine</button>
-                <button id="farm-button" class="citymap-button">Ferme</button>
-                <button id="combat-button" class="citymap-button">Combat</button>
-                <button id="egg-button" class="citymap-button">Oeuf</button>
-            </div>
-
-
-
-        </div>
-
-
-        
-
-        <div id="wood-xp-progress-bar" style="display: none;">
-            <div id="wood-xp-progress"></div>
-        </div>
-
-        <div id="game-part-wood" style="display: none;">
-
-    
-            <!--<div id="Wood-lvl">
-                <div id="woodcutting-xp-progress"></div>
-            </div>-->
-
-            <!--La section Bois-->
-            <!-- chaque bois est debloqué au fur et amesure et le premier bois et de l'oak il se trouve dans le ficiher json ressource-->
-            <div id="Oak" class="wood">
-                <h2>Chêne</h2>
-                <p id="oak-amount">0</p>
-                <button id="oak-button" class="wood-button">Couper</button>
-                <img src="assets/images/ressources/OakWood.jpg" alt="Chêne">
-                <div class="horizontal-progress-bar">
-                    <div id="oak-timer-progress" class="horizontal-progress"></div>
-                </div>
-            </div>
-            <!--Oak-->
-            <div id="Birch" class="wood">
-                <h2>Bouleau</h2>
-                <p id="birch-amount">0</p>
-                <button id="birch-button" class="wood-button" style="display: none;">Couper</button>
-                <button id="birch-unlock-button" class="unlock-wood-button">Débloquer</button>
-                <img src="assets/images/ressources/BirchWood.jpg" alt="Bouleau">
-                <div class="horizontal-progress-bar">
-                    <div id="birch-timer-progress" class="horizontal-progress"></div>
-                </div>
-            </div>
-            <!--Birch-->
-            <div id="Pine" class="wood" >
-                <h2>Pin</h2>
-                <p id="pine-amount">0</p>
-                <button id="pine-button" class="wood-button" style="display: none;">Couper</button>
-                <button id="pine-unlock-button" class="unlock-wood-button">Débloquer</button>
-                <img src="assets/images/ressources/PineWood.jpg" alt="Pin">
-                <div class="horizontal-progress-bar">
-                    <div id="pine-timer-progress" class="horizontal-progress"></div>
-                </div>
-            </div>
-            <!--Pine-->
-            <div id="Maple" class="wood">
-                <h2>Érable</h2>
-                <p id="maple-amount">0</p>
-                <button id="maple-button" class="wood-button" style="display: none;">Couper</button>
-                <button id="maple-unlock-button" class="unlock-wood-button">Débloquer</button>
-                <img src="assets/images/ressources/MapleWood.jpg" alt="Érable">
-                <div class="horizontal-progress-bar">
-                    <div id="maple-timer-progress" class="horizontal-progress"></div>
-                </div>
-            </div>
-            <!--Maple-->
-            <div id="Cherry" class="wood">
-                <h2>Cerisier</h2>
-                <p id="cherry-amount">0</p>
-                <button id="cherry-button" class="wood-button" style="display: none;">Couper</button>
-                <button id="cherry-unlock-button" class="unlock-wood-button">Débloquer</button>
-                <img src="assets/images/ressources/CherryWood.jpg" alt="Cerisier">
-                <div class="horizontal-progress-bar">
-                    <div id="cherry-timer-progress" class="horizontal-progress"></div>
-                </div>
-            </div>
-            <!--Cherry-->
-            <div id="Walnut" class="wood">
-                <h2>Noyer</h2>
-                <p id="walnut-amount">0</p>
-                <button id="walnut-button" class="wood-button" style="display: none;">Couper</button>
-                <button id="walnut-unlock-button" class="unlock-wood-button">Débloquer</button>
-                <img src="assets/images/ressources/WalnutWood.jpg" alt="Noyer">
-                <div class="horizontal-progress-bar">
-                    <div id="walnut-timer-progress" class="horizontal-progress"></div>
-                </div>
-            </div>
-            <!--Walnut-->
-            <div id="Mahogany" class="wood">
-                <h2>Acajou</h2>
-                <p id="mahogany-amount">0</p>
-                <button id="mahogany-button" class="wood-button" style="display: none;">Couper</button>
-                <button id="mahogany-unlock-button" class="unlock-wood-button">Débloquer</button>
-                <img src="assets/images/ressources/MahoganyWood.jpg" alt="Acajou">
-                <div class="horizontal-progress-bar">
-                    <div id="mahogany-timer-progress" class="horizontal-progress"></div>
-                </div>
-            </div>
-            <!--Mahogany-->
-            <div id="Cedar" class="wood">
-                <h2>Cèdre</h2>
-                <p id="cedar-amount">0</p>
-                <button id="cedar-button" class="wood-button" style="display: none;">Couper</button>
-                <button id="cedar-unlock-button" class="unlock-wood-button">Débloquer</button>
-                <img src="assets/images/ressources/CedarWood.jpg" alt="Cèdre">
-                <div class="horizontal-progress-bar">
-                    <div id="cedar-timer-progress" class="horizontal-progress"></div>
-                </div>
-            </div>
-            <!--Cedar-->
-            <div id="Bamboo" class="wood">
-                <h2>Bambou</h2>
-                <p id="bamboo-amount">0</p>
-                <button id="bamboo-button" class="wood-button" style="display: none;">Couper</button>
-                <button id="bamboo-unlock-button" class="unlock-wood-button">Débloquer</button>
-                <img src="assets/images/ressources/BambooWood.jpg" alt="Bambou">
-                <div class="horizontal-progress-bar">
-                    <div id="bamboo-timer-progress" class="horizontal-progress"></div>
-                </div>
-            </div>
-            <!--Bamboo-->
-            <div id="Divine" class="wood">
-                <h2>Divin</h2>
-                <p id="divine-amount">0</p>
-                <button id="divine-button" class="wood-button" style="display: none;">Couper</button>
-                <button id="divine-unlock-button" class="unlock-wood-button">Débloquer</button>
-                <img src="assets/images/ressources/DivineWood.jpg" alt="Divin">
-                <div class="horizontal-progress-bar">
-                    <div id="divine-timer-progress" class="horizontal-progress"></div>
-                </div>
-            </div>
-            
-
-    <script type="module" src="js/main.js"></script>
-    <script type="module" src="js/ui-interactions.js"></script>
-
-
-
-</body>
-</html>
+        <script type="module" src="js/main.js"></script>
+        <script type="module" src="js/ui-interactions.js"></script>
+    </body>
+    </html>

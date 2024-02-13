@@ -177,3 +177,26 @@
     width: 0%;
     transition: width 0.1s linear; /* Transition fluide pour la largeur */
 }
+
+
+/*minimap placer en haut a droite de l'ecran avec une bordure et a une petite taille*/
+#wood-minimap {
+    position: fixed; /* Fixe la minimap à la fenêtre */
+    top: 10%;       /* Espace du haut */
+    right: 10px;     /* Espace de droite */
+    z-index: 1000;   /* S'assure qu'elle est au-dessus des autres éléments */
+    border: 5px solid #4a7c59; /* Bordure */
+    border-radius: 10px;        /* Coins arrondis */
+    background-color: white;    /* Fond blanc */
+    padding: 10px;              /* Espace intérieur */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Ombre */
+
+
+}
+
+#minimap-button {
+    width: 150px;     /* Ajustez cette valeur pour contrôler la largeur de la minimap */
+    height: 150px;    /* Garde le ratio de l'image */
+    cursor: pointer; /* Change le curseur pour indiquer la cliquabilité */
+
+}
