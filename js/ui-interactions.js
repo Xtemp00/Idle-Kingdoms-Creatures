@@ -2,7 +2,7 @@
 function toggleSections(sectionToShow) {
     const citymap = document.getElementById('game-citymap');
     const woodSection = document.getElementById('game-part-wood');
-    const woodXp = document.getElementById('wood-xp-progress');
+    const woodXp = document.getElementById('wood-xp-progress-bar');
     //const mineSection = document.getElementById('mine-section');
 
     // Masquer la citymap
