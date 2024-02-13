@@ -1,34 +1,35 @@
-/* wood-section */
 /* Styles de la section Bois */
 #wood-section {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr)); /* Pour afficher autant d'éléments que possible par ligne */
     gap: 20px;
     justify-items: start;
 }
 
-
 /* Block de contenu de bois qui les affiche de gauche à droite */
 /* box qui contient les bois */
 #game-part-wood {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    display: grid;
+    flex-direction: row; 
+    justify-content: space-between;  
     padding: 40px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
-    /*deux ligne de 5 en utilisant grid*/
+    /* Utiliser grid pour afficher exactement 5 éléments par ligne */
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    justify-items: start;
-    align-items: start;
-    
-
 }
+
+/* Styles des éléments enfants de #game-part-wood */
+#game-part-wood > div {
+    /* Styles de chaque élément enfant, assurez-vous qu'ils s'adaptent correctement à la grille */
+    width: 100%;
+}
+
+
 
 /*responsive design*/
 @media screen and (max-width: 1000px){
@@ -274,14 +275,15 @@
     margin-top: 10px;
 }
 
-
 /* progress-bar horizontal au dessus du bois sur toute la longueur du bois */
 #wood-xp-progress-bar {
-    width: 100%;
+    width: 90%;
     background-color: #e0e0e0;
     border-radius: 5px;
     margin-top: 10px;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto  ;
     /*mettre le texte au centre*/
     display: flex;
     justify-content: center;
