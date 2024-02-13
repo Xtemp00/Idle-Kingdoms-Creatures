@@ -48,7 +48,7 @@ function periodicCheck(playerData, resourcesData) {
 
       incrementWoodcuttingLevel(playerData);
       updateWoodcuttingXpBar(playerData);
-  }, 1000);
+  }, 50);
 }
 
 function shouldUnlockResource(playerData, resource) {
@@ -94,10 +94,18 @@ function incrementWoodcuttingLevel(playerData) {
 
 function updateWoodcuttingXpBar(playerData) {
   const woodcuttingXp = playerData.SkillsXp["woodcuttingXp"];
-  const progressElement = document.getElementById('woodcutting-xp-progress');
+  const progressElement = document.getElementById('wood-xp-progress');
   if (progressElement) {
-      const progressPercent = Math.min((woodcuttingXp / 100) * 100, 100);
-      progressElement.style.width = progressPercent + '%';
+    /*  let currentXp = playerData.SkillsXp["woodcuttingXp"];
+    let xpForNextLevel = 30 * Math.pow(currentLevel, 1.5);
+    faire en fonction du prochain niveau*/
+    const xpForNextLevel = 30 * Math.pow(playerData.skills.woodcutting, 1.5);
+    const xpNeeded = xpForNextLevel - woodcuttingXp;
+    const xpForBeforeLevel = 30 * Math.pow(playerData.skills.woodcutting - 1, 1.5);
+      //mettre a 0% a chaque fois que le joueur monte de niveau
+      progressElement.style.width = `${(woodcuttingXp-xpForBeforeLevel) / (xpForNextLevel-xpForBeforeLevel) * 100}%`;
+      progressElement.textContent = `XP: ${woodcuttingXp-xpForBeforeLevel} / ${xpForNextLevel-xpForBeforeLevel} (${xpNeeded} restant)`;
+
   } else {
       console.error('Element woodcutting-xp-progress non trouvé');
   }
@@ -126,7 +134,7 @@ function startTimer(resource, playerData) {
           if (progressElement) {
               progressElement.style.width = progressPercent + '%';
           }
+          
       }
-  }, 100); // Mise à jour toutes les 100 millisecondes
+  }, 50); // Mise à jour toutes les 100 millisecondes
 }
-

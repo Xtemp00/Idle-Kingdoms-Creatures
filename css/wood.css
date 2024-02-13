@@ -273,3 +273,28 @@
 .divine-timer-progress {
     margin-top: 10px;
 }
+
+
+/* progress-bar horizontal au dessus du bois sur toute la longueur du bois */
+#wood-xp-progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    /*mettre le texte au centre*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    
+}
+
+#wood-xp-progress {
+    height: 50px;
+    background-color: #4a7c59;
+    border-radius: 5px;
+    width: 0%;
+    transition: width 0.1s linear; /* Transition fluide pour la largeur */
+
+}
