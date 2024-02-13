@@ -14,8 +14,8 @@ function toggleSections(sectionToShow) {
 
     // Afficher la section demandée
     if (sectionToShow === 'wood') {
-        woodSection.style.display = 'flex';
-        woodXp.style.display = 'block';
+        woodSection.style.display = 'grid';
+        woodXp.style.display = 'flex';
     } /*else if (sectionToShow === 'mine') {
         mineSection.style.display = 'block';
     }*/

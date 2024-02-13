@@ -101,7 +101,7 @@ h1 {
     position: relative; /* Pour positionner correctement les boutons à l'intérieur */
 }
 
-#wood-button {
+.button {
     background-color: #8ab6d6;
     border: none;
     border-radius: 5px;
@@ -113,111 +113,34 @@ h1 {
     transition: background-color 0.3s;
 }
 
-#wood-button:hover {
+.button:hover {
     background-color: #659dbd;
 }
 
-#wood-button:active {
+.button:active {
     background-color: #4a7c59;
+}
+
+#wood-button {
+    /* Add specific styles for wood-button here */
 }
 
 #fish-button {
-    background-color: #8ab6d6;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-    padding: 10px 20px;
-    margin: 10px 0;
-    transition: background-color 0.3s;
-}
-
-#fish-button:hover {
-    background-color: #659dbd;
-}
-
-#fish-button:active {
-    background-color: #4a7c59;
+    /* Add specific styles for fish-button here */
 }
 
 #mine-button {
-    background-color: #8ab6d6;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-    padding: 10px 20px;
-    margin: 10px 0;
-    transition: background-color 0.3s;
-}
-
-#mine-button:hover {
-    background-color: #659dbd;
-}
-
-#mine-button:active {
-    background-color: #4a7c59;
+    /* Add specific styles for mine-button here */
 }
 
 #farm-button {
-    background-color: #8ab6d6;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-    padding: 10px 20px;
-    margin: 10px 0;
-    transition: background-color 0.3s;
-}
-
-#farm-button:hover {
-    background-color: #659dbd;
-}
-
-#farm-button:active {
-    background-color: #4a7c59;
+    /* Add specific styles for farm-button here */
 }
 
 #combat-button {
-    background-color: #8ab6d6;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-    padding: 10px 20px;
-    margin: 10px 0;
-    transition: background-color 0.3s;
-}
-
-#combat-button:hover {
-    background-color: #659dbd;
-}
-
-#combat-button:active {
-    background-color: #4a7c59;
+    /* Add specific styles for combat-button here */
 }
 
 #egg-button {
-    background-color: #8ab6d6;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-    padding: 10px 20px;
-    margin: 10px 0;
-    transition: background-color 0.3s;
+    /* Add specific styles for egg-button here */
 }
-
-#egg-button:hover {
-    background-color: #659dbd;
-}
-
-#egg-button:active {
-    background-color: #4a7c59;
-}
-

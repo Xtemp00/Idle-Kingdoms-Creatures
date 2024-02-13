@@ -10,7 +10,7 @@
 /* Block de contenu de bois qui les affiche de gauche à droite */
 /* box qui contient les bois */
 #game-part-wood {
-    display: grid flex;
+    display: grid;
     flex-direction: row;
     gap: 15px;
     justify-content: space-between;  
@@ -20,17 +20,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
     /* Utiliser grid pour afficher exactement 5 éléments par ligne */
-    display: grid;
     grid-template-columns: repeat(5, 1fr);
-
 }
-
-/* Styles des éléments enfants de #game-part-wood */
-#game-part-wood > div {
-    /* Styles de chaque élément enfant, assurez-vous qu'ils s'adaptent correctement à la grille */
-    width: 100%;
-}
-
 
 
 /*responsive design*/
@@ -50,14 +41,12 @@
     #game-part-wood {
         grid-template-columns: repeat(2, 1fr);
     }
-    
 }
 
 @media screen and (max-width: 400px) {
     #game-part-wood {
         grid-template-columns: repeat(1, 1fr);
     }
-    
 }
 
 #woodcutting-menu {
@@ -66,7 +55,6 @@
     align-items: center;
 }
 
-
 #Wood-lvl {
     margin-top: 10px;
     text-align: center;
@@ -74,20 +62,6 @@
     color: #4a7c59;
     font-weight: bold;
 }
-
-/* barre de progression vertical tout a gauche de l'ecran*/
-#woodcutting-xp-progress {
-    margin-top: 10px;
-    width: 20px;
-    height: 200px;
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-
 
 .wood {
     background-color: #f8f0e3;
@@ -100,7 +74,6 @@
     align-items: right;
     position: relative;
 }
-
 
 .wood h2 {
     margin: 0;
@@ -115,11 +88,10 @@
     border-radius: 5px;
     position: relative;
     left: 13px;
-    
-
 }
 
-.wood-button {
+.wood-button,
+.unlock-wood-button {
     background-color: #4a7c59;
     color: white;
     border: none;
@@ -129,88 +101,25 @@
     cursor: pointer;
 }
 
-.wood-button:hover {
+.wood-button:hover,
+.unlock-wood-button:hover {
     background-color: #659dbd;
 }
 
 .unlock-wood-button {
     /*couleur un peu rouge*/
     background-color: #b03e24;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
 }
 
-.unlock-wood-button:hover {
-    background-color: #bc613a;
-}
-
-#oak-amount {
-    font-size: 1.5em;
-    color: #4a7c59;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-#birch-amount {
-    font-size: 1.5em;
-    color: #4a7c59;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-#pine-amount {
-    font-size: 1.5em;
-    color: #4a7c59;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-#Cherry-amount {
-    font-size: 1.5em;
-    color: #4a7c59;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-#Walnut-amount {
-    font-size: 1.5em;
-    color: #4a7c59;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-#Mahogany-amount {
-    font-size: 1.5em;
-    color: #4a7c59;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-#Teak-amount {
-    font-size: 1.5em;
-    color: #4a7c59;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-#Cedar-amount {
-    font-size: 1.5em;
-    color: #4a7c59;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-#Bamboo-amount {
-    font-size: 1.5em;
-    color: #4a7c59;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
+#oak-amount,
+#birch-amount,
+#pine-amount,
+#Cherry-amount,
+#Walnut-amount,
+#Mahogany-amount,
+#Teak-amount,
+#Cedar-amount,
+#Bamboo-amount,
 #Divine-amount {
     font-size: 1.5em;
     color: #4a7c59;
@@ -218,8 +127,6 @@
     margin: 10px 0;
 }
 
-
-/* progress-bar */
 .horizontal-progress-bar {
     width: 100%;
     background-color: #e0e0e0;
@@ -235,49 +142,19 @@
     transition: width 0.1s linear; /* Transition fluide pour la largeur */
 }
 
-
-/* timer */
-.oak-timer-progress {
-    margin-top: 10px;
-}
-
-.birch-timer-progress {
-    margin-top: 10px;
-}
-
-.pine-timer-progress {
-    margin-top: 10px;
-}
-
-.cherry-timer-progress {
-    margin-top: 10px;
-}
-
-.walnut-timer-progress {
-    margin-top: 10px;
-}
-
-.mahogany-timer-progress {
-    margin-top: 10px;
-}
-
-.teak-timer-progress {
-    margin-top: 10px;
-}
-
-.cedar-timer-progress {
-    margin-top: 10px;
-}
-
-.bamboo-timer-progress {
-    margin-top: 10px;
-}
-
+.oak-timer-progress,
+.birch-timer-progress,
+.pine-timer-progress,
+.cherry-timer-progress,
+.walnut-timer-progress,
+.mahogany-timer-progress,
+.teak-timer-progress,
+.cedar-timer-progress,
+.bamboo-timer-progress,
 .divine-timer-progress {
     margin-top: 10px;
 }
 
-/* progress-bar horizontal au dessus du bois sur toute la longueur du bois */
 #wood-xp-progress-bar {
     width: 90%;
     background-color: #e0e0e0;
@@ -285,13 +162,12 @@
     margin-top: 10px;
     text-align: center;
     margin-left: auto;
-    margin-right: auto  ;
+    margin-right: auto;
     /*mettre le texte au centre*/
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px;
-    
 }
 
 #wood-xp-progress {
@@ -300,5 +176,4 @@
     border-radius: 5px;
     width: 0%;
     transition: width 0.1s linear; /* Transition fluide pour la largeur */
-
 }
