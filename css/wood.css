@@ -10,8 +10,9 @@
 /* Block de contenu de bois qui les affiche de gauche à droite */
 /* box qui contient les bois */
 #game-part-wood {
-    display: grid;
-    flex-direction: row; 
+    display: grid flex;
+    flex-direction: row;
+    gap: 15px;
     justify-content: space-between;  
     padding: 40px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -21,6 +22,7 @@
     /* Utiliser grid pour afficher exactement 5 éléments par ligne */
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+
 }
 
 /* Styles des éléments enfants de #game-part-wood */
