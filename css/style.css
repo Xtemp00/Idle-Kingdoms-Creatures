@@ -147,3 +147,30 @@ h1 {
 #egg-button {
     /* Add specific styles for egg-button here */
 }
+
+/* placer a gauche de la page */
+#player-info {
+    position: fixed;
+    top: 12%;
+    left: 0;
+    padding: 10px;
+    background-color: #8ab6d6;
+    border-radius: 0 0 0 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 100; /* S'assurer qu'elle reste au-dessus des autres éléments */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+
+#player-info h2 {
+    margin: 0 0 20px 0;
+    color: #4a7c59;
+}
+
+#player-info p {
+    margin: 0 0 10px 0;
+}
+

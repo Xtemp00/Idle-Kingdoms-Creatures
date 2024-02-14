@@ -1,3 +1,5 @@
+import { updatePlayerStats } from "../player.js";
+
 export function initWoodManagement(playerData, resourcesData) {
   resourcesData.forEach(resource => {
       setupResourceButton(resource, playerData);
@@ -48,6 +50,7 @@ function periodicCheck(playerData, resourcesData) {
 
       incrementWoodcuttingLevel(playerData);
       updateWoodcuttingXpBar(playerData);
+      updatePlayerStats(playerData);
   }, 50);
 }
 
@@ -73,7 +76,10 @@ function incrementResource(resource, playerData) {
   playerData.inventory[resourceName] = (playerData.inventory[resourceName] || 0) + playerData.skills.woodcutting;
   
   let xpGain = resource.hardness * 0.1 * playerData.skills.woodcutting;
+  let goldGain = resource.value * playerData.skills.woodcutting;
   playerData.SkillsXp["woodcuttingXp"] = (playerData.SkillsXp["woodcuttingXp"] || 0) + xpGain;
+  playerData.stats.gold = (playerData.gold || 0) + goldGain;
+  playerData.inventory.Wood = (playerData.inventory.Wood || 0) + playerData.skills.woodcutting;
 
   console.log(`Le joueur a maintenant ${playerData.inventory[resourceName]} ${resourceName}`);
 }
@@ -136,4 +142,10 @@ function startTimer(resource, playerData) {
           
       }
   }, 50); // Mise à jour toutes les 100 millisecondes
+  updatePlayerStats(playerData);
 }
+
+
+
+
+// Place for the Upgrade Menu

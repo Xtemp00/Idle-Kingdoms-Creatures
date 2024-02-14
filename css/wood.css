@@ -7,6 +7,7 @@
     justify-items: start;
 }
 
+/*placer a droite */
 #game-part-wood {
     display: grid;
     flex-direction: row;
@@ -18,6 +19,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
     grid-template-columns: repeat(5, 1fr);
+    justify-self: end; /* Added property */
 }
 
 @media screen and (max-width: 1000px){
@@ -197,23 +199,22 @@
     cursor: pointer;
 }
 
-#oak-upgrade-menu {
-    position: fixed;
-    display: grid;
-    place-items: center;
+#oak-upgrade-menu { 
+    position: fixed; 
+    display: grid; 
+    place-items: center; 
     grid-template-rows: repeat(1, 1fr);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    flex-direction: row;
-    align-items: center;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-}
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    display: none; 
+    flex-direction: row; 
+    align-items: center; 
+    padding: 20px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    z-index: 1000; }
 
 #Oak-upgrade-button{
     background-image: url("../assets/images/backgrounds/Construction.jpg");

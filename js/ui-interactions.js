@@ -48,7 +48,7 @@ document.getElementById('minimap-button').addEventListener('click', function() {
 // fonction pour afficher le menu amélioration
 function showOakUpgradeMenu() {
     const upgradeMenu = document.getElementById('oak-upgrade-menu');
-    upgradeMenu.style.display = 'block';
+    upgradeMenu.style.display = 'grid';
 }
 
 document.getElementById('Oak-upgrade-button').addEventListener('click', function() {

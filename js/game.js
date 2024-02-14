@@ -1,4 +1,5 @@
 import { initWoodManagement } from './work/wood_management.js';
+import { updatePlayerStats } from './player.js';
 
 let buildingsData, resourcesData, playerData;
 
@@ -30,15 +31,19 @@ async function loadGameData() {
             displayPlayerInventory();
         });*/
 
-
+        
     } catch (error) {
         console.error('Erreur lors du chargement des données du jeu:', error);
     }
+
 }
 
 export function initGame() {
     loadGameData();
 }
+
+
+
 
 
 

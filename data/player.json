@@ -9,11 +9,13 @@
         "luck": 1,
         "health": 100,
         "mana": 100,
-        "lvl" : 1
+        "lvl" : 1,
+        "gold" : 0
 
 
     },
     "inventory": {
+        "Wood" : 0,
         "Oak": 0,
         "Pine": 0,
         "Maple": 0,
