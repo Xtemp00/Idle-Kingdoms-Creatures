@@ -271,3 +271,182 @@
     margin-top: 20px;
     z-index: 1000;
 }
+
+.Lamberjack-upgrade-button{
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: #4a7c59;
+}
+
+.Lamberjack-upgrade-button:hover{
+    background-color: #659dbd;
+}
+
+.Sawmill-upgrade-button{
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: #4a7c59;
+}
+
+.Sawmill-upgrade-button:hover{
+    background-color: #659dbd;
+}
+
+.Factory-upgrade-button{
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: #4a7c59;
+}
+
+.Factory-upgrade-button:hover{
+    background-color: #659dbd;
+}
+
+.Warehouse-upgrade-button{
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: #4a7c59;
+}
+
+.Warehouse-upgrade-button:hover{
+    background-color: #659dbd;
+}
+
+.Market-upgrade-button{
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: #4a7c59;
+}
+
+.Market-upgrade-button:hover{
+    background-color: #659dbd;
+}
+
+.Lamberjack-upgrade{
+    background-image: url("../assets/images/WoodUpgrade/Lumberjack.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Lamberjack-upgrade h2{
+    color: white;
+    background-color: #4a7c59;
+    padding: 5%;
+    border-radius: 15px;
+}
+
+.Lamberjack-upgrade p{
+    color: white;
+    background-color: #4a7c59;
+    padding: 6%;
+    border-radius: 15px;
+}
+
+.Sawmill-upgrade{
+    background-image: url("../assets/images/WoodUpgrade/Sawmill.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Sawmill-upgrade h2{
+    color: white;
+    background-color: #4a7c59;
+    padding: 5%;
+    border-radius: 15px;
+}
+
+.Sawmill-upgrade p{
+    color: white;
+    background-color: #4a7c59;
+    padding: 6%;
+    border-radius: 15px;
+}
+
+
+.Factory-upgrade{
+    background-image: url("../assets/images/WoodUpgrade/Factory.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Factory-upgrade h2{
+    color: white;
+    background-color: #4a7c59;
+    padding: 5%;
+    border-radius: 15px;
+}
+
+.Factory-upgrade p{
+    color: white;
+    background-color: #4a7c59;
+    padding: 6%;
+    border-radius: 15px;
+}
+
+.Warehouse-upgrade{
+    background-image: url("../assets/images/WoodUpgrade/Warehouse.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Warehouse-upgrade h2{
+    color: white;
+    background-color: #4a7c59;
+    padding: 5%;
+    border-radius: 15px;
+}
+
+.Warehouse-upgrade p{
+    color: white;
+    background-color: #4a7c59;
+    padding: 6%;
+    border-radius: 15px;
+    color : white;
+}
+
+.Market-upgrade{
+    background-image: url("../assets/images/WoodUpgrade/Market.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Market-upgrade h2{
+    color: white;
+    background-color: #4a7c59;
+    padding: 5%;
+    border-radius: 15px;
+    color : white;
+}
+
+.Market-upgrade p{
+    color: black;
+    background-color: #4a7c59;
+    padding: 6%;
+    border-radius: 15px;
+    color : white;
+}
