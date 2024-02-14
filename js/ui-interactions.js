@@ -43,3 +43,24 @@ document.getElementById('minimap-button').addEventListener('click', function() {
     toggleSections('citymap');
 
 });
+
+
+// fonction pour afficher le menu amélioration
+function showOakUpgradeMenu() {
+    const upgradeMenu = document.getElementById('oak-upgrade-menu');
+    upgradeMenu.style.display = 'block';
+}
+
+document.getElementById('Oak-upgrade-button').addEventListener('click', function() {
+    showOakUpgradeMenu();
+});
+
+// fonction pour cacher le menu amélioration
+function hideOakUpgradeMenu() {
+    const upgradeMenu = document.getElementById('oak-upgrade-menu');
+    upgradeMenu.style.display = 'none';
+}
+
+document.getElementById('Oak-upgrade-close-button').addEventListener('click', function() {
+    hideOakUpgradeMenu();
+});

@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Idle Kingdoms & Creatures</title>
+    <!--Logo-->
+    <link rel="icon" href="assets/images/backgrounds/Logo.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=MedievalSharp&display=swap"> <!-- Police personnalisée -->
     <!-- FILEPATH: /home/benjamin/Documents/PROJETS/WEB/Idle/Idle-Kingdoms-Creatures/index.html -->
     <!DOCTYPE html>
@@ -36,9 +38,6 @@
                 <button id="quit-button" class="menu-button">Quitter</button>
             </div>
 
-            <div id="wood-title">
-                <h1>Bois</h1>
-            </div>
 
             <div id="game-citymap">
                 <div id="citymap-menu">
@@ -62,6 +61,31 @@
                     <div id="wood-xp-progress"></div>
                 </div>
                 
+                <!--Oak-Upgrade-menu-->
+                <div id="oak-upgrade-menu" style="display: none;">
+
+                    <!--croix pour fermer le menu-->
+                    <button id="Oak-upgrade-close-button" class="Upgrade-close"></button>
+
+                    
+
+                    <!--LamberJack-->
+                    <div id="Lamberjack-oak-price" class="Lamberjack-price">0</div>
+                    <div id="Lamberjack-oak-amount" class="Lamberjack-amount">0</div>
+
+                    <!--Sawmill-->
+                    <div id="Sawmill-oak-price" class="Sawmill-price">0</div>
+                    <div id="Sawmill-oak-amount" class="Sawmill-amount">0</div>
+
+                    <!--Factory-->
+                    <div id="Factory-oak-price" class="Factory-price">0</div>
+                    <div id="Factory-oak-amount" class="Factory-amount">0</div>
+
+
+
+
+                </div>
+
                 <div id="game-part-wood" style="display: none;">
                     <div id="Oak" class="wood">
                         <h2>Chêne</h2>
@@ -71,22 +95,11 @@
                         <div class="horizontal-progress-bar">
                             <div id="oak-timer-progress" class="horizontal-progress"></div>
                         </div>
-                        <div id="Upgrade-menu">
 
-                            <!--Button-->
-                            <button id="Oak-upgrade-button" class="Upgrade-button"></button>
-                            
+                        <!--Button-->
+                        <button id="Oak-upgrade-button" class="Upgrade-button"></button>
 
-                            <!--LamberJack-->
-                            <div id="Lamberjack-oak-price" class="Lamberjack-price">0</div>
-                            <div id="Lamberjack-oak-amount" class="Lamberjack-amount">0</div>
-
-                            <!--Sawmill-->
-                            <div id="Sawmill-oak-price" class="Sawmill-price">0</div>
-                            <div id="Sawmill-oak-amount" class="Sawmill-amount">0</div>
-
-
-                        </div>
+                        
                     </div>
                     <!--Oak-->
                     <div id="Birch" class="wood">

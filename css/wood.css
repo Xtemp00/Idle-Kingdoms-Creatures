@@ -202,11 +202,51 @@
 }
 
 /*placer e haut a droite de la box d'une petite taille*/
-#upgrade-menu {
-
+#oak-upgrade-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background-color: #f8f0e3;
+    border: 1px solid #c0a080;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 18px; /* Ajoutez des marges autour de chaque bloc */
+    text-align: center;
+    align-items: right;
+    position: relative;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 /*bouton pour ouvrir l'onglet de oak upgrade*/
 #Oak-upgrade-button{
+    background-image: url("../assets/images/backgrounds/Construction.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
 
+}
+
+#Oak-upgrade-button:hover{
+    background-color: #659dbd;
+}
+
+/*bouton pour fermer l'onglet de oak upgrade*/
+.U
+pgrade-close{
+    background-color: #b03e24;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
 }
