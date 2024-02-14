@@ -110,13 +110,14 @@
 #oak-amount,
 #birch-amount,
 #pine-amount,
-#Cherry-amount,
-#Walnut-amount,
-#Mahogany-amount,
-#Teak-amount,
-#Cedar-amount,
-#Bamboo-amount,
-#Divine-amount {
+#maple-amount,
+#cherry-amount,
+#walnut-amount,
+#mahogany-amount,
+#teak-amount,
+#cedar-amount,
+#bamboo-amount,
+#divine-amount {
     font-size: 1.5em;
     color: #4a7c59;
     font-weight: bold;
@@ -203,18 +204,23 @@
     position: fixed; 
     display: grid; 
     place-items: center; 
-    grid-template-rows: repeat(1, 1fr);
     top: 50%; 
     left: 50%; 
-    transform: translate(-50%, -50%); 
-    display: none; 
+    transform: translate(-50%, -50%);  
     flex-direction: row; 
-    align-items: center; 
+    align-items: center;
     padding: 20px; 
     background-color: rgba(255, 255, 255, 0.8); 
     border-radius: 15px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
-    z-index: 1000; }
+    z-index: 1000; 
+    display: grid;
+    gap: 15px;
+    justify-content: space-between;  
+    margin-top: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-self: end; /* Added property */
+}
 
 #Oak-upgrade-button{
     background-image: url("../assets/images/backgrounds/Construction.jpg");
@@ -237,10 +243,13 @@
     background-color: #b03e24;
     border: none;
     border-radius: 5px;
-    padding: 20px 20px;
+    padding: 15px 15px;
     margin-top: 10px;
     cursor: pointer;
     color: white;
+    position: fixed;
+    top: 0;
+    right: 10px;
 }
 
 .Upgrade-close:hover{

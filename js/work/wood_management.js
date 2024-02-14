@@ -19,10 +19,6 @@ function setupResourceButton(resource, playerData) {
   } else {
       console.error(`Button for ${resourceName} not found.`);
   }
-
-  if (unlockButton) {
-      unlockButton.addEventListener('click', () => unlockNextResource(playerData, resource));
-  }
 }
 
 function handleResourceClick(resource, playerData) {
@@ -78,8 +74,9 @@ function incrementResource(resource, playerData) {
   let xpGain = resource.hardness * 0.1 * playerData.skills.woodcutting;
   let goldGain = resource.value * playerData.skills.woodcutting;
   playerData.SkillsXp["woodcuttingXp"] = (playerData.SkillsXp["woodcuttingXp"] || 0) + xpGain;
-  playerData.stats.gold = (playerData.gold || 0) + goldGain;
-  playerData.inventory.Wood = (playerData.inventory.Wood || 0) + playerData.skills.woodcutting;
+  playerData.stats["gold"] = (playerData.stats["gold"] || 0) + goldGain;
+  playerData.inventory["Wood"] = (playerData.inventory["Wood"] || 0) + playerData.skills.woodcutting;
+
 
   console.log(`Le joueur a maintenant ${playerData.inventory[resourceName]} ${resourceName}`);
 }
