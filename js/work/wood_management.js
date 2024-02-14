@@ -95,19 +95,18 @@ function incrementWoodcuttingLevel(playerData) {
 function updateWoodcuttingXpBar(playerData) {
   const woodcuttingXp = playerData.SkillsXp["woodcuttingXp"];
   const progressElement = document.getElementById('wood-xp-progress');
+  
   if (progressElement) {
-    /*  let currentXp = playerData.SkillsXp["woodcuttingXp"];
-    let xpForNextLevel = 30 * Math.pow(currentLevel, 1.5);
-    faire en fonction du prochain niveau*/
-    const xpForNextLevel = 30 * Math.pow(playerData.skills.woodcutting, 1.5);
+    const currentLevel = playerData.skills.woodcutting;
+    const xpForNextLevel = 30 * Math.pow(currentLevel, 1.5);
+    const xpForBeforeLevel = 30 * Math.pow(currentLevel - 1, 1.5);
     const xpNeeded = xpForNextLevel - woodcuttingXp;
-    const xpForBeforeLevel = 30 * Math.pow(playerData.skills.woodcutting - 1, 1.5);
-      //mettre a 0% a chaque fois que le joueur monte de niveau
-      progressElement.style.width = `${(woodcuttingXp-xpForBeforeLevel) / (xpForNextLevel-xpForBeforeLevel) * 100}%`;
-      progressElement.textContent = `XP: ${woodcuttingXp-xpForBeforeLevel} / ${xpForNextLevel-xpForBeforeLevel} (${xpNeeded} restant)`;
-
+    const progressPercent = ((woodcuttingXp - xpForBeforeLevel) / (xpForNextLevel - xpForBeforeLevel)) * 100;
+    
+    progressElement.style.width = `${progressPercent.toFixed(2)}%`;
+    progressElement.textContent = `XP: ${(woodcuttingXp - xpForBeforeLevel).toFixed(2)} / ${(xpForNextLevel - xpForBeforeLevel).toFixed(2)} (${xpNeeded.toFixed(2)} restant)`;
   } else {
-      console.error('Element woodcutting-xp-progress non trouvé');
+    console.error('Element woodcutting-xp-progress non trouvé');
   }
 }
 

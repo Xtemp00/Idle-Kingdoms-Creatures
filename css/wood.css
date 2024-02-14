@@ -2,13 +2,11 @@
 #wood-section {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr)); /* Pour afficher autant d'éléments que possible par ligne */
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
     gap: 20px;
     justify-items: start;
 }
 
-/* Block de contenu de bois qui les affiche de gauche à droite */
-/* box qui contient les bois */
 #game-part-wood {
     display: grid;
     flex-direction: row;
@@ -19,12 +17,9 @@
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
-    /* Utiliser grid pour afficher exactement 5 éléments par ligne */
     grid-template-columns: repeat(5, 1fr);
 }
 
-
-/*responsive design*/
 @media screen and (max-width: 1000px){
     #game-part-wood {
         grid-template-columns: repeat(4, 1fr);
@@ -68,7 +63,7 @@
     border: 1px solid #c0a080;
     border-radius: 10px;
     padding: 10px;
-    margin: 18px; /* Ajoutez des marges autour de chaque bloc */
+    margin: 18px;
     width: 150px;
     text-align: center;
     align-items: right;
@@ -107,7 +102,6 @@
 }
 
 .unlock-wood-button {
-    /*couleur un peu rouge*/
     background-color: #b03e24;
 }
 
@@ -139,7 +133,7 @@
     background-color: #4a7c59;
     border-radius: 5px;
     width: 0%;
-    transition: width 0.1s linear; /* Transition fluide pour la largeur */
+    transition: width 0.1s linear;
 }
 
 .oak-timer-progress,
@@ -163,11 +157,12 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    /*mettre le texte au centre*/
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px;
+    position: relative;
+    top: 15px;
 }
 
 #wood-xp-progress {
@@ -175,52 +170,51 @@
     background-color: #4a7c59;
     border-radius: 5px;
     width: 0%;
-    transition: width 0.1s linear; /* Transition fluide pour la largeur */
-}
-
-
-/*minimap placer en haut a droite de l'ecran avec une bordure et a une petite taille*/
-#wood-minimap {
-    position: fixed; /* Fixe la minimap à la fenêtre */
-    top: 10%;       /* Espace du haut */
-    right: 10px;     /* Espace de droite */
-    z-index: 1000;   /* S'assure qu'elle est au-dessus des autres éléments */
-    border: 5px solid #4a7c59; /* Bordure */
-    border-radius: 10px;        /* Coins arrondis */
-    background-color: white;    /* Fond blanc */
-    padding: 10px;              /* Espace intérieur */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Ombre */
-
-
-}
-
-#minimap-button {
-    width: 150px;     /* Ajustez cette valeur pour contrôler la largeur de la minimap */
-    height: 150px;    /* Garde le ratio de l'image */
-    cursor: pointer; /* Change le curseur pour indiquer la cliquabilité */
-
-}
-
-/*placer e haut a droite de la box d'une petite taille*/
-#oak-upgrade-menu {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px;
-    height: 100px;
-    background-color: #f8f0e3;
-    border: 1px solid #c0a080;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 18px; /* Ajoutez des marges autour de chaque bloc */
-    text-align: center;
-    align-items: right;
+    transition: width 0.1s linear;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+
+#wood-minimap {
+    position: fixed;
+    top: 13%;
+    right: 10px;
     z-index: 1000;
+    border: 5px solid #4a7c59;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-/*bouton pour ouvrir l'onglet de oak upgrade*/
+#minimap-button {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+#oak-upgrade-menu {
+    position: fixed;
+    display: grid;
+    place-items: center;
+    grid-template-rows: repeat(1, 1fr);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
 #Oak-upgrade-button{
     background-image: url("../assets/images/backgrounds/Construction.jpg");
     background-size: cover;
@@ -232,16 +226,13 @@
     margin-top: 10px;
     cursor: pointer;
     color: white;
-
 }
 
 #Oak-upgrade-button:hover{
     background-color: #659dbd;
 }
 
-/*bouton pour fermer l'onglet de oak upgrade*/
-.U
-pgrade-close{
+.Upgrade-close{
     background-color: #b03e24;
     border: none;
     border-radius: 5px;
@@ -249,4 +240,24 @@ pgrade-close{
     margin-top: 10px;
     cursor: pointer;
     color: white;
+}
+
+.Upgrade-close:hover{
+    background-color: #659dbd;
+}
+
+.Lamberjack-upgrade,
+.Sawmill-upgrade,
+.Factory-upgrade,
+.Warehouse-upgrade,
+.Market-upgrade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);   
+    margin-top: 20px;
+    z-index: 1000;
 }
