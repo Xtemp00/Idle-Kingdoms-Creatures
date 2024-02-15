@@ -14,19 +14,52 @@ function setupResourceButton(resource, playerData, buildingsData) {
   const resourceButton = document.getElementById(`${resourceName}-button`);
   const unlockButton = document.getElementById(`${resourceName}-unlock-button`);
   const upgradeButtonLumberJack = document.getElementById(`Lumberjack-${resourceName}-upgrade-button`);
+  const upgradeButtonSawmill = document.getElementById(`Sawmill-${resourceName}-upgrade-button`);
+  const upgradeButtonFactory = document.getElementById(`Factory-${resourceName}-upgrade-button`);
+  const upgradeButtonWarehouse = document.getElementById(`Warehouse-${resourceName}-upgrade-button`);
+  const upgradeButtonMarket = document.getElementById(`Market-${resourceName}-upgrade-button`);
+
+
+
 
   if (resourceButton) {
     resourceButton.addEventListener('click', () => handleResourceClick(resource, playerData, buildingsData));
-} else {
+  } else {
     console.error(`Button for ${resourceName} not found.`);
-}
+  }
 
-// Ajout d'un écouteur d'événements pour le bouton d'amélioration
-if (upgradeButtonLumberJack) {
-  upgradeButtonLumberJack.addEventListener('click', () => UpgradeLumberjack(playerData, buildingsData, resource));
-} else {
-    console.error(`Upgrade button for ${resourceName} not found.`);
-} 
+  // Ajout d'un écouteur d'événements pour le bouton d'amélioration
+  if (upgradeButtonLumberJack) {
+    upgradeButtonLumberJack.addEventListener('click', () => UpgradeLumberjack(playerData, buildingsData, resource));
+  } else {
+      console.error(`Upgrade button for ${resourceName} not found.`);
+  }
+
+  if (upgradeButtonSawmill) {
+    upgradeButtonSawmill.addEventListener('click', () => UpgradeSawmill(playerData, buildingsData, resource));
+  } else {
+      console.error(`Upgrade button for ${resourceName} not found.`);
+  }
+
+  if (upgradeButtonFactory) {
+    upgradeButtonFactory.addEventListener('click', () => UpgradeFactory(playerData, buildingsData, resource));
+  } else {
+      console.error(`Upgrade button for ${resourceName} not found.`);
+  }
+
+  if (upgradeButtonWarehouse) {
+    upgradeButtonWarehouse.addEventListener('click', () => UpgradeWarehouse(playerData, buildingsData, resource));
+  } else {
+      console.error(`Upgrade button for ${resourceName} not found.`);
+  }
+
+  if (upgradeButtonMarket) {
+    upgradeButtonMarket.addEventListener('click', () => UpgradeMarket(playerData, buildingsData, resource));
+  } else {
+      console.error(`Upgrade button for ${resourceName} not found.`);
+  }
+
+
 }
 
 function handleResourceClick(resource, playerData, buildingsData) {
@@ -59,6 +92,7 @@ function periodicCheck(playerData, resourcesData,buildingsData) {
             const elapsedTime = (currentTime - lastHarvestTime) / 1000;
           
             if ((elapsedTime >= resource.harvestTime) && (playerData.IsUnlockresources[resource.name] == true)) {
+              updateMultipliers(playerData, buildingsData);
               incrementResource(resource, playerData, buildingsData);
               updateResourceDisplay(resource.name, playerData);
               incrementWoodcuttingLevel(playerData);
@@ -68,7 +102,7 @@ function periodicCheck(playerData, resourcesData,buildingsData) {
             }
           }
       });
-
+      updateMultipliers(playerData, buildingsData);
       incrementWoodcuttingLevel(playerData);
       updateWoodcuttingXpBar(playerData);
       updatePlayerStats(playerData);
@@ -98,12 +132,15 @@ function unlockNextResource(playerData, resource) {
   }
 }
 
-function incrementResource(resource, playerData, buildingsData) {
+function incrementResource(resource, playerData) {
   const resourceName = resource.name;
   playerData.inventory[resourceName] = (playerData.inventory[resourceName] || 0) + playerData.skills.woodcutting;
   
   let xpGain = resource.hardness * 0.1 * playerData.skills.woodcutting;
-  let goldGain = resource.value * playerData.skills.woodcutting   +  (playerData.woodUpgrade[resource.name].LumberJack * buildingsData.buildings.find(building => building.name === "LumberJack").woodPerHit);
+  console.log(playerData.Multipliers["WoodSpeed"])
+  console.log(playerData.Multipliers["WoodGold"])
+
+  let goldGain = resource.value * playerData.skills.woodcutting   +  (playerData.woodUpgrade[resource.name].LumberJack * playerData.Multipliers["WoodGold"]);
   playerData.SkillsXp["woodcuttingXp"] = (playerData.SkillsXp["woodcuttingXp"] || 0) + xpGain;
   playerData.stats["gold"] = (playerData.stats["gold"] || 0) + goldGain;
   playerData.inventory["Wood"] = (playerData.inventory["Wood"] || 0) + playerData.skills.woodcutting;
@@ -157,7 +194,7 @@ function startTimer(resource, playerData, buildingsData) {
   let timerInterval = setInterval(() => {
       const currentTime = Date.now();
       const elapsedTime = (currentTime - playerData.lastHarvestTime[resource.name]) / 1000; // Toujours en secondes
-      const remainingTime = Math.max((resource.harvestTime / buildingsData.buildings.find(building => building.name === "LumberJack").speed)- elapsedTime, 0);
+      const remainingTime = Math.max((resource.harvestTime / playerData.Multipliers["WoodSpeed"])- elapsedTime, 0);
 
       if (remainingTime <= 0) {
           clearInterval(timerInterval);
@@ -181,13 +218,14 @@ function startTimer(resource, playerData, buildingsData) {
 function UpgradeLumberjack(playerData, buildingsData, resource) {
   // Récupérer le niveau actuel d'amélioration pour le bûcheron du type de bois spécifié
   let currentLevel = playerData.woodUpgrade[resource.name].LumberJack || 0;
-
+  const resourceName = resource.name;
   // Calculer le coût de l'amélioration
-    //buildingsData.find is not a function
-  let cost = buildingsData.buildings.find(building => building.name === "LumberJack").GoldCost * Math.pow(2, currentLevel);
-    
+  //buildingsData.find is not a function
+  let cost = buildingsData.buildings.find(building => building.name === "LumberJack").GoldCost * Math.pow(2, currentLevel) * (currentLevel + 1);
+  let woodcost = buildingsData.buildings.find(building => building.name === "LumberJack").WoodCost * Math.pow(2, currentLevel) * (currentLevel + 1);  
+
   // Vérifier si le joueur a assez d'or pour l'amélioration
-  if (playerData.stats["gold"] >= cost) {
+  if (playerData.stats["gold"] >= cost && playerData.inventory[resourceName] >= woodcost) {
       // Déduire le coût et augmenter le niveau d'amélioration
       playerData.stats["gold"] -= cost;
       playerData.woodUpgrade[resource.name].LumberJack = currentLevel + 1;
@@ -195,24 +233,223 @@ function UpgradeLumberjack(playerData, buildingsData, resource) {
       let resourceNameLower = resource.name.toLowerCase();
 
       let resourcelvlId = `Lumberjack-${resourceNameLower}-level`;
-      
+      let resourcewoodcostId = `Lumberjack-${resourceNameLower}-woodcost`;
       let resourcecostId = `Lumberjack-${resourceNameLower}-cost`;
   
       let resourcelvl = document.getElementById(resourcelvlId);
       let resourcecost = document.getElementById(resourcecostId);
+      let resourcewoodcost = document.getElementById(resourcewoodcostId);
+  
+      if (resourcelvl && resourcecost) {
+          resourcelvl.textContent = `Niveau: ${currentLevel + 1}`;
+          resourcecost.textContent = `Coût en PO: ${cost}`;
+          resourcewoodcost.textContent = `Coût en bois: ${woodcost}`;
+
+
+      } else {
+          console.error("Élément HTML non trouvé pour", resourcelvlId, "ou", resourcecostId);
+      }
+
+    } else {
+      // Gérer le cas où le joueur n'a pas assez d'or (afficher un message, etc.)
+      console.log(`Il manque ${cost-playerData.stats["gold"]} ou ${woodcost-resourceName} d or pour cette amélioration !`);
+  }
+
+
+  // Mettre à jour les statistiques du joueur (cette fonction doit être définie ailleurs dans votre code)
+  updatePlayerStats(playerData);
+}
+
+function UpgradeSawmill(playerData, buildingsData, resource) {
+  // Récupérer le niveau actuel d'amélioration pour le bûcheron du type de bois spécifié
+  let currentLevel = playerData.woodUpgrade[resource.name].Sawmill || 0;
+  const resourceName = resource.name;
+
+  // Calculer le coût de l'amélioration
+  //buildingsData.find is not a function
+  let cost = buildingsData.buildings.find(building => building.name === "SawMill").GoldCost * Math.pow(2, currentLevel) * (currentLevel + 1);
+  let woodcost = buildingsData.buildings.find(building => building.name === "SawMill").WoodCost * Math.pow(2, currentLevel) * (currentLevel + 1);
+  // Vérifier si le joueur a assez d'or pour l'amélioration
+  console.log(playerData.inventory[resourceName])
+  console.log(woodcost)
+
+  if (playerData.stats["gold"] >= cost && playerData.inventory[resourceName] >= woodcost) {
+      // Déduire le coût et augmenter le niveau d'amélioration
+      playerData.stats["gold"] -= cost;
+      playerData.woodUpgrade[resource.name].Sawmill = currentLevel + 1;
+      //afficher sur le fichier html les nouveaux prix et le niveau
+      let resourceNameLower = resource.name.toLowerCase();
+
+      let resourcelvlId = `Sawmill-${resourceNameLower}-level`;
+      let resourcewoodcostId = `Sawmill-${resourceNameLower}-woodcost`;
+      let resourcecostId = `Sawmill-${resourceNameLower}-cost`;
+  
+      let resourcelvl = document.getElementById(resourcelvlId);
+      let resourcecost = document.getElementById(resourcecostId);
+      let resourcewoodcost = document.getElementById(resourcewoodcostId);
   
       if (resourcelvl && resourcecost) {
           resourcelvl.textContent = `Niveau: ${currentLevel + 1}`;
           resourcecost.textContent = `Coût: ${cost}`;
+          resourcewoodcost.textContent = `Coût en bois: ${woodcost}`;
+
       } else {
           console.error("Élément HTML non trouvé pour", resourcelvlId, "ou", resourcecostId);
       }
 
       } else {
       // Gérer le cas où le joueur n'a pas assez d'or (afficher un message, etc.)
-      console.log("Pas assez d'or pour cette amélioration !");
+      console.log(`Il manque ${cost-playerData.stats["gold"]} ou ${woodcost-resourceName} d or pour cette amélioration !`);
   }
 
   // Mettre à jour les statistiques du joueur (cette fonction doit être définie ailleurs dans votre code)
   updatePlayerStats(playerData);
+}
+
+function UpgradeFactory(playerData, buildingsData, resource) {
+  // Récupérer le niveau actuel d'amélioration pour le bûcheron du type de bois spécifié
+  let currentLevel = playerData.woodUpgrade[resource.name].Factory || 0;
+  const resourceName = resource.name;
+
+  // Calculer le coût de l'amélioration
+  //buildingsData.find is not a function
+  let cost = buildingsData.buildings.find(building => building.name === "Factory").GoldCost * Math.pow(2, currentLevel) * (currentLevel + 1);
+  let woodcost = buildingsData.buildings.find(building => building.name === "Factory").WoodCost * Math.pow(2, currentLevel) * (currentLevel + 1);  
+
+  // Vérifier si le joueur a assez d'or pour l'amélioration
+  if (playerData.stats["gold"] >= cost && playerData.inventory[resourceName] >= woodcost) {
+      // Déduire le coût et augmenter le niveau d'amélioration
+      playerData.stats["gold"] -= cost;
+      playerData.woodUpgrade[resource.name].Factory = currentLevel + 1;
+      //afficher sur le fichier html les nouveaux prix et le niveau
+      let resourceNameLower = resource.name.toLowerCase();
+
+      let resourcelvlId = `Factory-${resourceNameLower}-level`;
+      let resourcewoodcostId = `Factory-${resourceNameLower}-woodcost`;
+      let resourcecostId = `Factory-${resourceNameLower}-cost`;
+  
+      let resourcelvl = document.getElementById(resourcelvlId);
+      let resourcecost = document.getElementById(resourcecostId);
+      let resourcewoodcost = document.getElementById(resourcewoodcostId);
+  
+      if (resourcelvl && resourcecost) {
+          resourcelvl.textContent = `Niveau: ${currentLevel + 1}`;
+          resourcecost.textContent = `Coût: ${cost}`;
+          resourcewoodcost.textContent = `Coût en bois: ${woodcost}`;
+      } else {
+          console.error("Élément HTML non trouvé pour", resourcelvlId, "ou", resourcecostId);
+      }
+
+      } else {
+      // Gérer le cas où le joueur n'a pas assez d'or (afficher un message, etc.)
+      console.log(`Il manque ${cost-playerData.stats["gold"]} ou ${woodcost-resourceName} d or pour cette amélioration !`);
+  }
+
+  // Mettre à jour les statistiques du joueur (cette fonction doit être définie ailleurs dans votre code)
+  updatePlayerStats(playerData);
+}
+
+function UpgradeWarehouse(playerData, buildingsData, resource) {
+  // Récupérer le niveau actuel d'amélioration pour le bûcheron du type de bois spécifié
+  let currentLevel = playerData.woodUpgrade[resource.name].Warehouse || 0;
+  const resourceName = resource.name;
+
+  // Calculer le coût de l'amélioration
+  //buildingsData.find is not a function
+  let cost = buildingsData.buildings.find(building => building.name === "Warehouse").GoldCost * Math.pow(2, currentLevel) * (currentLevel + 1);
+  let woodcost = buildingsData.buildings.find(building => building.name === "Warehouse").WoodCost * Math.pow(2, currentLevel) * (currentLevel + 1);  
+
+  // Vérifier si le joueur a assez d'or pour l'amélioration
+  if (playerData.stats["gold"] >= cost && playerData.inventory[resourceName] >= woodcost) {
+      // Déduire le coût et augmenter le niveau d'amélioration
+      playerData.stats["gold"] -= cost;
+      playerData.woodUpgrade[resource.name].Warehouse = currentLevel + 1;
+      //afficher sur le fichier html les nouveaux prix et le niveau
+      let resourceNameLower = resource.name.toLowerCase();
+
+      let resourcelvlId = `Warehouse-${resourceNameLower}-level`;
+      let resourcewoodcostId = `Warehouse-${resourceNameLower}-woodcost`;
+      let resourcecostId = `Warehouse-${resourceNameLower}-cost`;
+  
+      let resourcelvl = document.getElementById(resourcelvlId);
+      let resourcecost = document.getElementById(resourcecostId);
+      let resourcewoodcost = document.getElementById(resourcewoodcostId);
+  
+      if (resourcelvl && resourcecost) {
+          resourcelvl.textContent = `Niveau: ${currentLevel + 1}`;
+          resourcecost.textContent = `Coût: ${cost}`;
+          resourcewoodcost.textContent = `Coût en bois: ${woodcost}`;
+      } else {
+          console.error("Élément HTML non trouvé pour", resourcelvlId, "ou", resourcecostId);
+      }
+
+      } else {
+      // Gérer le cas où le joueur n'a pas assez d'or (afficher un message, etc.)
+      console.log(`Il manque ${cost-playerData.stats["gold"]} ou ${woodcost-resourceName} d or pour cette amélioration !`);
+  }
+
+  // Mettre à jour les statistiques du joueur (cette fonction doit être définie ailleurs dans votre code)
+  updatePlayerStats(playerData);
+}
+
+function UpgradeMarket(playerData, buildingsData, resource) {
+  // Récupérer le niveau actuel d'amélioration pour le bûcheron du type de bois spécifié
+  let currentLevel = playerData.woodUpgrade[resource.name].Market || 0;
+  const resourceName = resource.name;
+
+  // Calculer le coût de l'amélioration
+  //buildingsData.find is not a function
+  let cost = buildingsData.buildings.find(building => building.name === "Market").GoldCost * Math.pow(2, currentLevel) * (currentLevel + 1);
+  let woodcost = buildingsData.buildings.find(building => building.name === "Market").WoodCost * Math.pow(2, currentLevel) * (currentLevel + 1);  
+
+  // Vérifier si le joueur a assez d'or pour l'amélioration
+  if (playerData.stats["gold"] >= cost && playerData.inventory[resourceName] >= woodcost) {
+      // Déduire le coût et augmenter le niveau d'amélioration
+      playerData.stats["gold"] -= cost;
+      playerData.woodUpgrade[resource.name].Market = currentLevel + 1;
+      //afficher sur le fichier html les nouveaux prix et le niveau
+      let resourceNameLower = resource.name.toLowerCase();
+
+      let resourcelvlId = `Market-${resourceNameLower}-level`;
+      let resourcewoodcostId = `Market-${resourceNameLower}-woodcost`;
+      let resourcecostId = `Market-${resourceNameLower}-cost`;
+  
+      let resourcelvl = document.getElementById(resourcelvlId);
+      let resourcecost = document.getElementById(resourcecostId);
+      let resourcewoodcost = document.getElementById(resourcewoodcostId);
+  
+      if (resourcelvl && resourcecost) {
+          resourcelvl.textContent = `Niveau: ${currentLevel + 1}`;
+          resourcecost.textContent = `Coût: ${cost}`;
+          resourcewoodcost.textContent = `Coût en bois: ${woodcost}`;
+      } else {
+          console.error("Élément HTML non trouvé pour", resourcelvlId, "ou", resourcecostId);
+      }
+
+      } else {
+      // Gérer le cas où le joueur n'a pas assez d'or (afficher un message, etc.)
+      console.log(`Il manque ${cost-playerData.stats["gold"]} ou ${woodcost-resourceName} d or pour cette amélioration !`);
+  }
+
+
+  // Mettre à jour les statistiques du joueur (cette fonction doit être définie ailleurs dans votre code)
+  updatePlayerStats(playerData);
+}
+
+//Fonction qui a chaque instant met a jour les multipliers du joueur en fonction de tout ces achat d'amélioration
+function updateMultipliers(playerData, buildingsData){
+  let woodSpeed = 1;
+  let woodGold = 1;
+
+
+  for (let resource in playerData.woodUpgrade){
+
+    woodSpeed += (playerData.woodUpgrade[resource].LumberJack * buildingsData.buildings.find(building => building.name === "LumberJack").Speed) + (playerData.woodUpgrade[resource].SawMill * buildingsData.buildings.find(building => building.name === "SawMill").Speed) + (playerData.woodUpgrade[resource].Factory * buildingsData.buildings.find(building => building.name === "Factory").Speed) + (playerData.woodUpgrade[resource].Warehouse * buildingsData.buildings.find(building => building.name === "Warehouse").Speed) + (playerData.woodUpgrade[resource].Market * buildingsData.buildings.find(building => building.name === "Market").Speed);
+    woodGold += (playerData.woodUpgrade[resource].LumberJack * buildingsData.buildings.find(building => building.name === "LumberJack").Gold) + (playerData.woodUpgrade[resource].SawMill * buildingsData.buildings.find(building => building.name === "SawMill").Gold) + (playerData.woodUpgrade[resource].Factory * buildingsData.buildings.find(building => building.name === "Factory").Gold) + (playerData.woodUpgrade[resource].Warehouse * buildingsData.buildings.find(building => building.name === "Warehouse").Gold) + (playerData.woodUpgrade[resource].Market * buildingsData.buildings.find(building => building.name === "Market").Gold);
+
+  }
+
+  playerData.Multipliers["WoodSpeed"] = woodSpeed;
+  playerData.Multipliers["WoodGold"] = woodGold;
+
 }

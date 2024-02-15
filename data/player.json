@@ -25,7 +25,7 @@
         "Mahogany": 0,
         "Teak": 0,
         "Cedar": 0,
-        "Bamboo": 0,
+        "Bamboo": 0,    
         "Divine": 0
     },
     "equipment": {
@@ -75,7 +75,7 @@
         "Divine": false
     },
     "SkillsXp": {
-        "woodcuttingXp": 28000,
+        "woodcuttingXp": 1000,
         "fishingXp": 1,
         "miningXp": 1,
         "cookingXp": 1,
@@ -84,6 +84,27 @@
         "craftingXp": 1,
         "magicXp": 1,
         "combatXp": 1
+    },
+    "Multipliers": {
+        "WoodSpeed": 1,
+        "WoodGold" : 1,
+        "FishingSpeed": 1,
+        "FishingGold" : 1,
+        "MiningSpeed": 1,
+        "MiningGold" : 1,
+        "CookingSpeed": 1,
+        "CookingGold" : 1,
+        "SmithingSpeed": 1,
+        "SmithingGold" : 1,
+        "FarmingSpeed": 1,
+        "FarmingGold" : 1,
+        "CraftingSpeed": 1,
+        "CraftingGold" : 1,
+        "MagicSpeed": 1,
+        "MagicGold" : 1,
+        "CombatSpeed": 1,
+        "CombatGold" : 1
+
     },
     "woodUpgrade": {
         
