@@ -1,6 +1,6 @@
 import { updatePlayerStats } from "../player.js";
 
-export function initWoodManagement(playerData, resourcesData) {
+export function initWoodManagement(playerData, resourcesData, buildingsData) {
   resourcesData.forEach(resource => {
       setupResourceButton(resource, playerData);
   });
@@ -42,6 +42,24 @@ function periodicCheck(playerData, resourcesData) {
           if (shouldUnlockResource(playerData, resource)) {
               unlockNextResource(playerData, resource);
           }
+          //si le joueur possede le lumberjack niveau dans le type de ressource alors le timer pour miner la ressource est declenché a chaque fois que le harvestTime est atteint
+          //playerData.woodUpgradeData.res
+          let resources = resource.name;
+          console.log(playerData.woodUpgrade[resources]["LumberJack"]);
+          if ( playerData.woodUpgrade[resources]["LumberJack"] > 0){
+            const currentTime = Date.now();
+            const lastHarvestTime = playerData.lastHarvestTime[resource.name] || 0;
+            const elapsedTime = (currentTime - lastHarvestTime) / 1000;
+          
+            if ((elapsedTime >= resource.harvestTime) && (playerData.IsUnlockresources[resources] == true)) {
+              incrementResource(resource, playerData);
+              updateResourceDisplay(resource.name, playerData);
+              incrementWoodcuttingLevel(playerData);
+              updateWoodcuttingXpBar(playerData);
+              updatePlayerStats(playerData);
+              startTimer(resource, playerData);
+            }
+          }
       });
 
       incrementWoodcuttingLevel(playerData);
@@ -59,6 +77,7 @@ function unlockNextResource(playerData, resource) {
   const nextResourceName = resource.next.toLowerCase();
   const resourceButton = document.getElementById(`${nextResourceName}-button`);
   const unlockButton = document.getElementById(`${nextResourceName}-unlock-button`);
+  playerData.IsUnlockresources[nextResourceName] = true;
 
   if (resourceButton && unlockButton) {
       unlockButton.style.display = 'none';
@@ -146,3 +165,24 @@ function startTimer(resource, playerData) {
 
 
 // Place for the Upgrade Menu
+//le but de ccette endroit est de gerer l'amelioration des ressources
+function UpgradeLumberjack(playerData, buildingsData, resource) {
+  // Récupérer le niveau actuel d'amélioration pour le bûcheron du type de bois spécifié
+  let currentLevel = playerData.woodUpgrade[resource.name].LumberJack || 0;
+
+  // Calculer le coût de l'amélioration
+  let cost = buildingsData[resource.name].upgradeCost * Math.pow(1.1, currentLevel);
+
+  // Vérifier si le joueur a assez d'or pour l'amélioration
+  if (playerData.stats["gold"] >= cost) {
+      // Déduire le coût et augmenter le niveau d'amélioration
+      playerData.stats["gold"] -= cost;
+      playerData.woodUpgrade[resource.name].LumberJack = currentLevel + 1;
+  } else {
+      // Gérer le cas où le joueur n'a pas assez d'or (afficher un message, etc.)
+      console.log("Pas assez d'or pour cette amélioration !");
+  }
+
+  // Mettre à jour les statistiques du joueur (cette fonction doit être définie ailleurs dans votre code)
+  updatePlayerStats(playerData);
+}

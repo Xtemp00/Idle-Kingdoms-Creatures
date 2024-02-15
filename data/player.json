@@ -1,5 +1,5 @@
 {
-    "name": "BambooLA",
+    "name": "DeusVult",
     "stats": {
         "strength": 1,
         "dexterity": 1,
@@ -61,6 +61,19 @@
         "Bamboo": 0,
         "Divine": 0
     },
+    "IsUnlockresources": {
+        "Oak": true,
+        "Pine": false,
+        "Maple": false,
+        "Birch": false,
+        "Cherry": false,
+        "Walnut": false,
+        "Mahogany": false,
+        "Teak": false,
+        "Cedar": false,
+        "Bamboo": false,
+        "Divine": false
+    },
     "SkillsXp": {
         "woodcuttingXp": 28000,
         "fishingXp": 1,
@@ -71,5 +84,83 @@
         "craftingXp": 1,
         "magicXp": 1,
         "combatXp": 1
+    },
+    "woodUpgrade": {
+        
+            "Oak" : {
+                "LumberJack" : 1,
+                "SawMill" : 0,
+                "Factory" : 0,
+                "Warehouse" : 0,
+                "Market" : 0
+            },
+            "Birch" : {
+                "LumberJack" : 1,
+                "SawMill" : 0,
+                "Factory" : 0,
+                "Warehouse" : 0,
+                "Market" : 0
+            },
+            "Maple" : {
+                "LumberJack" : 1,
+                "SawMill" : 0,
+                "Factory" : 0,
+                "Warehouse" : 0,
+                "Market" : 0
+            },
+            "Cherry" : {
+                "LumberJack" : 1,
+                "SawMill" : 0,
+                "Factory" : 0,
+                "Warehouse" : 0,
+                "Market" : 0
+            },
+            "Walnut" : {
+                "LumberJack" : 1,
+                "SawMill" : 0,
+                "Factory" : 0,
+                "Warehouse" : 0,
+                "Market" : 0
+            },
+            "Mahogany" : {
+                "LumberJack" : 1,
+                "SawMill" : 0,
+                "Factory" : 0,
+                "Warehouse" : 0,
+                "Market" : 0
+            },
+            "Teak" : {
+                "LumberJack" : 1,
+                "SawMill" : 0,
+                "Factory" : 0,
+                "Warehouse" : 0,
+                "Market" : 0
+            },
+            "Cedar" : {
+                "LumberJack" : 1,
+                "SawMill" : 0,
+                "Factory" : 0,
+                "Warehouse" : 0,
+                "Market" : 0
+            },
+            "Bamboo" : {
+                "LumberJack" : 1,
+                "SawMill" : 0,
+                "Factory" : 0,
+                "Warehouse" : 0,
+                "Market" : 0
+            },
+            "Divine" : {
+                "LumberJack" : 1,
+                "SawMill" : 0,
+                "Factory" : 0,
+                "Warehouse" : 0,
+                "Market" : 0
+            }
+
+
+        }
+
+        
     }
-  }
+  

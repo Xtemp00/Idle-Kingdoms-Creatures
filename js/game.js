@@ -17,7 +17,7 @@ async function loadGameData() {
 
         console.log('Données du jeu chargées:', buildingsData, resourcesData, playerData);
 
-        initWoodManagement(playerData,resourcesData);
+        initWoodManagement(playerData,resourcesData,buildingsData);
         // Fonction qui permet d'afficher toute la section inventaire du joueur a partir du fichier json
         // de plus l'afficher sur l'id player-inventory
 
