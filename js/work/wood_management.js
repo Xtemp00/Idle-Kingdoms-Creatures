@@ -192,7 +192,23 @@ function UpgradeLumberjack(playerData, buildingsData, resource) {
       playerData.stats["gold"] -= cost;
       playerData.woodUpgrade[resource.name].LumberJack = currentLevel + 1;
       //afficher sur le fichier html les nouveaux prix et le niveau
-  } else {
+      let resourceNameLower = resource.name.toLowerCase();
+
+      let resourcelvlId = `Lumberjack-${resourceNameLower}-level`;
+      
+      let resourcecostId = `Lumberjack-${resourceNameLower}-cost`;
+  
+      let resourcelvl = document.getElementById(resourcelvlId);
+      let resourcecost = document.getElementById(resourcecostId);
+  
+      if (resourcelvl && resourcecost) {
+          resourcelvl.textContent = `Niveau: ${currentLevel + 1}`;
+          resourcecost.textContent = `Coût: ${cost}`;
+      } else {
+          console.error("Élément HTML non trouvé pour", resourcelvlId, "ou", resourcecostId);
+      }
+
+      } else {
       // Gérer le cas où le joueur n'a pas assez d'or (afficher un message, etc.)
       console.log("Pas assez d'or pour cette amélioration !");
   }
