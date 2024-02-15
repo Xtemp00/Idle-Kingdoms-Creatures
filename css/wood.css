@@ -256,7 +256,7 @@
     background-color: #659dbd;
 }
 
-.Lamberjack-upgrade,
+.Lumberjack-upgrade,
 .Sawmill-upgrade,
 .Factory-upgrade,
 .Warehouse-upgrade,
@@ -272,7 +272,7 @@
     z-index: 1000;
 }
 
-.Lamberjack-upgrade-button{
+.Lumberjack-upgrade-button{
     border: none;
     border-radius: 5px;
     padding: 20px 20px;
@@ -282,7 +282,7 @@
     background-color: #4a7c59;
 }
 
-.Lamberjack-upgrade-button:hover{
+.Lumberjack-upgrade-button:hover{
     background-color: #659dbd;
 }
 
@@ -342,21 +342,21 @@
     background-color: #659dbd;
 }
 
-.Lamberjack-upgrade{
+.Lumberjack-upgrade{
     background-image: url("../assets/images/WoodUpgrade/Lumberjack.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.Lamberjack-upgrade h2{
+.Lumberjack-upgrade h2{
     color: white;
     background-color: #4a7c59;
     padding: 5%;
     border-radius: 15px;
 }
 
-.Lamberjack-upgrade p{
+.Lumberjack-upgrade p{
     color: white;
     background-color: #4a7c59;
     padding: 6%;

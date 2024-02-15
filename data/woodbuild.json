@@ -2,7 +2,7 @@
   "buildings": [
     {
       "name": "LumberJack",
-      "speed": 1,
+      "speed": 1.1,
       "woodPerHit": 2,
       "GoldCost": 100
     },

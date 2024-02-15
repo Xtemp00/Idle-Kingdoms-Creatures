@@ -95,63 +95,63 @@
                 "Market" : 0
             },
             "Birch" : {
-                "LumberJack" : 1,
+                "LumberJack" : 0,
                 "SawMill" : 0,
                 "Factory" : 0,
                 "Warehouse" : 0,
                 "Market" : 0
             },
             "Maple" : {
-                "LumberJack" : 1,
+                "LumberJack" : 0,
                 "SawMill" : 0,
                 "Factory" : 0,
                 "Warehouse" : 0,
                 "Market" : 0
             },
             "Cherry" : {
-                "LumberJack" : 1,
+                "LumberJack" : 0,
                 "SawMill" : 0,
                 "Factory" : 0,
                 "Warehouse" : 0,
                 "Market" : 0
             },
             "Walnut" : {
-                "LumberJack" : 1,
+                "LumberJack" : 0,
                 "SawMill" : 0,
                 "Factory" : 0,
                 "Warehouse" : 0,
                 "Market" : 0
             },
             "Mahogany" : {
-                "LumberJack" : 1,
+                "LumberJack" : 0,
                 "SawMill" : 0,
                 "Factory" : 0,
                 "Warehouse" : 0,
                 "Market" : 0
             },
             "Pine" : {
-                "LumberJack" : 1,
+                "LumberJack" : 0,
                 "SawMill" : 0,
                 "Factory" : 0,
                 "Warehouse" : 0,
                 "Market" : 0
             },
             "Cedar" : {
-                "LumberJack" : 1,
+                "LumberJack" : 0,
                 "SawMill" : 0,
                 "Factory" : 0,
                 "Warehouse" : 0,
                 "Market" : 0
             },
             "Bamboo" : {
-                "LumberJack" : 1,
+                "LumberJack" : 0,
                 "SawMill" : 0,
                 "Factory" : 0,
                 "Warehouse" : 0,
                 "Market" : 0
             },
             "Divine" : {
-                "LumberJack" : 1,
+                "LumberJack" : 0,
                 "SawMill" : 0,
                 "Factory" : 0,
                 "Warehouse" : 0,

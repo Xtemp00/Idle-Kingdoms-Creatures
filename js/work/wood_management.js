@@ -2,34 +2,42 @@ import { updatePlayerStats } from "../player.js";
 
 export function initWoodManagement(playerData, resourcesData, buildingsData) {
   resourcesData.forEach(resource => {
-      setupResourceButton(resource, playerData);
+      setupResourceButton(resource, playerData, buildingsData);
   });
 
   // Démarre la vérification périodique
   periodicCheck(playerData, resourcesData);
 }
 
-function setupResourceButton(resource, playerData) {
+function setupResourceButton(resource, playerData, buildingsData) {
   const resourceName = resource.name.toLowerCase();
   const resourceButton = document.getElementById(`${resourceName}-button`);
   const unlockButton = document.getElementById(`${resourceName}-unlock-button`);
+  const upgradeButtonLumberJack = document.getElementById(`Lumberjack-${resourceName}-upgrade-button`);
 
   if (resourceButton) {
-      resourceButton.addEventListener('click', () => handleResourceClick(resource, playerData));
-  } else {
-      console.error(`Button for ${resourceName} not found.`);
-  }
+    resourceButton.addEventListener('click', () => handleResourceClick(resource, playerData, buildingsData));
+} else {
+    console.error(`Button for ${resourceName} not found.`);
 }
 
-function handleResourceClick(resource, playerData) {
+// Ajout d'un écouteur d'événements pour le bouton d'amélioration
+if (upgradeButtonLumberJack) {
+  upgradeButtonLumberJack.addEventListener('click', () => UpgradeLumberjack(playerData, buildingsData, resource));
+} else {
+    console.error(`Upgrade button for ${resourceName} not found.`);
+} 
+}
+
+function handleResourceClick(resource, playerData, buildingsData) {
   const currentTime = Date.now();
   const lastHarvestTime = playerData.lastHarvestTime[resource.name] || 0;
   const elapsedTime = (currentTime - lastHarvestTime) / 1000;
 
   if (elapsedTime >= resource.harvestTime) {
-      incrementResource(resource, playerData);
+      incrementResource(resource, playerData, buildingsData);
       updateResourceDisplay(resource.name, playerData);
-      startTimer(resource, playerData);
+      startTimer(resource, playerData, buildingsData);
   } else {
       const waitTime = resource.harvestTime - elapsedTime;
       console.log(`Attendez ${waitTime.toFixed(1)} secondes avant de récolter à nouveau.`);
@@ -51,12 +59,12 @@ function periodicCheck(playerData, resourcesData) {
             const elapsedTime = (currentTime - lastHarvestTime) / 1000;
           
             if ((elapsedTime >= resource.harvestTime) && (playerData.IsUnlockresources[resource.name] == true)) {
-              incrementResource(resource, playerData);
+              incrementResource(resource, playerData, buildingsData);
               updateResourceDisplay(resource.name, playerData);
               incrementWoodcuttingLevel(playerData);
               updateWoodcuttingXpBar(playerData);
               updatePlayerStats(playerData);
-              startTimer(resource, playerData);
+              startTimer(resource, playerData, buildingsData);
             }
           }
       });
@@ -90,12 +98,12 @@ function unlockNextResource(playerData, resource) {
   }
 }
 
-function incrementResource(resource, playerData) {
+function incrementResource(resource, playerData, buildingsData) {
   const resourceName = resource.name;
   playerData.inventory[resourceName] = (playerData.inventory[resourceName] || 0) + playerData.skills.woodcutting;
   
   let xpGain = resource.hardness * 0.1 * playerData.skills.woodcutting;
-  let goldGain = resource.value * playerData.skills.woodcutting;
+  let goldGain = resource.value * playerData.skills.woodcutting *  (playerData.woodUpgrade[resource.name].LumberJack * buildingsData.buildings.find(building => building.name === "LumberJack").woodPerHit);
   playerData.SkillsXp["woodcuttingXp"] = (playerData.SkillsXp["woodcuttingXp"] || 0) + xpGain;
   playerData.stats["gold"] = (playerData.stats["gold"] || 0) + goldGain;
   playerData.inventory["Wood"] = (playerData.inventory["Wood"] || 0) + playerData.skills.woodcutting;
@@ -144,12 +152,12 @@ function updateResourceDisplay(resourceName, playerData) {
   }
 }
 
-function startTimer(resource, playerData) {
+function startTimer(resource, playerData, buildingsData) {
   playerData.lastHarvestTime[resource.name] = Date.now();
   let timerInterval = setInterval(() => {
       const currentTime = Date.now();
       const elapsedTime = (currentTime - playerData.lastHarvestTime[resource.name]) / 1000; // Toujours en secondes
-      const remainingTime = Math.max(resource.harvestTime - elapsedTime, 0);
+      const remainingTime = Math.max((resource.harvestTime / buildingsData.buildings.find(building => building.name === "LumberJack").speed)- elapsedTime, 0);
 
       if (remainingTime <= 0) {
           clearInterval(timerInterval);
@@ -175,8 +183,16 @@ function UpgradeLumberjack(playerData, buildingsData, resource) {
   let currentLevel = playerData.woodUpgrade[resource.name].LumberJack || 0;
 
   // Calculer le coût de l'amélioration
-  let cost = buildingsData[resource.name].upgradeCost * Math.pow(1.1, currentLevel);
-
+  /*"buildings": [
+    {
+      "name": "LumberJack",
+      "speed": 1,
+      "woodPerHit": 2,
+      "GoldCost": 100
+    },*/
+    //buildingsData.find is not a function
+  let cost = buildingsData.buildings.find(building => building.name === "LumberJack").GoldCost * Math.pow(2, currentLevel);
+    
   // Vérifier si le joueur a assez d'or pour l'amélioration
   if (playerData.stats["gold"] >= cost) {
       // Déduire le coût et augmenter le niveau d'amélioration
