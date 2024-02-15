@@ -6,7 +6,7 @@ export function initWoodManagement(playerData, resourcesData, buildingsData) {
   });
 
   // Démarre la vérification périodique
-  periodicCheck(playerData, resourcesData);
+  periodicCheck(playerData, resourcesData,buildingsData);
 }
 
 function setupResourceButton(resource, playerData, buildingsData) {
@@ -44,7 +44,7 @@ function handleResourceClick(resource, playerData, buildingsData) {
   }
 }
 
-function periodicCheck(playerData, resourcesData) {
+function periodicCheck(playerData, resourcesData,buildingsData) {
   setInterval(() => {
       resourcesData.forEach(resource => {
           if (shouldUnlockResource(playerData, resource)) {
@@ -103,7 +103,7 @@ function incrementResource(resource, playerData, buildingsData) {
   playerData.inventory[resourceName] = (playerData.inventory[resourceName] || 0) + playerData.skills.woodcutting;
   
   let xpGain = resource.hardness * 0.1 * playerData.skills.woodcutting;
-  let goldGain = resource.value * playerData.skills.woodcutting *  (playerData.woodUpgrade[resource.name].LumberJack * buildingsData.buildings.find(building => building.name === "LumberJack").woodPerHit);
+  let goldGain = resource.value * playerData.skills.woodcutting   +  (playerData.woodUpgrade[resource.name].LumberJack * buildingsData.buildings.find(building => building.name === "LumberJack").woodPerHit);
   playerData.SkillsXp["woodcuttingXp"] = (playerData.SkillsXp["woodcuttingXp"] || 0) + xpGain;
   playerData.stats["gold"] = (playerData.stats["gold"] || 0) + goldGain;
   playerData.inventory["Wood"] = (playerData.inventory["Wood"] || 0) + playerData.skills.woodcutting;
@@ -183,13 +183,6 @@ function UpgradeLumberjack(playerData, buildingsData, resource) {
   let currentLevel = playerData.woodUpgrade[resource.name].LumberJack || 0;
 
   // Calculer le coût de l'amélioration
-  /*"buildings": [
-    {
-      "name": "LumberJack",
-      "speed": 1,
-      "woodPerHit": 2,
-      "GoldCost": 100
-    },*/
     //buildingsData.find is not a function
   let cost = buildingsData.buildings.find(building => building.name === "LumberJack").GoldCost * Math.pow(2, currentLevel);
     
@@ -198,6 +191,7 @@ function UpgradeLumberjack(playerData, buildingsData, resource) {
       // Déduire le coût et augmenter le niveau d'amélioration
       playerData.stats["gold"] -= cost;
       playerData.woodUpgrade[resource.name].LumberJack = currentLevel + 1;
+      //afficher sur le fichier html les nouveaux prix et le niveau
   } else {
       // Gérer le cas où le joueur n'a pas assez d'or (afficher un message, etc.)
       console.log("Pas assez d'or pour cette amélioration !");
