@@ -64,3 +64,188 @@ function hideOakUpgradeMenu() {
 document.getElementById('Oak-upgrade-close-button').addEventListener('click', function() {
     hideOakUpgradeMenu();
 });
+
+// fonction pour afficher le menu amélioration
+function showBirchUpgradeMenu() {
+    const upgradeMenu = document.getElementById('birch-upgrade-menu');
+    upgradeMenu.style.display = 'grid';
+}
+
+document.getElementById('Birch-upgrade-button').addEventListener('click', function() {
+    showBirchUpgradeMenu();
+});
+
+// fonction pour cacher le menu amélioration
+function hideBirchUpgradeMenu() {
+    const upgradeMenu = document.getElementById('birch-upgrade-menu');
+    upgradeMenu.style.display = 'none';
+}
+
+document.getElementById('Birch-upgrade-close-button').addEventListener('click', function() {
+    hideBirchUpgradeMenu();
+});
+
+// fonction pour afficher le menu amélioration
+function showPineUpgradeMenu() {
+    const upgradeMenu = document.getElementById('pine-upgrade-menu');
+    upgradeMenu.style.display = 'grid';
+}
+
+document.getElementById('Pine-upgrade-button').addEventListener('click', function() {
+    showPineUpgradeMenu();
+});
+
+// fonction pour cacher le menu amélioration
+function hidePineUpgradeMenu() {
+    const upgradeMenu = document.getElementById('pine-upgrade-menu');
+    upgradeMenu.style.display = 'none';
+}
+
+document.getElementById('Pine-upgrade-close-button').addEventListener('click', function() {
+    hidePineUpgradeMenu();
+});
+
+// fonction pour afficher le menu amélioration Maple
+function showMapleUpgradeMenu() {
+    const upgradeMenu = document.getElementById('maple-upgrade-menu');
+    upgradeMenu.style.display = 'grid';
+}
+
+document.getElementById('Maple-upgrade-button').addEventListener('click', function() {
+    showMapleUpgradeMenu();
+});
+
+// fonction pour cacher le menu amélioration
+function hideMapleUpgradeMenu() {
+    const upgradeMenu = document.getElementById('maple-upgrade-menu');
+    upgradeMenu.style.display = 'none';
+}
+
+document.getElementById('Maple-upgrade-close-button').addEventListener('click', function() {
+    hideMapleUpgradeMenu();
+});
+
+// fonction pour afficher le menu amélioration Cherry
+function showCherryUpgradeMenu() {
+    const upgradeMenu = document.getElementById('cherry-upgrade-menu');
+    upgradeMenu.style.display = 'grid';
+}
+
+document.getElementById('Cherry-upgrade-button').addEventListener('click', function() {
+    showCherryUpgradeMenu();
+});
+
+// fonction pour cacher le menu amélioration
+function hideCherryUpgradeMenu() {
+    const upgradeMenu = document.getElementById('cherry-upgrade-menu');
+    upgradeMenu.style.display = 'none';
+}
+
+document.getElementById('Cherry-upgrade-close-button').addEventListener('click', function() {
+    hideCherryUpgradeMenu();
+});
+
+// fonction pour afficher le menu amélioration Walnut
+function showWalnutUpgradeMenu() {
+    const upgradeMenu = document.getElementById('walnut-upgrade-menu');
+    upgradeMenu.style.display = 'grid';
+}
+
+document.getElementById('Walnut-upgrade-button').addEventListener('click', function() {
+    showWalnutUpgradeMenu();
+});
+
+// fonction pour cacher le menu amélioration
+function hideWalnutUpgradeMenu() {
+    const upgradeMenu = document.getElementById('walnut-upgrade-menu');
+    upgradeMenu.style.display = 'none';
+}
+
+document.getElementById('Walnut-upgrade-close-button').addEventListener('click', function() {
+    hideWalnutUpgradeMenu();
+});
+
+// fonction pour afficher le menu amélioration Mahogany
+function showMahoganyUpgradeMenu() {
+    const upgradeMenu = document.getElementById('mahogany-upgrade-menu');
+    upgradeMenu.style.display = 'grid';
+}
+
+document.getElementById('Mahogany-upgrade-button').addEventListener('click', function() {
+    showMahoganyUpgradeMenu();
+});
+
+// fonction pour cacher le menu amélioration
+function hideMahoganyUpgradeMenu() {
+    const upgradeMenu = document.getElementById('mahogany-upgrade-menu');
+    upgradeMenu.style.display = 'none';
+}
+
+document.getElementById('Mahogany-upgrade-close-button').addEventListener('click', function() {
+    hideMahoganyUpgradeMenu();
+});
+
+// fonction pour afficher le menu amélioration Cedar
+function showCedarUpgradeMenu() {
+    const upgradeMenu = document.getElementById('cedar-upgrade-menu');
+    upgradeMenu.style.display = 'grid';
+}
+
+document.getElementById('Cedar-upgrade-button').addEventListener('click', function() {
+    showCedarUpgradeMenu();
+});
+
+// fonction pour cacher le menu amélioration
+function hideCedarUpgradeMenu() {
+    const upgradeMenu = document.getElementById('cedar-upgrade-menu');
+    upgradeMenu.style.display = 'none';
+}
+
+document.getElementById('Cedar-upgrade-close-button').addEventListener('click', function() {
+    hideCedarUpgradeMenu();
+});
+
+// fonction pour afficher le menu amélioration Bamboo
+function showBambooUpgradeMenu() {
+    const upgradeMenu = document.getElementById('bamboo-upgrade-menu');
+    upgradeMenu.style.display = 'grid';
+}
+
+document.getElementById('Bamboo-upgrade-button').addEventListener('click', function() {
+    showBambooUpgradeMenu();
+});
+
+// fonction pour cacher le menu amélioration
+function hideBambooUpgradeMenu() {
+    const upgradeMenu = document.getElementById('bamboo-upgrade-menu');
+    upgradeMenu.style.display = 'none';
+}
+
+document.getElementById('Bamboo-upgrade-close-button').addEventListener('click', function() {
+    hideBambooUpgradeMenu();
+});
+
+// fonction pour afficher le menu amélioration DivinE
+function showDivinUpgradeMenu() {
+    const upgradeMenu = document.getElementById('divine-upgrade-menu');
+    upgradeMenu.style.display = 'grid';
+}
+
+document.getElementById('Divine-upgrade-button').addEventListener('click', function() {
+    showDivinUpgradeMenu();
+});
+
+// fonction pour cacher le menu amélioration
+function hideDivinUpgradeMenu() {
+    const upgradeMenu = document.getElementById('divine-upgrade-menu');
+    upgradeMenu.style.display = 'none';
+}
+
+document.getElementById('Divine-upgrade-close-button').addEventListener('click', function() {
+    hideDivinUpgradeMenu();
+});
+
+
+
+
+

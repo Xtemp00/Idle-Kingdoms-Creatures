@@ -450,3 +450,355 @@
     border-radius: 15px;
     color : white;
 }
+
+
+#Birch-upgrade-button{
+    background-image: url("../assets/images/backgrounds/Construction.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+#birch-upgrade-menu { 
+    position: fixed; 
+    display: grid; 
+    place-items: center; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);  
+    flex-direction: row; 
+    align-items: center;
+    padding: 20px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    display: grid;
+    gap: 15px;
+    justify-content: space-between;  
+    margin-top: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-self: end; /* Added property */
+}
+
+#Birch-upgrade-button:hover{
+    background-color: #659dbd;
+}
+
+#Pine-upgrade-button{
+    background-image: url("../assets/images/backgrounds/Construction.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+#pine-upgrade-menu { 
+    position: fixed; 
+    display: grid; 
+    place-items: center; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);  
+    flex-direction: row; 
+    align-items: center;
+    padding: 20px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    display: grid;
+    gap: 15px;
+    justify-content: space-between;  
+    margin-top: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-self: end; /* Added property */
+}
+
+#Pine-upgrade-button:hover{
+    background-color: #659dbd;
+}
+
+#Cherry-upgrade-button{
+    background-image: url("../assets/images/backgrounds/Construction.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+#cherry-upgrade-menu { 
+    position: fixed; 
+    display: grid; 
+    place-items: center; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);  
+    flex-direction: row; 
+    align-items: center;
+    padding: 20px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    display: grid;
+    gap: 15px;
+    justify-content: space-between;  
+    margin-top: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-self: end; /* Added property */
+}
+
+#Cherry-upgrade-button:hover{
+    background-color: #659dbd;
+}
+
+#Walnut-upgrade-button{
+    background-image: url("../assets/images/backgrounds/Construction.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+#walnut-upgrade-menu { 
+    position: fixed; 
+    display: grid; 
+    place-items: center; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);  
+    flex-direction: row; 
+    align-items: center;
+    padding: 20px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    display: grid;
+    gap: 15px;
+    justify-content: space-between;  
+    margin-top: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-self: end; /* Added property */
+}
+
+#Walnut-upgrade-button:hover{
+    background-color: #659dbd;
+}
+
+#Mahogany-upgrade-button{
+    background-image: url("../assets/images/backgrounds/Construction.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+#mahogany-upgrade-menu { 
+    position: fixed; 
+    display: grid; 
+    place-items: center; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);  
+    flex-direction: row; 
+    align-items: center;
+    padding: 20px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    display: grid;
+    gap: 15px;
+    justify-content: space-between;  
+    margin-top: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-self: end; /* Added property */
+}
+
+#Mahogany-upgrade-button:hover{
+    background-color: #659dbd;
+}
+
+#Cedar-upgrade-button{
+    background-image: url("../assets/images/backgrounds/Construction.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+#cedar-upgrade-menu { 
+    position: fixed; 
+    display: grid; 
+    place-items: center; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);  
+    flex-direction: row; 
+    align-items: center;
+    padding: 20px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    display: grid;
+    gap: 15px;
+    justify-content: space-between;  
+    margin-top: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-self: end; /* Added property */
+}
+
+#Cedar-upgrade-button:hover{
+    background-color: #659dbd;
+}
+
+#Bamboo-upgrade-button{
+    background-image: url("../assets/images/backgrounds/Construction.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+#bamboo-upgrade-menu { 
+    position: fixed; 
+    display: grid; 
+    place-items: center; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);  
+    flex-direction: row; 
+    align-items: center;
+    padding: 20px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    display: grid;
+    gap: 15px;
+    justify-content: space-between;  
+    margin-top: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-self: end; /* Added property */
+}
+
+#Bamboo-upgrade-button:hover{
+    background-color: #659dbd;
+}
+
+#Divine-upgrade-button{
+    background-image: url("../assets/images/backgrounds/Construction.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+#divine-upgrade-menu { 
+    position: fixed; 
+    display: grid; 
+    place-items: center; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);  
+    flex-direction: row; 
+    align-items: center;
+    padding: 20px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    display: grid;
+    gap: 15px;
+    justify-content: space-between;  
+    margin-top: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-self: end; /* Added property */
+}
+
+#Divine-upgrade-button:hover{
+    background-color: #659dbd;
+}
+
+#Maple-upgrade-button{
+    background-image: url("../assets/images/backgrounds/Construction.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+#maple-upgrade-menu { 
+    position: fixed; 
+    display: grid; 
+    place-items: center; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);  
+    flex-direction: row; 
+    align-items: center;
+    padding: 20px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    display: grid;
+    gap: 15px;
+    justify-content: space-between;  
+    margin-top: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-self: end; /* Added property */
+}
+
+#Maple-upgrade-button:hover{
+    background-color: #659dbd;
+}
