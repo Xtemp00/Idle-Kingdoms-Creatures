@@ -45,13 +45,12 @@ function periodicCheck(playerData, resourcesData) {
           //si le joueur possede le lumberjack niveau dans le type de ressource alors le timer pour miner la ressource est declenché a chaque fois que le harvestTime est atteint
           //playerData.woodUpgradeData.res
           let resources = resource.name;
-          console.log(playerData.woodUpgrade[resources]["LumberJack"]);
-          if ( playerData.woodUpgrade[resources]["LumberJack"] > 0){
+          if ( playerData.woodUpgrade[resource.name]["LumberJack"] > 0){
             const currentTime = Date.now();
             const lastHarvestTime = playerData.lastHarvestTime[resource.name] || 0;
             const elapsedTime = (currentTime - lastHarvestTime) / 1000;
           
-            if ((elapsedTime >= resource.harvestTime) && (playerData.IsUnlockresources[resources] == true)) {
+            if ((elapsedTime >= resource.harvestTime) && (playerData.IsUnlockresources[resource.name] == true)) {
               incrementResource(resource, playerData);
               updateResourceDisplay(resource.name, playerData);
               incrementWoodcuttingLevel(playerData);
@@ -74,10 +73,15 @@ function shouldUnlockResource(playerData, resource) {
 }
 
 function unlockNextResource(playerData, resource) {
-  const nextResourceName = resource.next.toLowerCase();
+  let nextResourceName = resource.next.toLowerCase();
   const resourceButton = document.getElementById(`${nextResourceName}-button`);
   const unlockButton = document.getElementById(`${nextResourceName}-unlock-button`);
+  //on met la premeir lettre en majuscule pour que le nom de la ressource soit reconnu
+  nextResourceName = nextResourceName.charAt(0).toUpperCase() + nextResourceName.slice(1);
+
+
   playerData.IsUnlockresources[nextResourceName] = true;
+
 
   if (resourceButton && unlockButton) {
       unlockButton.style.display = 'none';

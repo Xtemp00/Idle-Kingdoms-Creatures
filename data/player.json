@@ -88,7 +88,7 @@
     "woodUpgrade": {
         
             "Oak" : {
-                "LumberJack" : 1,
+                "LumberJack" : 0,
                 "SawMill" : 0,
                 "Factory" : 0,
                 "Warehouse" : 0,
@@ -129,7 +129,7 @@
                 "Warehouse" : 0,
                 "Market" : 0
             },
-            "Teak" : {
+            "Pine" : {
                 "LumberJack" : 1,
                 "SawMill" : 0,
                 "Factory" : 0,
