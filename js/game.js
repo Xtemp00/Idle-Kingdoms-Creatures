@@ -1,7 +1,8 @@
 import { initWoodManagement } from './work/wood_management.js';
 import { updatePlayerStats } from './player.js';
+import { initMineManagement } from './work/mine_management.js';
 
-let buildingsData, resourcesData, playerData;
+let buildingsData, resourcesData, playerData, resourcesDataMines;
 
 async function loadGameData() {
     try {
@@ -11,6 +12,7 @@ async function loadGameData() {
         const resourcesResponse = await fetch('../data/ressources.json');
         const resourcesRawData = await resourcesResponse.json();
         resourcesData = resourcesRawData.woods; // Accédez à la clé "woods" du JSON
+        resourcesDataMines = resourcesRawData.MineOre; // Accédez à la clé "mines" du JSON
 
         const playerResponse = await fetch('../data/player.json');
         playerData = await playerResponse.json();
@@ -18,18 +20,7 @@ async function loadGameData() {
         console.log('Données du jeu chargées:', buildingsData, resourcesData, playerData);
 
         initWoodManagement(playerData,resourcesData,buildingsData);
-        // Fonction qui permet d'afficher toute la section inventaire du joueur a partir du fichier json
-        // de plus l'afficher sur l'id player-inventory
-
-        /*function displayPlayerInventory() {
-            const playerInventoryElement = document.getElementById('player-inventory');
-            playerInventoryElement.innerHTML = JSON.stringify(playerData.inventory);
-        }
-        
-        var playButton = document.getElementById('test-button');
-        playButton.addEventListener('click', function() {
-            displayPlayerInventory();
-        });*/
+        initMineManagement(playerData,resourcesDataMines,buildingsData);
 
         
     } catch (error) {

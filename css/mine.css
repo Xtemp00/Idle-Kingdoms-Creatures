@@ -1,0 +1,42 @@
+
+
+#mine-section {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    gap: 20px;
+    justify-items: start;
+}
+
+/*placer a droite */
+#game-part-mine {
+    display: grid;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: space-between;  
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-self: end; /* Added property */
+}
+
+#mine-minimap {
+    position: fixed;
+    top: 13%;
+    right: 10px;
+    z-index: 1000;
+    border: 5px solid #4a7c59;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+#minimap-button {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}

@@ -16,6 +16,8 @@
     },
     "inventory": {
         "Wood" : 0,
+        "Fish" : 0,
+        "Mine" : 0,
         "Oak": 0,
         "Pine": 0,
         "Maple": 0,
@@ -26,7 +28,19 @@
         "Teak": 0,
         "Cedar": 0,
         "Bamboo": 0,    
-        "Divine": 0
+        "Divine": 0,
+        "copperOre": 0,
+        "ironOre": 0,
+        "silverOre": 0,
+        "goldOre": 0,
+        "mithrilOre": 0,
+        "diamondOre": 0,
+        "emeraldOre": 0,
+        "puregoldOre": 0,
+        "puremithrilOre": 0,
+        "pureemeraldOre": 0,
+        "purediamondOre": 0,
+        "DivineOre": 0
     },
     "equipment": {
         "head": "none",
@@ -60,6 +74,7 @@
         "Cedar": 0,
         "Bamboo": 0,
         "Divine": 0
+    
     },
     "IsUnlockresources": {
         "Oak": true,

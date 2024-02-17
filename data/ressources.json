@@ -69,6 +69,79 @@
       "harvestTime": 0.1,
       "value": 1000000.0
     }
+  ],
+  "MineOre": [
+    {
+      "name": "CopperOre",
+      "value": 1.0,
+      "probability": 0.5,
+      "harvestTime": 0.5
+    },
+    {
+      "name": "IronOre",
+      "value": 2.0,
+      "probability": 0.4,
+      "harvestTime": 1.0
+    },
+    {
+      "name": "GoldOre",
+      "value": 5.0,
+      "probability": 0.1,
+      "harvestTime": 2.0
+    },
+    {
+      "name": "SilverOre",
+      "value": 3.0,
+      "probability": 0.3,
+      "harvestTime": 1.5
+    },
+    {
+      "name": "MithrilOre",
+      "value": 10.0,
+      "probability": 0.05,
+      "harvestTime": 3.0
+    },
+    {
+      "name": "DiamondOre",
+      "value": 100.0,
+      "probability": 0.01,
+      "harvestTime": 5.0
+    },
+    {
+      "name": "EmeraldOre",
+      "value": 50.0,
+      "probability": 0.02,
+      "harvestTime": 4.0
+    },
+    {
+      "name": "PureGoldOre",
+      "value": 1000.0,
+      "probability": 0.001,
+      "harvestTime": 10.0
+    },
+    {
+      "name": "PureDiamondOre",
+      "value": 10000.0,
+      "probability": 0.0001,
+      "harvestTime": 20.0
+    },
+    {
+      "name": "PureEmeraldOre",
+      "value": 5000.0,
+      "probability": 0.0005,
+      "harvestTime": 15.0
+    },
+    {
+      "name": "PureMithrilOre",
+      "value": 10000.0,
+      "probability": 0.0001,
+      "harvestTime": 20.0
+    },
+    {
+      "name": "DivineOre",
+      "value": 1000000.0,
+      "probability": 0.0000001,
+      "harvestTime": 100.0
+    }
   ]
-  
 }

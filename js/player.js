@@ -8,12 +8,14 @@ export function updatePlayerStats(playerData) {
     const level = playerData.stats["lvl"];
     const totalwood = playerData.inventory["Wood"];
     const name = playerData.name;
+    const totalmine = playerData.inventory["Mine"];
     
     //on les affiche
     document.getElementById('player-gold').textContent = gold + " PO";
     document.getElementById('player-level').textContent = level + " lvl";
     document.getElementById('player-wood').textContent = totalwood + " Wood Cutted";
     document.getElementById('player-name').textContent = name;
+    document.getElementById('player-ore').textContent = totalmine + " Ore mined";
 
 }
 
