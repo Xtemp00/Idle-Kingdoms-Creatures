@@ -24,6 +24,7 @@ import { updatePlayerStats } from "../player.js";
 * 10. Square can be empty or contain a resource
 * 11. All resources is available in the mine and the player can mine it 
 * 12. Every resources has different value and probability to be found
+* 13. The mine is like stage 1, stage 2, stage 3 etc and more the stage is high more the resources are valuable
 */
 
 export function initMineManagement(playerData,resourcesData,buildingsData){
