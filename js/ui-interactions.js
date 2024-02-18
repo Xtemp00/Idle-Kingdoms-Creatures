@@ -31,6 +31,7 @@ function toggleSections(sectionToShow) {
         citymap.style.display = 'flex';
         minimapWood.style.display = 'none';
         minimapMine.style.display = 'none';
+        console.log('citymap');
     }
 
 }
@@ -44,9 +45,15 @@ document.getElementById('mine-button').addEventListener('click', function() {
     toggleSections('mine');
 });
 
-document.getElementById('minimap-button').addEventListener('click', function() {
-    toggleSections('citymap');
+document.addEventListener('DOMContentLoaded', function() {
+    // Ajouter un écouteur d'événements au bouton de la minimap qui est une classe nommé minimap-button
 
+    const minimapButtons = document.getElementsByClassName('minimap-button');
+    for (let i = 0; i < minimapButtons.length; i++) {
+        minimapButtons[i].addEventListener('click', function() {
+            toggleSections('citymap');
+        });
+    }
 });
 
 

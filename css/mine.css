@@ -35,11 +35,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-#minimap-button {
-    width: 150px;
-    height: 150px;
-    cursor: pointer;
-}
+
 
 
 #mine-grid {
