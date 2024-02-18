@@ -20,7 +20,8 @@ import { updatePlayerStats } from "../player.js";
         "puregoldOre": 0,
         "puremithrilOre": 0,
         "pureemeraldOre": 0,
-        "purediamondOre": 0
+        "purediamondOre": 0,
+        "DivineOre": 0
 * 10. Square can be empty or contain a resource
 * 11. All resources is available in the mine and the player can mine it 
 * 12. Every resources has different value and probability to be found
@@ -145,7 +146,8 @@ function updateUIWithFoundResource(resource, playerData) {
 
     // Ajouter toute animation ou effet visuel supplémentaire si nécessaire
     // Par exemple, faire clignoter la cellule de la grille de la mine où la ressource a été trouvée
-    // ...
+    // ou afficher une animation de particules pour indiquer la découverte de la ressource
+
 }
 
 

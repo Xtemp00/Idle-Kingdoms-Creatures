@@ -108,6 +108,8 @@
     gap: 10px;
     margin-top: 10px;
     align-items: start;
+    position: relative;
+    left: 100%;
 
 }
 
@@ -144,7 +146,7 @@
     }
 }
 
-#CopperOre-info {
+#CopperOre-Info {
     background-image: url('../assets/images/Ore/CopperOre.jpg');
     background-size: cover;
     background-position: center;
@@ -181,6 +183,48 @@
 
 #EmeraldOre-Info {
     background-image: url('../assets/images/Ore/EmeraldOre.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#MithrilOre-Info {
+    background-image: url('../assets/images/Ore/MithrilOre.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#PureGoldOre-Info {
+    background-image: url('../assets/images/Ore/PureGoldOre.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#PureDiamondOre-Info {
+    background-image: url('../assets/images/Ore/PureDiamondOre.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#PureEmeraldOre-Info {
+    background-image: url('../assets/images/Ore/PureEmeraldOre.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#PureMithrilOre-Info {
+    background-image: url('../assets/images/Ore/PureMithrilOre.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#DivineOre-Info {
+    background-image: url('../assets/images/Ore/DivineOre.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
