@@ -40,3 +40,149 @@
     height: 150px;
     cursor: pointer;
 }
+
+
+#mine-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 50px); /* 10 cellules par ligne */
+    grid-template-rows: repeat(10, 50px); /* 10 lignes */
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#mine-grid .mine-cell {
+    width: 50px;
+    height: 50px;
+    background-color: #4a7c59;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+#mine-grid .mine-cell:hover {
+    background-color: #3e6e4f;
+}
+
+#mine-grid .mine-cell.mined {
+    background-color: #d9534f;
+}
+
+
+#mine-message-area {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f0e3;
+    border: 1px solid #c0a080;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #000;
+
+}
+
+
+/* Styles pour les infos des minerais */
+.OreInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f8f0e3;
+    border: 1px solid #c0a080;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+
+}
+
+#Ore-Info-Section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 éléments par ligne par défaut */
+    gap: 10px;
+    margin-top: 10px;
+    align-items: start;
+
+}
+
+.ItemOre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f8f0e3;
+    border: 1px solid #c0a080;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #000;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    #Ore-Info-Section {
+        grid-template-columns: repeat(3, 1fr); /* 3 éléments par ligne */
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #Ore-Info-Section {
+        grid-template-columns: repeat(2, 1fr); /* 2 éléments par ligne */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #Ore-Info-Section {
+        grid-template-columns: repeat(1, 1fr); /* 1 élément par ligne */
+    }
+}
+
+#CopperOre-info {
+    background-image: url('../assets/images/Ore/CopperOre.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#IronOre-Info {
+    background-image: url('../assets/images/Ore/IronOre.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#SilverOre-Info {
+    background-image: url('../assets/images/Ore/SilverOre.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#GoldOre-Info {
+    background-image: url('../assets/images/Ore/GoldOre.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#DiamondOre-Info {
+    background-image: url('../assets/images/Ore/DiamondOre.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#EmeraldOre-Info {
+    background-image: url('../assets/images/Ore/EmeraldOre.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
