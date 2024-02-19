@@ -110,12 +110,16 @@ function handleMineCellClick(x, y, playerData, resourcesData, buildingsData) {
     updatePlayerStats(playerData);
     if (Gridcompleted(playerData)) {
         // Si oui, initialiser un nouveau niveau
+        
         initNextLevel(playerData, resourcesData, buildingsData);
     }
 }
 
 function cellIsAlreadyMined(x, y, playerData) {
-    // Vérifier si l'attribut minedCells existe dans playerData
+    // Vérifier si l'attribut minedCells existe dans playerData 
+    if (x == null || y == null) {
+        return false;
+    }
     if (!playerData.minedCells) {
         // Si non, initialiser minedCells comme un tableau de 10x10 avec toutes les valeurs à false
         playerData.minedCells = Array(10).fill().map(() => Array(10).fill(false));
@@ -208,8 +212,8 @@ function initNextLevel(playerData, resourcesData, buildingsData) {
     // Réinitialiser les cellules minées
     playerData.minedCells = Array(10).fill().map(() => Array(10).fill(false));
 
-    // Mettre à jour l'interface utilisateur pour le nouveau niveau
-    
+
+    NuclearQuarryUpgradesChoose(playerData);
 }
 
 //achat d'amélioration de la mine
@@ -221,9 +225,11 @@ function MineUpgradeTick(playerData, resourcesData, buildingsData) {
     // Par exemple, vérifier si le joueur a une amélioration qui automatise certaines actions de minage
     let x = 0;
     let y = 0;
-    setInterval(() => {
 
-        
+    setInterval(() => {
+        if (playerData.MiningUpgrade.NuclearQuarry > 0) {
+            NuclearQuarryUpgrades(playerData.nuclearQuarryTarget["x"], playerData.nuclearQuarryTarget["y"], playerData, resourcesData, buildingsData);
+        }
         if (playerData.MiningUpgrade.Miner > 0) {
             // Supposons que automaticMiner est une amélioration qui mine automatiquement une case toutes les N secondes
             let currentTime = Date.now();
@@ -259,7 +265,16 @@ function MineUpgradeTick(playerData, resourcesData, buildingsData) {
                 playerData.lastHarvestTime["Quarry"] = currentTime;
             }
         }
+        if (playerData.MiningUpgrade.ChemicalFactory > 0) {
 
+            let currentTime = Date.now();
+            let elapsedTime = (currentTime - playerData.lastHarvestTime["ChemicalFactory"]) / 1000;
+
+            if (elapsedTime >= buildingsData.buildings.find(building => building.name === "ChemicalFactory").cooldown) {
+                ChemicalfactoryUpgrades(playerData, resourcesData, buildingsData);
+                playerData.lastHarvestTime["ChemicalFactory"] = currentTime;
+            }
+        }
         if (x < 9) {
             x++;
         } else if (x == 9 && y == 9) {
@@ -297,15 +312,55 @@ function RefineryUpgrades(playerData, resourcesData, buildingsData) {
 }
 
 function QuarryUpgrades(x, y, playerData, resourcesData, buildingsData) {
-    /*la quarry va parcourir la grille et miner les cases non minées
-    * 1. Parcourir la grille
-    * 2. Si la case n'est pas minée, la miner
-    * 3. Répéter jusqu'à ce que toutes les cases soient minées
-    * laisser une pause de 100 milliemes entre chaque case minée
-    */
-
+    //fonction qui permet de miner d'apres un cooldown donner par l'amélioration de 1 case au hasard
     if (!cellIsAlreadyMined(x, y, playerData)) {
         handleMineCellClick(x, y, playerData, resourcesData, buildingsData);
+    }
+}
+
+function ChemicalfactoryUpgrades(playerData, resourcesData, buildingsData) {
+    //TODO: mine tout l'etage tout les x secondes
+    //parcourir toute la grille et miner toute les cases
+    for (let i = 0; i < 10; i++) {
+        for (let j = 0; j < 10; j++) {
+            if (!cellIsAlreadyMined(i, j, playerData)) {
+                handleMineCellClick(i, j, playerData, resourcesData, buildingsData);
+            }
+        }
+    }
+}
+function NuclearQuarryUpgradesChoose(playerData) {
+    const x = Math.floor(Math.random() * 10);
+    const y = Math.floor(Math.random() * 10);
+    if (cellIsAlreadyMined(x, y, playerData)) {
+        NuclearQuarryUpgradesChoose();
+    }
+    // Marquer visuellement la case cible de NuclearQuarry
+    const cell = document.getElementById(`mine-cell-${x}-${y}`);
+    cell.style.background = "url('../../assets/images/Ore/DivineOre.jpg')";
+    cell.style.backgroundSize = "cover";
+    cell.style.backgroundPosition = "center";
+    cell.style.backgroundRepeat = "no-repeat";
+
+    playerData.nuclearQuarryTarget = { x, y }; // Assurez-vous que cette ligne est présente
+
+}
+
+function NuclearQuarryUpgrades(x, y, playerData, resourcesData, buildingsData) {
+    // Utiliser la cible stockée dans playerData pour NuclearQuarry
+    if (cellIsAlreadyMined(x, y, playerData)) {
+        console.log("La cible de NuclearQuarry a déjà été minée.");
+        // Miner tout l'étage si la cible est minée
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                if (!cellIsAlreadyMined(i, j, playerData)) {
+                    handleMineCellClick(i, j, playerData, resourcesData, buildingsData);
+                }
+            }
+        }
+        // Réinitialiser la cible pour le prochain étage
+        playerData.nuclearQuarryTarget["x"] = null;
+        playerData.nuclearQuarryTarget["y"] = null;
     }
 }
 

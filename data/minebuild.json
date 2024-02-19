@@ -3,32 +3,27 @@
       {
         "name": "Miner",
         "cost": 100,
-        "cooldown": 0.1,
-        "radius": 1
+        "cooldown": 0.1
       },
       {
         "name": "Refinery",
         "cost": 200,
-        "cooldown": 0.001,
-        "radius": 2
+        "cooldown": 0.001
       },
       {
         "name": "Quarry",
         "cost": 300,
-        "cooldown": 0.001,
-        "radius": 3
+        "cooldown": 0.001
       },
       {
-        "name":  "Chemical Factory",
+        "name":  "ChemicalFactory",
         "cost": 400,
-        "cooldown": 1,
-        "radius": 4
+        "cooldown": 30
       },
       {
-        "name": "Nuclear Quarry",
+        "name": "NuclearQuarry",
         "cost": 500,
-        "cooldown": 1,
-        "radius": 5
+        "cooldown": 0
       }
      
     ]

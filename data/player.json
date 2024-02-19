@@ -14,6 +14,10 @@
 
 
     },
+    "nuclearQuarryTarget": {
+        "x": 0,
+        "y": 0
+    },
     "inventory": {
         "Wood" : 0,
         "Fish" : 0,
@@ -77,8 +81,8 @@
         "Miner" : 0,
         "Refinery" : 0,
         "Quarry" : 0,
-        "Chemical Factory" : 0,
-        "Nuclear Quarry" : 0
+        "ChemicalFactory" : 0,
+        "NuclearQuarry" : 0
     
     },
     "IsUnlockresources": {
@@ -204,8 +208,8 @@
         "Miner" : 1,
         "Refinery" : 1,
         "Quarry" : 1,
-        "Chemical Factory" : 1,
-        "Nuclear Quarry" : 1
+        "ChemicalFactory" : 1,
+        "NuclearQuarry" : 1
 
     }
 
