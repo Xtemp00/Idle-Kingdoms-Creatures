@@ -57,6 +57,22 @@ function createMineGrid(playerData, resourcesData, buildingsData) {
         for (let j = 0; j < 10; j++) {
             const cell = document.createElement("button");
             cell.className = "mine-cell";
+            //on rajoute un id pour que chaque cellule soit unique et est une probaliter de 50% d'avoir un bacjground et 50% d'avoir un autre background pour une question de visuel
+            cell.id = `mine-cell-${i}-${j}`;
+            if (Math.random() > 0.5) {
+                /* on veut rajouter sa background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat; */
+                cell.style.background = "url('../../assets/images/Ore/Cell2.jpg')";
+                cell.style.backgroundSize = "cover";
+                cell.style.backgroundPosition = "center";
+                cell.style.backgroundRepeat = "no-repeat";
+                } else {
+                    cell.style.background = "url('../../assets/images/Ore/Cell2.jpg')";
+                    cell.style.backgroundSize = "cover";
+                    cell.style.backgroundPosition = "center";
+                    cell.style.backgroundRepeat = "no-repeat";
+            }
             cell.onclick = function() { handleMineCellClick(i, j, playerData, resourcesData, buildingsData); };
 
             row.appendChild(cell);
@@ -67,11 +83,9 @@ function createMineGrid(playerData, resourcesData, buildingsData) {
 }
 
 function handleMineCellClick(x, y, playerData, resourcesData, buildingsData) {
-    console.log('Clic sur la cellule de la mine', x, y);
 
     // Vérifiez si la cellule a déjà été minée
     if (cellIsAlreadyMined(x, y, playerData)) {
-        console.log("Cette cellule a déjà été minée.");
         return;
     }
 
@@ -80,12 +94,12 @@ function handleMineCellClick(x, y, playerData, resourcesData, buildingsData) {
 
     // Ajouter la ressource à l'inventaire du joueur si elle est trouvée
     if (foundResource) {
-        console.log("Ressource trouvée:", foundResource.name);
         playerData.inventory[foundResource.name] = (playerData.inventory[foundResource.name] || 0) + 1;
-        playerData.gold += foundResource.value; // Ajouter la valeur de la ressource à l'or du joueur
+        console.log(`Vous avez trouvé ${foundResource.name} et ${foundResource.value}!`);
+        playerData.stats["gold"] += foundResource.value; // Ajouter la valeur de la ressource à l'or du joueur
         playerData.inventory["Mine"] = (playerData.inventory["Mine"] || 0) + 1;
         // Mettre à jour l'interface utilisateur
-        updateUIWithFoundResource(foundResource, playerData);
+        updateUIWithFoundResource(x, y, foundResource, playerData);
     } else {
         console.log("Pas de ressource trouvée dans cette cellule.");
     }
@@ -136,7 +150,7 @@ function determineResourceFound(mineOreData) {
     return null; // Dans le cas où aucune ressource n'est trouvée
 }
 
-function updateUIWithFoundResource(resource, playerData) {
+function updateUIWithFoundResource(x, y , resource, playerData) {
     // Afficher un message indiquant la ressource trouvée
     const messageArea = document.getElementById('mine-message-area');
     if (messageArea) {
@@ -149,6 +163,20 @@ function updateUIWithFoundResource(resource, playerData) {
         resourceInventoryDisplay.textContent = playerData.inventory[resource.name];
     }
 
+    //on va chercher la case qui a été minée et on va lui rajouter un background pour indiquer que la case a été minée avec 
+    if (Math.random() > 0.5) {
+        const cell = document.getElementById(`mine-cell-${x}-${y}`);
+        cell.style.background = "url('../../assets/images/Ore/BrokenCell3.jpg')";
+        cell.style.backgroundSize = "cover";
+        cell.style.backgroundPosition = "center";
+        cell.style.backgroundRepeat = "no-repeat";
+    } else {
+        const cell = document.getElementById(`mine-cell-${x}-${y}`);
+        cell.style.background = "url('../../assets/images/Ore/BrokenCell3.jpg')";
+        cell.style.backgroundSize = "cover";
+        cell.style.backgroundPosition = "center";
+        cell.style.backgroundRepeat = "no-repeat";
+    }
     // Ajouter toute animation ou effet visuel supplémentaire si nécessaire
     // Par exemple, faire clignoter la cellule de la grille de la mine où la ressource a été trouvée
     // ou afficher une animation de particules pour indiquer la découverte de la ressource
@@ -170,10 +198,10 @@ function Gridcompleted(playerData) {
 
 function initNextLevel(playerData, resourcesData, buildingsData) {
     // Incrémenter le niveau de la mine dans playerData
-    playerData.skills["mining"] = (playerData.skills["mine"] || 1) + 1;
+    playerData.skills["mining"] = (playerData.skills["mining"] || 1) + 1;
 
     // Afficher un message pour le nouveau niveau
-    console.log(`Bienvenue à l'étage ${playerData.mineLevel} de la mine!`);
+    console.log(`Bienvenue à l'étage ${playerData.skills["mining"]} de la mine!`);
     document.getElementById('stage').textContent = `Etage ${playerData.skills["mining"]}`;
     // Créer et afficher la nouvelle grille de mine
     createMineGrid(playerData, resourcesData, buildingsData);
@@ -192,24 +220,60 @@ function initNextLevel(playerData, resourcesData, buildingsData) {
 function MineUpgradeTick(playerData, resourcesData, buildingsData) {
     // Ici, vous pouvez gérer les actions périodiques des améliorations de la mine
     // Par exemple, vérifier si le joueur a une amélioration qui automatise certaines actions de minage
+    let x = 0;
+    let y = 0;
     setInterval(() => {
+
+        if (x < 9) {
+            x++;
+        } else {
+            x = 0;
+            y++;
+        }
+        if (y < 9) {
+            y++;
+        } else {
+            y = 0;
+            x = 0;
+        }
         if (playerData.MiningUpgrade.Miner > 0) {
             // Supposons que automaticMiner est une amélioration qui mine automatiquement une case toutes les N secondes
             let currentTime = Date.now();
             let elapsedTime = (currentTime - playerData.lastHarvestTime["Miner"]) / 1000;
 
+            //incrementer a chaque x et y pour parcourir toute la grille
+
+
             if (elapsedTime >= buildingsData.buildings.find(building => building.name === "Miner").cooldown) {
                 MinerUpgrades(playerData, resourcesData, buildingsData);
                 playerData.lastHarvestTime["Miner"] = currentTime;
             }
+        }
+        if (playerData.MiningUpgrade.Refinery > 0) {
+
+            let currentTime = Date.now();
+            let elapsedTime = (currentTime - playerData.lastHarvestTime["Miner"]) / 1000;
+
+
             if (elapsedTime >= buildingsData.buildings.find(building => building.name === "Refinery").cooldown) {
                 RefineryUpgrades(playerData, resourcesData, buildingsData);
                 playerData.lastHarvestTime["Refinery"] = currentTime;
             }
-
-
         }
-        console.log('Tick de l\'amélioration de la mine');
+        if (playerData.MiningUpgrade.Quarry > 0) {
+
+            let currentTime = Date.now();
+            let elapsedTime = (currentTime - playerData.lastHarvestTime["Miner"]) / 1000;
+
+
+            if (elapsedTime >= buildingsData.buildings.find(building => building.name === "Quarry").cooldown) {
+                QuarryUpgrades(x, y, playerData, resourcesData, buildingsData);
+                playerData.lastHarvestTime["Quarry"] = currentTime;
+            }
+        }
+
+
+        
     }, 100);
 }
 
@@ -236,6 +300,15 @@ function RefineryUpgrades(playerData, resourcesData, buildingsData) {
     mineRandomCell(playerData, resourcesData, buildingsData);
 }
 
+function QuarryUpgrades(x, y, playerData, resourcesData, buildingsData) {
+    /*la quarry va parcourir la grille et miner les cases non minées
+    * 1. Parcourir la grille
+    * 2. Si la case n'est pas minée, la miner
+    * 3. Répéter jusqu'à ce que toutes les cases soient minées
+    * laisser une pause de 100 milliemes entre chaque case minée
+    */
+    handleMineCellClick(x, y, playerData, resourcesData, buildingsData);
+}
 
 function loadMineData() {
     // Charger les données de la mine depuis le serveur

@@ -15,7 +15,7 @@
       {
         "name": "Quarry",
         "cost": 300,
-        "cooldown": 1,
+        "cooldown": 0.001,
         "radius": 3
       },
       {

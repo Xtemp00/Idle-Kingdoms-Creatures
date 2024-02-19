@@ -159,7 +159,6 @@ function incrementWoodcuttingLevel(playerData) {
       console.log(`Le joueur a atteint le niveau ${playerData.skills.woodcutting} en woodcutting`);
   } else {
       let xpNeeded = xpForNextLevel - currentXp;
-      console.log(`Le joueur a besoin de ${xpNeeded} XP supplémentaires pour atteindre le niveau ${currentLevel + 1} en woodcutting`);
   }
 }
 
@@ -270,8 +269,7 @@ function UpgradeSawmill(playerData, buildingsData, resource) {
   let cost = buildingsData.buildings.find(building => building.name === "SawMill").GoldCost * Math.pow(2, currentLevel) * (currentLevel + 1);
   let woodcost = buildingsData.buildings.find(building => building.name === "SawMill").WoodCost * Math.pow(2, currentLevel) * (currentLevel + 1);
   // Vérifier si le joueur a assez d'or pour l'amélioration
-  console.log(playerData.inventory[resourceName])
-  console.log(woodcost)
+
 
   if (playerData.stats["gold"] >= cost && playerData.inventory[resourceName] >= woodcost) {
       // Déduire le coût et augmenter le niveau d'amélioration
