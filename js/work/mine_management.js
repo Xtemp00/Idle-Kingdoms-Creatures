@@ -169,7 +169,7 @@ function Gridcompleted(playerData) {
 
 function initNextLevel(playerData, resourcesData, buildingsData) {
     // Incrémenter le niveau de la mine dans playerData
-    playerData.skills["mining"] = (playerData.mineLevel || 1) + 1;
+    playerData.skills["mining"] = (playerData.skills["mine"] || 1) + 1;
 
     // Afficher un message pour le nouveau niveau
     console.log(`Bienvenue à l'étage ${playerData.mineLevel} de la mine!`);
