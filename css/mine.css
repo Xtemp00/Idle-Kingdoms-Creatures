@@ -1,17 +1,8 @@
-
-
-#mine-section {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
-    gap: 20px;
-    justify-items: start;
-}
-
 /*placer a droite */
 #game-part-mine {
     display: grid;
     flex-direction: row;
+    right:0;
     gap: 15px;
     justify-content: space-between;  
     padding: 40px;
@@ -63,6 +54,19 @@
     background-color: #d9534f;
 }
 
+#mine-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f8f0e3;
+    border: 1px solid #c0a080;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #000;
+}
 
 #mine-message-area {
     position: absolute;
@@ -95,7 +99,6 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
-
 }
 
 #Ore-Info-Section {
@@ -105,8 +108,17 @@
     margin-top: 10px;
     align-items: start;
     position: relative;
-    left: 100%;
 
+}
+
+#main-mine{
+    display: grid;
+    grid-template-columns: repeat(2, 10px); /* 10 cellules par ligne */
+    gap: 100px;
+    justify-content: center;
+    margin-bottom: 20px;   
+     
+   
 }
 
 .ItemOre {
