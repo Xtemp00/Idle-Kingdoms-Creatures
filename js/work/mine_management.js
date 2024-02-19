@@ -95,7 +95,6 @@ function handleMineCellClick(x, y, playerData, resourcesData, buildingsData) {
     // Ajouter la ressource à l'inventaire du joueur si elle est trouvée
     if (foundResource) {
         playerData.inventory[foundResource.name] = (playerData.inventory[foundResource.name] || 0) + 1;
-        console.log(`Vous avez trouvé ${foundResource.name} et ${foundResource.value}!`);
         playerData.stats["gold"] += foundResource.value; // Ajouter la valeur de la ressource à l'or du joueur
         playerData.inventory["Mine"] = (playerData.inventory["Mine"] || 0) + 1;
         // Mettre à jour l'interface utilisateur
@@ -224,18 +223,7 @@ function MineUpgradeTick(playerData, resourcesData, buildingsData) {
     let y = 0;
     setInterval(() => {
 
-        if (x < 9) {
-            x++;
-        } else {
-            x = 0;
-            y++;
-        }
-        if (y < 9) {
-            y++;
-        } else {
-            y = 0;
-            x = 0;
-        }
+        
         if (playerData.MiningUpgrade.Miner > 0) {
             // Supposons que automaticMiner est une amélioration qui mine automatiquement une case toutes les N secondes
             let currentTime = Date.now();
@@ -252,7 +240,7 @@ function MineUpgradeTick(playerData, resourcesData, buildingsData) {
         if (playerData.MiningUpgrade.Refinery > 0) {
 
             let currentTime = Date.now();
-            let elapsedTime = (currentTime - playerData.lastHarvestTime["Miner"]) / 1000;
+            let elapsedTime = (currentTime - playerData.lastHarvestTime["Refinery"]) / 1000;
 
 
             if (elapsedTime >= buildingsData.buildings.find(building => building.name === "Refinery").cooldown) {
@@ -263,7 +251,7 @@ function MineUpgradeTick(playerData, resourcesData, buildingsData) {
         if (playerData.MiningUpgrade.Quarry > 0) {
 
             let currentTime = Date.now();
-            let elapsedTime = (currentTime - playerData.lastHarvestTime["Miner"]) / 1000;
+            let elapsedTime = (currentTime - playerData.lastHarvestTime["Quarry"]) / 1000;
 
 
             if (elapsedTime >= buildingsData.buildings.find(building => building.name === "Quarry").cooldown) {
@@ -272,7 +260,15 @@ function MineUpgradeTick(playerData, resourcesData, buildingsData) {
             }
         }
 
-
+        if (x < 9) {
+            x++;
+        } else if (x == 9 && y == 9) {
+            x = 0;
+            y = 0;
+        } else {
+            x = 0;
+            y++;
+        }
         
     }, 100);
 }
@@ -307,7 +303,10 @@ function QuarryUpgrades(x, y, playerData, resourcesData, buildingsData) {
     * 3. Répéter jusqu'à ce que toutes les cases soient minées
     * laisser une pause de 100 milliemes entre chaque case minée
     */
-    handleMineCellClick(x, y, playerData, resourcesData, buildingsData);
+
+    if (!cellIsAlreadyMined(x, y, playerData)) {
+        handleMineCellClick(x, y, playerData, resourcesData, buildingsData);
+    }
 }
 
 function loadMineData() {
