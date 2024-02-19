@@ -73,7 +73,10 @@
         "Teak": 0,
         "Cedar": 0,
         "Bamboo": 0,
-        "Divine": 0
+        "Divine": 0,
+        "Miner" : 0,
+        "Refinery" : 0,
+        "Quarry" : 0
     
     },
     "IsUnlockresources": {
@@ -194,9 +197,15 @@
                 "Market" : 0
             }
 
+    }, 
+    "MiningUpgrade": {
+        "Miner" : 1,
+        "Refinery" : 1,
+        "Quarry" : 1
+    }
 
-        }
+    }
 
         
-    }
+    
   

@@ -2,12 +2,15 @@ import { initWoodManagement } from './work/wood_management.js';
 import { updatePlayerStats } from './player.js';
 import { initMineManagement } from './work/mine_management.js';
 
-let buildingsData, resourcesData, playerData, resourcesDataMines;
+let woodbuildingsData, resourcesData, playerData, resourcesDataMines, minebuildingsData;
 
 async function loadGameData() {
     try {
         const buildingsResponse = await fetch('../data/woodbuild.json');
-        buildingsData = await buildingsResponse.json();
+        woodbuildingsData = await buildingsResponse.json();
+
+        const buildingsResponseM = await fetch('../data/minebuild.json');
+        minebuildingsData = await buildingsResponseM.json();
 
         const resourcesResponse = await fetch('../data/ressources.json');
         const resourcesRawData = await resourcesResponse.json();
@@ -17,10 +20,10 @@ async function loadGameData() {
         const playerResponse = await fetch('../data/player.json');
         playerData = await playerResponse.json();
 
-        console.log('Données du jeu chargées:', buildingsData, resourcesData, playerData);
+        console.log('Données du jeu chargées:', woodbuildingsData, resourcesData, playerData, resourcesDataMines, minebuildingsData);
 
-        initWoodManagement(playerData,resourcesData,buildingsData);
-        initMineManagement(playerData,resourcesDataMines,buildingsData);
+        initWoodManagement(playerData,resourcesData,woodbuildingsData);
+        initMineManagement(playerData,resourcesDataMines,minebuildingsData);
 
         
     } catch (error) {

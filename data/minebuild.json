@@ -1,0 +1,35 @@
+{
+    "buildings": [
+      {
+        "name": "Miner",
+        "cost": 100,
+        "cooldown": 1,
+        "radius": 1
+      },
+      {
+        "name": "Refinery",
+        "cost": 200,
+        "cooldown": 1,
+        "radius": 2
+      },
+      {
+        "name": "Quarry",
+        "cost": 300,
+        "cooldown": 1,
+        "radius": 3
+      },
+      {
+        "name":  "Chemical Factory",
+        "cost": 400,
+        "cooldown": 1,
+        "radius": 4
+      },
+      {
+        "name": "Nuclear Quarry",
+        "cost": 500,
+        "cooldown": 1,
+        "radius": 5
+      }
+     
+    ]
+}

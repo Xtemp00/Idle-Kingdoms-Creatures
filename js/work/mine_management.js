@@ -37,6 +37,7 @@ export function initMineManagement(playerData, resourcesData, buildingsData) {
 
     // Créer et afficher la grille de mine
     createMineGrid(playerData, resourcesData, buildingsData);
+    MineUpgradeTick(playerData, resourcesData, buildingsData);
 
 
 
@@ -183,6 +184,48 @@ function initNextLevel(playerData, resourcesData, buildingsData) {
     // Mettre à jour l'interface utilisateur pour le nouveau niveau
     
 }
+
+//achat d'amélioration de la mine
+//TODO: Ajouter une fonctionnalité pour acheter des améliorations de la mine
+
+//fonction qui est appelée toute les 1secondes pour effectuer les action des améliorations de la mine
+function MineUpgradeTick(playerData, resourcesData, buildingsData) {
+    // Ici, vous pouvez gérer les actions périodiques des améliorations de la mine
+    // Par exemple, vérifier si le joueur a une amélioration qui automatise certaines actions de minage
+    setInterval(() => {
+        if (playerData.MiningUpgrade.Miner > 0) {
+            // Supposons que automaticMiner est une amélioration qui mine automatiquement une case toutes les N secondes
+            let currentTime = Date.now();
+            let elapsedTime = (currentTime - playerData.lastHarvestTime["Miner"]) / 1000;
+
+            if (elapsedTime >= buildingsData.buildings.find(building => building.name === "Miner").cooldown) {
+                MinerUpgrades(playerData, resourcesData, buildingsData);
+                playerData.lastHarvestTime["Miner"] = currentTime;
+            }
+        }
+        console.log('Tick de l\'amélioration de la mine');
+    }, 100);
+}
+
+function mineRandomCell(playerData, resourcesData, buildingsData) {
+    // Choisir une cellule aléatoire non minée et la miner
+    let x = Math.floor(Math.random() * 10);
+    let y = Math.floor(Math.random() * 10);
+
+    if (!cellIsAlreadyMined(x, y, playerData)) {
+        handleMineCellClick(x, y, playerData, resourcesData, buildingsData);
+    }
+}
+
+
+function MinerUpgrades(playerData, resourcesData, buildingsData) {
+    //fonction qui permet de miner d'apres un cooldown donner par l'amélioration de 1 case au hasard
+    //donner une case au hasard non minée et la miner
+    mineRandomCell(playerData, resourcesData, buildingsData);
+
+}
+
+
 
 function loadMineData() {
     // Charger les données de la mine depuis le serveur
