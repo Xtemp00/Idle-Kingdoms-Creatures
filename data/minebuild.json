@@ -3,13 +3,13 @@
       {
         "name": "Miner",
         "cost": 100,
-        "cooldown": 1,
+        "cooldown": 0.1,
         "radius": 1
       },
       {
         "name": "Refinery",
         "cost": 200,
-        "cooldown": 1,
+        "cooldown": 0.001,
         "radius": 2
       },
       {

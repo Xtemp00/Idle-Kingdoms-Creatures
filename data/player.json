@@ -76,7 +76,9 @@
         "Divine": 0,
         "Miner" : 0,
         "Refinery" : 0,
-        "Quarry" : 0
+        "Quarry" : 0,
+        "Chemical Factory" : 0,
+        "Nuclear Quarry" : 0
     
     },
     "IsUnlockresources": {
@@ -201,7 +203,10 @@
     "MiningUpgrade": {
         "Miner" : 1,
         "Refinery" : 1,
-        "Quarry" : 1
+        "Quarry" : 1,
+        "Chemical Factory" : 1,
+        "Nuclear Quarry" : 1
+
     }
 
     }

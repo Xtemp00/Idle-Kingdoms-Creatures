@@ -202,6 +202,12 @@ function MineUpgradeTick(playerData, resourcesData, buildingsData) {
                 MinerUpgrades(playerData, resourcesData, buildingsData);
                 playerData.lastHarvestTime["Miner"] = currentTime;
             }
+            if (elapsedTime >= buildingsData.buildings.find(building => building.name === "Refinery").cooldown) {
+                RefineryUpgrades(playerData, resourcesData, buildingsData);
+                playerData.lastHarvestTime["Refinery"] = currentTime;
+            }
+
+
         }
         console.log('Tick de l\'amélioration de la mine');
     }, 100);
@@ -225,6 +231,10 @@ function MinerUpgrades(playerData, resourcesData, buildingsData) {
 
 }
 
+function RefineryUpgrades(playerData, resourcesData, buildingsData) {
+    mineRandomCell(playerData, resourcesData, buildingsData);
+    mineRandomCell(playerData, resourcesData, buildingsData);
+}
 
 
 function loadMineData() {
