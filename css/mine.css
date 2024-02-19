@@ -41,13 +41,8 @@
 }
 
 #mine-grid {
-    display: grid;
-    grid-template-columns: repeat(10, 50px); /* 10 cellules par ligne */
-    grid-template-rows: repeat(10, 50px); /* 10 lignes */
-    gap: 5px;
-    justify-content: left;
-    margin-bottom: 20px;
     display: flex;
+    flex-direction: column;
 }
 
 #mine-grid .mine-cell {
