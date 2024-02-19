@@ -48,9 +48,12 @@
 #mine-grid .mine-cell {
     width: 50px;
     height: 50px;
-    background-color: #4a7c59;
+    background-image: url('../assets/images/Ore/Cell.jpg');
     border: 1px solid #ccc;
     cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #mine-grid .mine-cell:hover {
@@ -58,7 +61,10 @@
 }
 
 #mine-grid .mine-cell.mined {
-    background-color: #d9534f;
+    background-image: url('../assets/images/Ore/BrokenCell3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;   
 }
 
 
