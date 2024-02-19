@@ -94,6 +94,10 @@ function handleMineCellClick(x, y, playerData, resourcesData, buildingsData) {
 
     // Mettre à jour les statistiques du joueur
     updatePlayerStats(playerData);
+    if (Gridcompleted(playerData)) {
+        // Si oui, initialiser un nouveau niveau
+        initNextLevel(playerData, resourcesData, buildingsData);
+    }
 }
 
 function cellIsAlreadyMined(x, y, playerData) {
@@ -150,16 +154,40 @@ function updateUIWithFoundResource(resource, playerData) {
 
 }
 
+function Gridcompleted(playerData) {
+    // Vérifier si toutes les cellules de la grille ont été minées
+    for (let i = 0; i < 10; i++) {
+        for (let j = 0; j < 10; j++) {
+            if (!cellIsAlreadyMined(i, j, playerData)) {
+                return false;
+            }
+        }
+    }
 
+    return true;
+}
+
+function initNextLevel(playerData, resourcesData, buildingsData) {
+    // Incrémenter le niveau de la mine dans playerData
+    playerData.skills["mining"] = (playerData.mineLevel || 1) + 1;
+
+    // Afficher un message pour le nouveau niveau
+    console.log(`Bienvenue à l'étage ${playerData.mineLevel} de la mine!`);
+    document.getElementById('stage').textContent = `Etage ${playerData.skills["mining"]}`;
+    // Créer et afficher la nouvelle grille de mine
+    createMineGrid(playerData, resourcesData, buildingsData);
+
+    // Réinitialiser les cellules minées
+    playerData.minedCells = Array(10).fill().map(() => Array(10).fill(false));
+
+    // Mettre à jour l'interface utilisateur pour le nouveau niveau
+    
+}
 
 function loadMineData() {
     // Charger les données de la mine depuis le serveur
 
 }
-
-// Ajoutez d'autres fonctions nécessaires pour la gestion de la mine
-
-
 
 
 
