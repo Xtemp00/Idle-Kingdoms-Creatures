@@ -213,8 +213,9 @@ function initNextLevel(playerData, resourcesData, buildingsData) {
     // Réinitialiser les cellules minées
     playerData.minedCells = Array(10).fill().map(() => Array(10).fill(false));
 
-
-    //NuclearQuarryUpgradesChoose(playerData);
+    //attendre 100ms
+    
+    NuclearQuarryUpgradesChoose(playerData);
 }
 
 //achat d'amélioration de la mine
@@ -334,6 +335,7 @@ function ChemicalfactoryUpgrades(playerData, resourcesData, buildingsData) {
             }
         }
     }
+
 }
 function NuclearQuarryUpgradesChoose(playerData) {
     let attempts = 0;
@@ -372,9 +374,7 @@ function NuclearQuarryUpgrades(x, y, playerData, resourcesData, buildingsData) {
                 }
             }
         }
-        // Réinitialiser la cible pour le prochain étage
-        initNextLevel(playerData, resourcesData, buildingsData);
-        NuclearQuarryUpgradesChoose(playerData);
+
     }
 }
 
