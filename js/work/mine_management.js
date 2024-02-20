@@ -213,9 +213,9 @@ function initNextLevel(playerData, resourcesData, buildingsData) {
     // Réinitialiser les cellules minées
     playerData.minedCells = Array(10).fill().map(() => Array(10).fill(false));
 
-    //attendre 100ms
-    
-    NuclearQuarryUpgradesChoose(playerData);
+    if (playerData.MiningUpgrade.NuclearQuarry > 0) {
+        NuclearQuarryUpgradesChoose(playerData);
+    }
 }
 
 //achat d'amélioration de la mine
@@ -229,7 +229,10 @@ function MineUpgradeTick(playerData, resourcesData, buildingsData) {
     let y = 0;
 
     setInterval(() => {
-
+        if (playerData.skills["mining"] <= 200) {
+            UnlockUpgrade(playerData, resourcesData, buildingsData);
+        }
+        
         if (playerData.MiningUpgrade.Miner > 0) {
             // Supposons que automaticMiner est une amélioration qui mine automatiquement une case toutes les N secondes
             let currentTime = Date.now();
@@ -292,7 +295,7 @@ function MineUpgradeTick(playerData, resourcesData, buildingsData) {
             y++;
         }
         
-    }, 100);
+    }, 50);
 }
 
 function mineRandomCell(playerData, resourcesData, buildingsData) {
@@ -377,6 +380,51 @@ function NuclearQuarryUpgrades(x, y, playerData, resourcesData, buildingsData) {
 
     }
 }
+
+function UnlockUpgrade(playerData, resourcesData, buildingsData) {
+    //fonction qui permet de débloquer les améliorations de la mine
+    //on va unlock les ameliorations de la mine en fonction des etages decrit dans le fichier minebuild.json
+    //on va chercher le niveau de la mine dans playerData
+    let level = playerData.skills["mining"];
+    //on va chercher les améliorations de la mine dans buildingsData
+    let Miner = buildingsData.buildings.find(building => building.name === "Miner");
+    let Refinery = buildingsData.buildings.find(building => building.name === "Refinery");
+    let Quarry = buildingsData.buildings.find(building => building.name === "Quarry");
+    let ChemicalFactory = buildingsData.buildings.find(building => building.name === "ChemicalFactory");
+    let NuclearQuarry = buildingsData.buildings.find(building => building.name === "NuclearQuarry");
+
+    //on va chercher les améliorations de la mine dans playerData
+
+    let MinerUpgrade = playerData.MiningUpgrade.Miner;
+    let RefineryUpgrade = playerData.MiningUpgrade.Refinery;
+    let QuarryUpgrade = playerData.MiningUpgrade.Quarry;
+    let ChemicalFactoryUpgrade = playerData.MiningUpgrade.ChemicalFactory;
+    let NuclearQuarryUpgrade = playerData.MiningUpgrade.NuclearQuarry;
+
+    //on va comparer le niveau de la mine avec le niveau de déblocage des améliorations
+    if (level >= Miner.unlockstage) {
+        playerData.MiningUpgrade.Miner = 1;
+    }
+
+    if (level >= Refinery.unlockstage) {
+        playerData.MiningUpgrade.Refinery = 1;
+    }
+
+    if (level >= Quarry.unlockstage) {
+        playerData.MiningUpgrade.Quarry = 1;
+    }
+
+    if (level >= ChemicalFactory.unlockstage) {
+        playerData.MiningUpgrade.ChemicalFactory = 1;
+    }
+
+    if (level >= NuclearQuarry.unlockstage) {
+        playerData.MiningUpgrade.NuclearQuarry = 1;
+    }
+
+}
+
+
 
 function loadMineData() {
     // Charger les données de la mine depuis le serveur

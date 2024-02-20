@@ -101,7 +101,6 @@
     "SkillsXp": {
         "woodcuttingXp": 1,
         "fishingXp": 1,
-        "miningXp": 1,
         "cookingXp": 1,
         "smithingXp": 1,
         "farmingXp": 1,
@@ -205,11 +204,11 @@
 
     }, 
     "MiningUpgrade": {
-        "Miner" : 1,
-        "Refinery" : 1,
-        "Quarry" : 1,
-        "ChemicalFactory" : 1,
-        "NuclearQuarry" : 1
+        "Miner" : 0,
+        "Refinery" : 0,
+        "Quarry" : 0,
+        "ChemicalFactory" : 0,
+        "NuclearQuarry" : 0
 
     }
 
