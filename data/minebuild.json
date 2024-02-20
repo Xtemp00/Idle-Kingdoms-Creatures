@@ -2,31 +2,31 @@
     "buildings": [
       {
         "name": "Miner",
-        "cost": 100,
         "cooldown": 0.1,
-        "unlockstage": 2
+        "unlockstage": 5
       },
       {
         "name": "Refinery",
-        "cost": 200,
-        "cooldown": 0.001,
+        "cooldown": 0.05,
         "unlockstage": 10
       },
       {
         "name": "Quarry",
-        "cost": 300,
-        "cooldown": 0.001,
+        "cooldown": 0.1,
         "unlockstage": 25
       },
       {
         "name":  "ChemicalFactory",
-        "cost": 400,
         "cooldown": 30,
         "unlockstage": 50
       },
       {
+        "name": "Drill",
+        "cooldown": 0,
+        "unlockstage": 100
+      },
+      {
         "name": "NuclearQuarry",
-        "cost": 500,
         "cooldown": 0,
         "unlockstage": 200
       }

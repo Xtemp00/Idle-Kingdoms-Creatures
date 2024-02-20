@@ -232,3 +232,63 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
+#mine-upgrade-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f0e3;
+    border: 1px solid #c0a080;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #000;
+}
+
+#Miner-Info{
+    background-image: url('../assets/images/MineUpgrade/Miner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#Refinery-Info{
+    background-image: url('../assets/images/MineUpgrade/Refinery.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#Drill-Info{
+    background-image: url('../assets/images/MineUpgrade/Drill.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#Quarry-Info{
+    background-image: url('../assets/images/MineUpgrade/Quarry.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#ChemicalFactory-Info{
+    background-image: url('../assets/images/MineUpgrade/ChemicalFactory.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#NuclearQuarry-Info{
+    background-image: url('../assets/images/MineUpgrade/NuclearQuarry.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#mine-upgrade-menu h1 {
+    margin-bottom: 20px;
+}
