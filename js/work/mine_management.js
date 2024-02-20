@@ -368,6 +368,3 @@ function loadMineData() {
     // Charger les données de la mine depuis le serveur
 
 }
-
-
-
