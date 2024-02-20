@@ -352,7 +352,7 @@ function NuclearQuarryUpgradesChoose(playerData) {
 
     // Marquer visuellement la case cible de NuclearQuarry
     const cell = document.getElementById(`mine-cell-${x}-${y}`);
-    cell.style.background = "url('../../assets/images/Ore/DivineOre.jpg')";
+    cell.style.background = "url('../../assets/images/Ore/QuarryLadder.jpg')";
     cell.style.backgroundSize = "cover";
     cell.style.backgroundPosition = "center";
     cell.style.backgroundRepeat = "no-repeat";
