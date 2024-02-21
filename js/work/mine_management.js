@@ -73,8 +73,11 @@ function createMineGrid(playerData, resourcesData, buildingsData) {
                     cell.style.backgroundPosition = "center";
                     cell.style.backgroundRepeat = "no-repeat";
             }
-            cell.onclick = function() { handleMineCellClick(i, j, playerData, resourcesData, buildingsData); };
-
+            if (playerData.MiningUpgrade.Drill > 0) {
+                cell.onclick = function() { DrillUpgrades(i, j, playerData, resourcesData, buildingsData); };
+            } else {
+                cell.onclick = function() { handleMineCellClick(i, j, playerData, resourcesData, buildingsData); };
+            }
             row.appendChild(cell);
         }
 
@@ -340,6 +343,59 @@ function ChemicalfactoryUpgrades(playerData, resourcesData, buildingsData) {
     }
 
 }
+
+function DrillUpgrades(x, y, playerData, resourcesData, buildingsData) {
+    // Fonction qui améliore le click du joueur pour miner en 3x3
+    for (let dx = -1; dx <= 1; dx++) {
+        for (let dy = -1; dy <= 1; dy++) {
+            let newX = x + dx;
+            let newY = y + dy;
+
+            // Vérifier si la nouvelle cellule est dans les limites du terrain
+            if (!isValidCell(newX, newY, playerData)) {
+                continue;
+            }
+
+            // Vérifier si la cellule a déjà été minée
+            if (cellIsAlreadyMined(newX, newY, playerData)) {
+                continue;
+            }
+
+            // Déterminer la ressource trouvée
+            let foundResource = determineResourceFound(resourcesData);
+
+            // Ajouter la ressource à l'inventaire du joueur si elle est trouvée
+            if (foundResource) {
+                playerData.inventory[foundResource.name] = (playerData.inventory[foundResource.name] || 0) + 1;
+                playerData.stats["gold"] += foundResource.value; // Ajouter la valeur de la ressource à l'or du joueur
+                playerData.inventory["Mine"] = (playerData.inventory["Mine"] || 0) + 1;
+                // Mettre à jour l'interface utilisateur
+                updateUIWithFoundResource(newX, newY, foundResource, playerData);
+            } else {
+                console.log("Pas de ressource trouvée dans cette cellule.");
+            }
+
+            // Marquer la cellule comme minée
+            markCellAsMined(newX, newY, playerData);
+        }
+    }
+
+    // Mettre à jour les statistiques du joueur
+    updatePlayerStats(playerData);
+    if (Gridcompleted(playerData)) {
+        // Si oui, initialiser un nouveau niveau
+        initNextLevel(playerData, resourcesData, buildingsData);
+    }
+}
+
+function isValidCell(x, y, playerData) {
+    // Cette fonction vérifie si les coordonnées (x, y) sont dans les limites du terrain
+    // Implémentez la logique selon la structure de votre terrain et données du joueur
+    return x >= 0 && x < 10 && y >= 0 && y < 10;
+}
+
+
+
 function NuclearQuarryUpgradesChoose(playerData) {
     let attempts = 0;
     let x, y;
@@ -392,34 +448,43 @@ function UnlockUpgrade(playerData, resourcesData, buildingsData) {
     let Quarry = buildingsData.buildings.find(building => building.name === "Quarry");
     let ChemicalFactory = buildingsData.buildings.find(building => building.name === "ChemicalFactory");
     let NuclearQuarry = buildingsData.buildings.find(building => building.name === "NuclearQuarry");
-
-    //on va chercher les améliorations de la mine dans playerData
-
-    let MinerUpgrade = playerData.MiningUpgrade.Miner;
-    let RefineryUpgrade = playerData.MiningUpgrade.Refinery;
-    let QuarryUpgrade = playerData.MiningUpgrade.Quarry;
-    let ChemicalFactoryUpgrade = playerData.MiningUpgrade.ChemicalFactory;
-    let NuclearQuarryUpgrade = playerData.MiningUpgrade.NuclearQuarry;
+    let Drill = buildingsData.buildings.find(building => building.name === "Drill");
 
     //on va comparer le niveau de la mine avec le niveau de déblocage des améliorations
     if (level >= Miner.unlockstage) {
         playerData.MiningUpgrade.Miner = 1;
+        document.getElementById('Miner-lock').style.display = 'none';
+        document.getElementById('Miner-unlock').style.display = 'block';
     }
 
     if (level >= Refinery.unlockstage) {
         playerData.MiningUpgrade.Refinery = 1;
+        document.getElementById('Refinery-lock').style.display = 'none';
+        document.getElementById('Refinery-unlock').style.display = 'block';
     }
 
     if (level >= Quarry.unlockstage) {
         playerData.MiningUpgrade.Quarry = 1;
+        document.getElementById('Quarry-lock').style.display = 'none';
+        document.getElementById('Quarry-unlock').style.display = 'block';
     }
 
     if (level >= ChemicalFactory.unlockstage) {
         playerData.MiningUpgrade.ChemicalFactory = 1;
+        document.getElementById('ChemicalFactory-lock').style.display = 'none';
+        document.getElementById('ChemicalFactory-unlock').style.display = 'block';
+    }
+
+    if (level >= Drill.unlockstage) {
+        playerData.MiningUpgrade.Drill = 1;
+        document.getElementById('Drill-lock').style.display = 'none';
+        document.getElementById('Drill-unlock').style.display = 'block';
     }
 
     if (level >= NuclearQuarry.unlockstage) {
         playerData.MiningUpgrade.NuclearQuarry = 1;
+        document.getElementById('NuclearQuarry-lock').style.display = 'none';
+        document.getElementById('NuclearQuarry-unlock').style.display = 'block';
     }
 
 }

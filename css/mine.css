@@ -95,6 +95,8 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
+    width: 200px;
+    height: 200px;
 }
 
 #Ore-Info-Section {
@@ -104,7 +106,7 @@
     margin-top: 10px;
     align-items: start;
     position: relative;
-
+    
 }
 
 #main-mine{
@@ -128,6 +130,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
     color: #000;
+
 }
 
 /* Responsive Design */
@@ -234,17 +237,13 @@
 }
 
 #mine-upgrade-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #f8f0e3;
-    border: 1px solid #c0a080;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    color: #000;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 éléments par ligne */
+    gap: 10px;
+    margin-top: 10px;
+    align-items: start;
+    position: relative;
+
 }
 
 #Miner-Info{
@@ -291,4 +290,42 @@
 
 #mine-upgrade-menu h1 {
     margin-bottom: 20px;
+}
+
+/*upgrade info on veut 3 box par ligne */
+.Upgrade-Info {
+    gap: 10px;
+    margin-top: 10px;
+    align-items: start;
+    position: relative;
+    height: 500px;
+    width: 300px;
+    /* on met une border*/
+    border: 1px solid #c0a080;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #000;
+    padding: 10px;
+    background-color: #f8f0e3;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 1 élément par ligne */
+    grid-template-rows: repeat(3, 1fr); /* 3 éléments par colonne */
+}
+
+.Upgrade-Info p {
+    /*on les style un peu */
+    padding: 10px;
+    background-color: #f8f0e3;
+    border: 1px solid #c0a080;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #000;
+
+}
+
+.Upgrade-Info h1 {
+    margin-bottom: 20px;
+
 }

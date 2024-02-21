@@ -85,98 +85,116 @@
                                 <div id="CopperOre-Info" class="OreInfo">
                                     <h2 class="ItemOre">Cuivre</h2>
                                     <p id="CopperOre-inventory" class="ItemOre">0</p>
+                                    <p class="ItemOre">Probabilité d'apparition : 0.5</p>
                                 </div>
 
                                 <div id="IronOre-Info" class="OreInfo">
                                     <h2 class="ItemOre">Fer</h2>
                                     <p id="IronOre-inventory" class="ItemOre">0</p>
+                                    <p class="ItemOre">Probabilité d'apparition : 0.4</p>
                                 </div>
 
                                 <div id="SilverOre-Info" class="OreInfo">
                                     <h2 class="ItemOre">Argent</h2>
                                     <p id="SilverOre-inventory" class="ItemOre">0</p>
+                                    <p class="ItemOre">Probabilité d'apparition : 0.3</p>
                                 </div>  
 
                                 <div id="GoldOre-Info" class="OreInfo">
                                     <h2 class="ItemOre">Or</h2>
                                     <p id="GoldOre-inventory" class="ItemOre">0</p>
+                                    <p class="ItemOre">Probabilité d'apparition : 0.1</p>
                                 </div>
 
                                 <div id="MithrilOre-Info" class="OreInfo">
                                     <h2 class="ItemOre">Mithril</h2>
                                     <p id="MithrilOre-inventory" class="ItemOre">0</p>
+                                    <p class="ItemOre">Probabilité d'apparition : 0.05</p>
                                 </div>
 
                                 <div id="DiamondOre-Info" class="OreInfo">
                                     <h2 class="ItemOre">Diamant</h2>
                                     <p id="DiamondOre-inventory" class="ItemOre">0</p>
+                                    <p class="ItemOre">Probabilité d'apparition : 0.01</p>
                                 </div>
 
                                 <div id="EmeraldOre-Info" class="OreInfo">
                                     <h2 class="ItemOre">Emeraude</h2>
                                     <p id="EmeraldOre-inventory" class="ItemOre">0</p>
+                                    <p class="ItemOre">Probabilité d'apparition : 0.02</p>
                                 </div>
 
                                 <div id="PureGoldOre-Info" class="OreInfo">
                                     <h2 class="ItemOre">Or Pur</h2>
                                     <p id="PureGoldOre-inventory" class="ItemOre">0</p>
+                                    <p class="ItemOre">Probabilité d'apparition : 0.001</p>
                                 </div>
 
                                 <div id="PureMithrilOre-Info" class="OreInfo">
                                     <h2 class="ItemOre">Mithril Pur</h2>
                                     <p id="PureMithrilOre-inventory" class="ItemOre">0</p>
+                                    <p class="ItemOre">Probabilité d'apparition : 0.0001</p>
                                 </div>
 
                                 <div id="PureEmeraldOre-Info" class="OreInfo">
                                     <h2 class="ItemOre">Emeraude Pure</h2>
                                     <p id="PureEmeraldOre-inventory" class="ItemOre">0</p>
+                                    <p class="ItemOre">Probabilité d'apparition : 0.0005</p>
                                 </div>
 
                                 <div id="PureDiamondOre-Info" class="OreInfo">
                                     <h2 class="ItemOre">Diamant Pur</h2>
                                     <p id="PureDiamondOre-inventory" class="ItemOre">0</p>
+                                    <p class="ItemOre">Probabilité d'apparition : 0.0001</p>
                                 </div>
 
                                 <div id="DivineOre-Info" class="OreInfo">
                                     <h2 class="ItemOre">Minerai Divin</h2>
                                     <p id="DivineOre-inventory" class="ItemOre">0</p>
+                                    <p class="ItemOre">Probabilité d'apparition : 0.000001</p>
                                 </div>
 
                         </div>  
                         <!--On va afficher les amelioration et leur information-->
                         <div id="mine-upgrade-menu">
 
-                            <div id="Miner-Info">
+                            <div id="Miner-Info" class="Upgrade-Info">
                                 <h2>Miner</h2>
                                 <p id="Miner-lock">Se débloque au stage 5</p>
                                 <p id="Miner-unlock" style="display: none;">Est en cours d'utilisation</p>
+                                <p> Cette amélioration permet de miner une case au hazard toute les 0.1 seconde.</p>
 
                             </div>
-                            <div id="Refinery-Info">
+                            <div id="Refinery-Info" class="Upgrade-Info">
                                 <h2>Refinery</h2>
                                 <p id="Refinery-lock">Se débloque au stage 10</p>
                                 <p id="Refinery-unlock" style="display: none;">Est en cours d'utilisation</p>
+                                <p> Cette amélioration permet de miner deux cases au hazard toute les 0.05 seconde.</p>
 
                             </div>
-                            <div id="Quarry-Info">
+                            <div id="Quarry-Info" class="Upgrade-Info">
                                 <h2>Quarry</h2>
                                 <p id="Quarry-lock">Se débloque au stage 25</p>
                                 <p id="Quarry-unlock" style="display: none;">Est en cours d'utilisation</p>
+                                <p> Cette amélioration mine les cases une par une en partant de 0 toute les 0.1 seconde.</p>
                             </div>
-                            <div id="ChemicalFactory-Info">
+                            <div id="ChemicalFactory-Info" class="Upgrade-Info">
                                 <h2>Chemical Factory</h2>
                                 <p id="ChemicalFactory-lock">Se débloque au stage 50</p>
                                 <p id="ChemicalFactory-unlock" style="display: none;">Est en cours d'utilisation</p>
+                                <p> cette amélioration mine toute la grille une fois toute les 30 secondes.</p>
                             </div>
-                            <div id="Drill-Info">
+                            <div id="Drill-Info" class="Upgrade-Info">
                                 <h2>Drill</h2>
                                 <p id="Drill-lock">Se débloque au stage 100</p>
                                 <p id="Drill-unlock" style="display: none;">Est en cours d'utilisation</p>
+                                <p> Cette amélioration améliore la pioche et de pouvoir miner en 3*3.</p>
                             </div>
-                            <div id="NuclearQuarry-Info">
+                            <div id="NuclearQuarry-Info" class="Upgrade-Info">
                                 <h2>Nuclear Quarry</h2>
                                 <p id="NuclearQuarry-lock">Se débloque au stage 200</p>
                                 <p id="NuclearQuarry-unlock" style="display: none;">Est en cours d'utilisation</p>
+                                <p> Cette amélioration ajoute une case spécial dans chaque étage et si celui-ci est miné alors l'étage est completement miné.</p>
                             </div>
 
 

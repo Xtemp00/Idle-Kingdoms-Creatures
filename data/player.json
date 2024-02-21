@@ -58,7 +58,7 @@
     "skills": {
         "woodcutting": 1,
         "fishing": 1,
-        "mining": 1,
+        "mining": 100,
         "cooking": 1,
         "smithing": 1,
         "farming": 1,
@@ -208,6 +208,7 @@
         "Refinery" : 0,
         "Quarry" : 0,
         "ChemicalFactory" : 0,
+        "Drill" : 0,
         "NuclearQuarry" : 0
 
     }
