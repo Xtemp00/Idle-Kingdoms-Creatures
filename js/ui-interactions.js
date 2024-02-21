@@ -5,7 +5,9 @@ function toggleSections(sectionToShow) {
     const woodXp = document.getElementById('wood-xp-progress-bar');
     const minimapWood = document.getElementById('wood-minimap');
     const minimapMine = document.getElementById('mine-minimap');
+    const minimapEgg = document.getElementById('egg-minimap');
     const mineSection = document.getElementById('game-part-mine');
+    const eggSection = document.getElementById('game-part-egg');
 
     // Masquer la citymap
     citymap.style.display = 'none';
@@ -14,6 +16,7 @@ function toggleSections(sectionToShow) {
     woodSection.style.display = 'none';
     woodXp.style.display = 'none';
     mineSection.style.display = 'none';
+    eggSection.style.display = 'none';
 
     // Afficher la section demandée
     if (sectionToShow === 'wood') {
@@ -21,16 +24,25 @@ function toggleSections(sectionToShow) {
         woodXp.style.display = 'flex';
         minimapWood.style.display = 'flex';
         minimapMine.style.display = 'none';
-
-    } else if (sectionToShow === 'mine') {
+        minimapEgg.style.display = 'none';
+    } 
+    else if (sectionToShow === 'mine') {
         mineSection.style.display = 'grid';
         minimapMine.style.display = 'flex';
         minimapWood.style.display = 'none';
+        minimapEgg.style.display = 'none';
+    } 
+    else if (sectionToShow === 'egg') {
+        eggSection.style.display = 'grid';
+        minimapMine.style.display = 'none';
+        minimapWood.style.display = 'none';
+        minimapEgg.style.display = 'flex';
     }
     else if (sectionToShow === 'citymap') {
         citymap.style.display = 'flex';
         minimapWood.style.display = 'none';
         minimapMine.style.display = 'none';
+        minimapEgg.style.display = 'none';
         console.log('citymap');
     }
 
@@ -43,6 +55,10 @@ document.getElementById('wood-button').addEventListener('click', function() {
 
 document.getElementById('mine-button').addEventListener('click', function() {
     toggleSections('mine');
+});
+
+document.getElementById('egg-button').addEventListener('click', function() {
+    toggleSections('egg');
 });
 
 document.addEventListener('DOMContentLoaded', function() {
