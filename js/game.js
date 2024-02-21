@@ -28,7 +28,7 @@ async function loadGameData() {
 
         initWoodManagement(playerData,resourcesData,woodbuildingsData);
         initMineManagement(playerData,resourcesDataMines,minebuildingsData);
-        initEggManagement(playerData,resourcesData,petData);
+        initEggManagement(playerData,petData);
         
     } catch (error) {
         console.error('Erreur lors du chargement des données du jeu:', error);
