@@ -5,7 +5,7 @@
             "rarity" : "common",
             "skills" : "mine",
             "goldMultiplier" : "1.5",
-            "xpMultiplier" : "0",
+            "xpMultiplier" : "1",
             "probability" : "0.5"
         },
         {
@@ -37,7 +37,7 @@
             "rarity" : "common",
             "skills" : "combat",
             "goldMultiplier" : "1.5",
-            "xpMultiplier" : "0",
+            "xpMultiplier" : "1",
             "probability" : "0.5"
         }
     ],
