@@ -22,6 +22,8 @@
     justify-self: end; /* Added property */
 }
 
+
+
 @media screen and (max-width: 1000px){
     #game-part-wood {
         grid-template-columns: repeat(4, 1fr);
