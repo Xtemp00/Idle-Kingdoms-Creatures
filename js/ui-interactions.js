@@ -61,6 +61,10 @@ document.getElementById('egg-button').addEventListener('click', function() {
     toggleSections('egg');
 });
 
+document.getElementById('fish-button').addEventListener('click', function() {
+    toggleSections('fish');
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     // Ajouter un écouteur d'événements au bouton de la minimap qui est une classe nommé minimap-button
 
