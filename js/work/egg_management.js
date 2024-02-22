@@ -86,6 +86,9 @@ function displayNormalEggSection(playerData, PetsData) {
             // on met en gras et de maniere plus lisible
             petProbability.style.fontSize = "4em";
             petProbability.style.fontWeight = "bold";
+            //on arrondit le pourcentage a 3 chiffres apres la virgule
+            petProbability.textContent = (Math.round(pet.probability * 1000) / 10) + "%";
+            
 
             petDiv.appendChild(petProbability);
             // Ajouter d'autres détails comme rarity, skills, etc.
@@ -99,27 +102,35 @@ function openNormalEgg(playerData, PetsData) {
         let totalProbability = 0;
         // Convert probability strings to numbers and sum up
         PetsData.NormalEgg.forEach(pet => totalProbability += parseFloat(pet.probability));
-    
-        let random = Math.random() * totalProbability;
-        let cumulativeProbability = 0;
-        let pet = null;
-    
-        for (let i = 0; i < PetsData.NormalEgg.length; i++) {
-            let currentPet = PetsData.NormalEgg[i];
-            cumulativeProbability += parseFloat(currentPet.probability);
-            if (random <= cumulativeProbability) {
-                pet = currentPet;
-                break;
+
+        //le prix de l'oeuf est de 10000
+        if (playerData.stats["gold"] < 10000) {
+            console.log("You don't have enough coins to buy this egg!");
+            return;
+        } else { 
+
+            playerData.stats["gold"] -= 10000;
+            let random = Math.random() * totalProbability;
+            let cumulativeProbability = 0;
+            let pet = null;
+        
+            for (let i = 0; i < PetsData.NormalEgg.length; i++) {
+                let currentPet = PetsData.NormalEgg[i];
+                cumulativeProbability += parseFloat(currentPet.probability);
+                if (random <= cumulativeProbability) {
+                    pet = currentPet;
+                    break;
+                }
             }
-        }
-    
-        if (pet) {
-            let message = "Congratulations! You got a " + pet.name + "!";
-            console.log(message);
-            updatePlayerStats(playerData);
-            playerData.PetInventory[pet.name] = playerData.PetInventory[pet.name] + 1 || 1; // Handle undefined pet
-        } else {
-            console.log("You got nothing!");
+        
+            if (pet) {
+                let message = "Congratulations! You got a " + pet.name + "!";
+                console.log(message);
+                updatePlayerStats(playerData);
+                playerData.PetInventory[pet.name] = playerData.PetInventory[pet.name] + 1 || 1; // Handle undefined pet
+            } else {
+                console.log("You got nothing!");
+            }
         }
         
 }

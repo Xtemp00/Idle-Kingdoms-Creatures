@@ -6,7 +6,7 @@
             "skills" : "mine",
             "goldMultiplier" : "1.5",
             "xpMultiplier" : "1",
-            "probability" : "0.15"
+            "probability" : "0.186"
         },
         {
             "name" : "foragingPet",
@@ -14,7 +14,7 @@
             "skills" : "wood",
             "goldMultiplier" : "1.5",
             "xpMultiplier" : "1.5",
-            "probability" : "0.15"
+            "probability" : "0.186"
         },
         {
             "name" : "fishingPet",
@@ -22,7 +22,7 @@
             "skills" : "fishing",
             "goldMultiplier" : "1.5",
             "xpMultiplier" : "1.5",
-            "probability" : "0.15"
+            "probability" : "0.186"
         },
         {
             "name" : "farmingPet",
@@ -30,7 +30,7 @@
             "skills" : "farming",
             "goldMultiplier" : "1.5",
             "xpMultiplier" : "1.5",
-            "probability" : "0.20"
+            "probability" : "0.186"
         },
         {
             "name" : "combatPet",
@@ -38,7 +38,7 @@
             "skills" : "combat",
             "goldMultiplier" : "1.5",
             "xpMultiplier" : "1",
-            "probability" : "0.20"
+            "probability" : "0.186"
         },
         {
             "name" : "demonPet",
@@ -46,7 +46,7 @@
             "skills" : "all",
             "goldMultiplier" : "2.0",
             "xpMultiplier" : "2.0",
-            "probability" : "0.2"
+            "probability" : "0.06"
         },
         {
             "name" : "LegendaryPet",
@@ -54,7 +54,7 @@
             "skills" : "all",
             "goldMultiplier" : "3.0",
             "xpMultiplier" : "3.0",
-            "probability" : "0.04"
+            "probability" : "0.009"
         },
         {
             "name" : "DivinePet",
@@ -62,7 +62,7 @@
             "skills" : "all",
             "goldMultiplier" : "4.0",
             "xpMultiplier" : "4.0",
-            "probability" : "0.01"
+            "probability" : "0.001"
         }
     ],
     "FireEgg" : [
