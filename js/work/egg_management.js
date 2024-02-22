@@ -6,16 +6,8 @@ export function initEggManagement(playerData, PetsData) {
 
 //fonction pour afficher la section normal egg de l'oeuf
 function displayNormalEggSection(playerData, PetsData) {
-    //dans normal-egg-section du code html on va afficher les oeufs dans la box avec 3 par ligne max et on va afficher leur image et la probabilité de les obtenir mit en %.
+    // Configuration for normal-egg-section
     let normalEggSection = document.getElementById("normal-egg-section");
-    /*margin: 10px;
-    padding: 10px;
-    background-color: #f8f0e3;
-    border: 1px solid #c0a080;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    color: #000;*/
     normalEggSection.style.margin = "10px";
     normalEggSection.style.padding = "10px";
     normalEggSection.style.backgroundColor = "#f8f0e3";
@@ -24,9 +16,12 @@ function displayNormalEggSection(playerData, PetsData) {
     normalEggSection.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.5)";
     normalEggSection.style.textAlign = "center";
     normalEggSection.style.color = "#000";
-    normalEggSection.style.width = "60%";
-    
-
+    normalEggSection.style.width = "700px";
+    normalEggSection.style.position = "absolute"; // Changed to absolute
+    normalEggSection.style.left = "10px"; // Position to the left
+    normalEggSection.style.top = "620px"; // Position below the egg button
+    normalEggSection.style.display = "grid";
+    normalEggSection.style.gridTemplateColumns = "repeat(3, 1fr)";
 
 
     //le normal-egg-button est placer en plein milieu en gros et a pour background l'image de l'oeuf
@@ -39,33 +34,22 @@ function displayNormalEggSection(playerData, PetsData) {
     eggButton.style.height = "500px";
     eggButton.style.border = "none";
     eggButton.style.cursor = "pointer";
-    eggButton.addEventListener("click", function() {
-        openNormalEggModal(playerData,PetsData);
-    });
+    eggButton.style.margin = "auto";    
+    eggButton.style.display = "block";
+    eggButton.style.marginTop = "10px";
+    eggButton.style.marginBottom = "10px";
+    eggButton.style.position = "relative"; // Ensure this is positioned relatively
+    eggButton.style.zIndex = "2"; // Higher z-index to ensure it's above the section
 
-    //maintenant on va afficher les oeufs dans la box
-    /* "NormalEgg" : [
-        {
-            "name" : "rockPet",
-            "rarity" : "common",
-            "skills" : "mine",
-            "goldMultiplier" : "1.5",
-            "xpMultiplier" : "1",
-            "probability" : "0.5"
-        },*/
+
+    eggButton.addEventListener("click", function() {
+        openNormalEgg(playerData,PetsData);
+    });
 
     for (let i = 0; i < PetsData.NormalEgg.length; i++) {
             let pet = PetsData.NormalEgg[i];
             let petDiv = document.createElement("div");
             petDiv.className = "pet-div";
-            /*    margin: 10px;
-            padding: 10px;
-            background-color: #f8f0e3;
-            border: 1px solid #c0a080;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            color: #000;*/
             petDiv.style.margin = "10px";
             petDiv.style.padding = "10px";
             petDiv.style.backgroundColor = "#f8f0e3";
@@ -74,25 +58,67 @@ function displayNormalEggSection(playerData, PetsData) {
             petDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.5)";
             petDiv.style.textAlign = "center";
             petDiv.style.color = "#000";
-
+            petDiv.style.width = "80%";
+            petDiv.style.height = "80%";
+            //padding pour centrer le texte
+            petDiv.style.display = "flex";
+            petDiv.style.flexDirection = "column";
+            petDiv.style.justifyContent = "center";
+            petDiv.style.alignItems = "center";
             
-            let petImage = document.createElement("img");
-            petImage.src = "../../assets/images/pets/" + pet.name + ".jpg";
-            petImage.style.width = "20%";
-            petImage.style.height = "auto"; // Pour garder le ratio de l'image
-            petImage.style.border = "none";
-            petImage.style.cursor = "pointer";
-            petDiv.appendChild(petImage);
+
+            // il faut que le background de la div soit l'image
+            petDiv.style.backgroundImage = "url('../../assets/images/pets/" + pet.name + ".jpg')";
+            petDiv.style.backgroundSize = "cover";
+            petDiv.style.backgroundPosition = "center";
+            petDiv.style.backgroundRepeat = "no-repeat";
         
             let petName = document.createElement("p");
             petName.textContent = pet.name;
+            petName.style.fontSize = "2em";
+            petName.style.fontWeight = "bold";
+
             petDiv.appendChild(petName);
 
             let petProbability = document.createElement("p");
-            petProbability.textContent = "Probability: " + pet.probability * 100 + "%";
+            petProbability.textContent = pet.probability * 100 + "%";
+            // on met en gras et de maniere plus lisible
+            petProbability.style.fontSize = "4em";
+            petProbability.style.fontWeight = "bold";
+
             petDiv.appendChild(petProbability);
             // Ajouter d'autres détails comme rarity, skills, etc.
         
             normalEggSection.appendChild(petDiv);
     }
-}
+}       
+
+//fonction pour ouvrir l'oeuf normalfunction openNormalEgg(playerData, PetsData) {
+function openNormalEgg(playerData, PetsData) {
+        let totalProbability = 0;
+        // Convert probability strings to numbers and sum up
+        PetsData.NormalEgg.forEach(pet => totalProbability += parseFloat(pet.probability));
+    
+        let random = Math.random() * totalProbability;
+        let cumulativeProbability = 0;
+        let pet = null;
+    
+        for (let i = 0; i < PetsData.NormalEgg.length; i++) {
+            let currentPet = PetsData.NormalEgg[i];
+            cumulativeProbability += parseFloat(currentPet.probability);
+            if (random <= cumulativeProbability) {
+                pet = currentPet;
+                break;
+            }
+        }
+    
+        if (pet) {
+            let message = "Congratulations! You got a " + pet.name + "!";
+            console.log(message);
+            updatePlayerStats(playerData);
+            playerData.PetInventory[pet.name] = playerData.PetInventory[pet.name] + 1 || 1; // Handle undefined pet
+        } else {
+            console.log("You got nothing!");
+        }
+    }
+    

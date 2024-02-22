@@ -74,13 +74,13 @@
     {
       "name": "CopperOre",
       "value": 1.0,
-      "probability": 0.5,
+      "probability": 0.35,
       "harvestTime": 0.5
     },
     {
       "name": "IronOre",
       "value": 2.0,
-      "probability": 0.4,
+      "probability": 0.3,
       "harvestTime": 1.0
     },
     {
@@ -92,7 +92,7 @@
     {
       "name": "SilverOre",
       "value": 3.0,
-      "probability": 0.3,
+      "probability": 0.2,
       "harvestTime": 1.5
     },
     {
