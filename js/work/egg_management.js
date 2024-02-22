@@ -2,6 +2,7 @@ import { updatePlayerStats } from "../player.js";
 
 export function initEggManagement(playerData, PetsData) {
     displayNormalEggSection(playerData, PetsData);
+    displayPetInventory(playerData);
 }
 
 //fonction pour afficher la section normal egg de l'oeuf
@@ -120,5 +121,12 @@ function openNormalEgg(playerData, PetsData) {
         } else {
             console.log("You got nothing!");
         }
-    }
-    
+        
+}
+
+//fonction qui affiche les pets dans l'inventaire sur la console toute les 2 secondes
+function displayPetInventory(playerData) {
+    setInterval(function() {
+        console.log(playerData.PetInventory);
+    }, 2000);
+}
