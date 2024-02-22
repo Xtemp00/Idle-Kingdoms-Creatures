@@ -38,7 +38,7 @@ export function initMineManagement(playerData, resourcesData, buildingsData) {
     // Créer et afficher la grille de mine
     createMineGrid(playerData, resourcesData, buildingsData);
     MineUpgradeTick(playerData, resourcesData, buildingsData);
-
+    displayProbability(resourcesData);
 
 
 
@@ -487,6 +487,21 @@ function UnlockUpgrade(playerData, resourcesData, buildingsData) {
         document.getElementById('NuclearQuarry-unlock').style.display = 'block';
     }
 
+}
+
+//fonction qui affiche la probabilité pour chaque resources
+function displayProbability(resourcesData) {
+    for (let i = 0; i < resourcesData.length; i++) {
+        let resource = resourcesData[i];
+        console.log(resource.name);
+
+        let element = document.getElementById(resource.name);
+        if (element) {
+            element.textContent = "Probabilité d'apparition : " + (resource.probability * 100).toFixed(2) + "%";
+        } else {
+            console.error("Element not found for ID: ItemOre-" + resource.name);
+        } 
+    }
 }
 
 
