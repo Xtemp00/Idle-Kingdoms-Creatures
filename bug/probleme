@@ -6,6 +6,7 @@ bois :
     quand le bouleau atteint 52 ou 54 il passe en x2 au lieu de x1
     rajouter le fait qu'on puisse clicker en plus de l'amélioration
     décrire les améliorations comme dans la mine 
+    problème de temps pour le bambou et pour le bois divin 
 
     mine : 
-         mettre les proba en % plutot que proba est de 0.05
+    mettre les proba en % plutot que proba est de 0.05
