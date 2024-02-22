@@ -4,7 +4,7 @@ import { initMineManagement } from './work/mine_management.js';
 import { initEggManagement } from './work/egg_management.js';
 import { initFishManagement } from './work/fish_management.js';
 
-let woodbuildingsData, resourcesData, playerData, resourcesDataMines, minebuildingsData, petData;
+let woodbuildingsData, resourcesData, playerData, resourcesDataMines, minebuildingsData, petData, resourcesDataFish;
 
 async function loadGameData() {
     try {
@@ -18,6 +18,7 @@ async function loadGameData() {
         const resourcesRawData = await resourcesResponse.json();
         resourcesData = resourcesRawData.woods; // Accédez à la clé "woods" du JSON
         resourcesDataMines = resourcesRawData.MineOre; // Accédez à la clé "mines" du JSON
+        resourcesDataFish = resourcesRawData.Fish; // Accédez à la clé "fish" du JSON
 
         const playerResponse = await fetch('../data/player.json');
         playerData = await playerResponse.json();

@@ -163,8 +163,8 @@ function incrementWoodcuttingLevel(playerData) {
 }
 
 function updateWoodcuttingXpBar(playerData) {
-  const woodcuttingXp = playerData.SkillsXp["fishingXp"];
-  const progressElement = document.getElementById('fish-xp-progress');
+  const woodcuttingXp = playerData.SkillsXp["woodcuttingXp"];
+  const progressElement = document.getElementById('wood-xp-progress');
   
   if (progressElement) {
     const currentLevel = playerData.skills.woodcutting;

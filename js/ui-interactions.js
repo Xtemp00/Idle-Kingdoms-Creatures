@@ -21,6 +21,7 @@ function toggleSections(sectionToShow) {
     mineSection.style.display = 'none';
     eggSection.style.display = 'none';
     fishSection.style.display = 'none';
+    fishXp.style.display = 'none';
 
     // Afficher la section demandée
     if (sectionToShow === 'wood') {
@@ -55,6 +56,7 @@ function toggleSections(sectionToShow) {
     }
     else if (sectionToShow === 'fish') {
         fishSection.style.display = 'grid';
+        fishXp.style.display = 'flex';
         minimapFish.style.display = 'flex';
         minimapWood.style.display = 'none';
         minimapMine.style.display = 'none';

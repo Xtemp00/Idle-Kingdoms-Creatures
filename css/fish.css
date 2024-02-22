@@ -14,6 +14,29 @@
     top: 15px;
 }
 
+#fish-section {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    gap: 20px;
+    justify-items: start;
+}
+
+/*placer a droite */
+#game-part-fish {
+    display: grid;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: space-between;  
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-self: end; /* Added property */
+}
+
 #fish-xp-progress {
     height: 50px;
     background-color: #4a7c59;
@@ -38,4 +61,64 @@
     background-color: white;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.fish-tile {
+    background-color: #f8f0e3;
+    border: 1px solid #c0a080;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 18px;
+    width: 150px;
+    text-align: center;
+    align-items: right;
+    position: relative;
+}
+
+.fish-tile h2 {
+    margin: 0;
+}
+
+.fish-tile img {
+    display: block;
+    width: 80%;
+    height: auto;
+    margin-top: 10px;
+    border: 2px solid #c0a080;
+    border-radius: 5px;
+    position: relative;
+    left: 13px;
+}
+
+.fish-button,
+.unlock-fish-button {
+    background-color: #4a7c59;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.fish-button:hover,
+.unlock-fish-button:hover {
+    background-color: #659dbd;
+}
+
+.unlock-fish-button {
+    background-color: #b03e24;
+}
+
+#tuna-amount,
+#salmon-amount,
+#sardine-amount,
+#shark-amount,
+#swordfish-amount,
+#bass-amount,
+#divine-amount {
+    font-size: 1.5em;
+    color: #4a7c59;
+    font-weight: bold;
+    margin: 10px 0;
 }
