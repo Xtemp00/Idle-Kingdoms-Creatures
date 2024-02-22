@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="css/wood.css">
         <link rel="stylesheet" href="css/mine.css">
         <link rel="stylesheet" href="css/egg.css">
+        <link rel="stylesheet" href="css/fish.css">
     </head>
     <body>
         <div id="menu-container">
@@ -61,6 +62,30 @@
                     <p id="player-fish">0</p>
                     <p id="player-ore">0</p>
                     <p id="player-wheat">0</p>
+                </div>
+            </div>
+
+            <div id="global-fish">
+                <div id="fish-minimap" style="display: none;">
+                    <a href="#game-citymap" class="fish-minimap-link">
+                        <img src="assets/images/backgrounds/CityMap.jpg" alt="Map" class="minimap-button">
+                    </a>
+                </div>
+
+                <div id="fish-xp-progress-bar" style="display: none;">
+                    <div id="fish-xp-progress"></div>
+                </div>
+
+                <div id="game-part-fish" style="display: none;">
+                    <div id="fish-section">
+                        <h2 id="fish-level">Niveau: 1</h2>
+                        <div id="fish-grid">
+                            <!-- La grille de la pêche sera générée ici -->
+                        </div>
+                        <div id="fish-message-area">
+                            <!-- Messages relatifs aux actions de pêche -->
+                        </div>
+                    </div>
                 </div>
             </div>
 

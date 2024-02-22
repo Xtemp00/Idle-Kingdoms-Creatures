@@ -2,6 +2,7 @@ import { initWoodManagement } from './work/wood_management.js';
 import { updatePlayerStats } from './player.js';
 import { initMineManagement } from './work/mine_management.js';
 import { initEggManagement } from './work/egg_management.js';
+import { initFishManagement } from './work/fish_management.js';
 
 let woodbuildingsData, resourcesData, playerData, resourcesDataMines, minebuildingsData, petData;
 

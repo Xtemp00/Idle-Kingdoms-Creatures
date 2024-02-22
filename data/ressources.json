@@ -143,5 +143,56 @@
       "probability": 0.000001,
       "harvestTime": 100.0
     }
+  ],
+
+  "Fish": [
+    {
+      "name": "Tuna",
+      "value": 1.0,
+      "probability": 0.5,
+      "harvestTime": 0.5
+    },
+    {
+      "name": "Salmon",
+      "value": 2.0,
+      "probability": 0.4,
+      "harvestTime": 1.0
+    },
+    {
+      "name": "Sardine",
+      "value": 5.0,
+      "probability": 0.1,
+      "harvestTime": 2.0
+    },
+    {
+      "name": "Shark",
+      "value": 3.0,
+      "probability": 0.3,
+      "harvestTime": 1.5
+    },
+    {
+      "name": "Mackerel",
+      "value": 10.0,
+      "probability": 0.05,
+      "harvestTime": 3.0
+    },
+    {
+      "name": "Swordfish",
+      "value": 100.0,
+      "probability": 0.01,
+      "harvestTime": 5.0
+    },
+    {
+      "name": "Bass",
+      "value": 50.0,
+      "probability": 0.02,
+      "harvestTime": 4.0
+    },
+    {
+      "name": "DivineFish",
+      "value": 1000000.0,
+      "probability": 0.000001,
+      "harvestTime": 100.0
+    }
   ]
 }

@@ -1,0 +1,41 @@
+#fish-xp-progress-bar {
+    width: 90%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    position: relative;
+    top: 15px;
+}
+
+#fish-xp-progress {
+    height: 50px;
+    background-color: #4a7c59;
+    border-radius: 5px;
+    width: 0%;
+    transition: width 0.1s linear;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+
+#fish-minimap {
+    position: fixed;
+    top: 13%;
+    right: 10px;
+    z-index: 1000;
+    border: 5px solid #4a7c59;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
