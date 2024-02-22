@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="css/wood.css">
         <link rel="stylesheet" href="css/mine.css">
         <link rel="stylesheet" href="css/egg.css">
+        <link rel="stylesheet" href="css/fish.css">
     </head>
     <body>
         <div id="menu-container">
@@ -64,6 +65,30 @@
                 </div>
             </div>
 
+            <div id="global-fish">
+                <div id="fish-minimap" style="display: none;">
+                    <a href="#game-citymap" class="fish-minimap-link">
+                        <img src="assets/images/backgrounds/CityMap.jpg" alt="Map" class="minimap-button">
+                    </a>
+                </div>
+
+                <div id="fish-xp-progress-bar" style="display: none;">
+                    <div id="fish-xp-progress"></div>
+                </div>
+
+                <div id="game-part-fish" style="display: none;">
+                    <div id="fish-section">
+                        <h2 id="fish-level">Niveau: 1</h2>
+                        <div id="fish-grid">
+                            <!-- La grille de la pêche sera générée ici -->
+                        </div>
+                        <div id="fish-message-area">
+                            <!-- Messages relatifs aux actions de pêche -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="global-egg">
                 <div id="egg-minimap" style="display: none;">
                     <a href="#game-citymap" class="egg-minimap-link">
@@ -75,9 +100,31 @@
                         <div id="normal-egg">
                             <h1>Oeuf Normal</h1>
                             <button id="normal-egg-button" class="egg-button">Oeuf Normal</button>
-                            <div id="normal-egg-section" style="display: none;">
+                            <div id="normal-egg-section">
                                 
                             </div>
+                            <div id="RNGBar">
+                                <div id="RNGBar-Progress"></div>
+                            </div>
+                            <div id="x1Hatch">
+                                <button id="x1Hatch-button" class="Hatch-button">Eclore</button>
+                            </div>
+                            <div id="x3Hatch">
+                                <button id="x10Hatch-button" class="Hatch-button">Eclore 3</button>
+                            </div>
+                            <div id="autoHatch">
+                                <button id="autoHatch-button" class="Hatch-button">Eclore Automatiquement</button>
+                            </div>
+                            <div id="instantHatch">
+                                <button id="instantHatch-button" class="Hatch-button">Eclore Instantanément</button>
+                            </div>
+                            <div id="egg-message-area">
+                                <!-- Messages relatifs aux actions dans la mine -->
+                            </div>
+                            <div id="Return-Button">
+                                <button id="Return-Button-button" class="Return-button">Retour</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>

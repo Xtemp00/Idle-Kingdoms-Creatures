@@ -6,8 +6,11 @@ function toggleSections(sectionToShow) {
     const minimapWood = document.getElementById('wood-minimap');
     const minimapMine = document.getElementById('mine-minimap');
     const minimapEgg = document.getElementById('egg-minimap');
+    const minimapFish = document.getElementById('fish-minimap');
     const mineSection = document.getElementById('game-part-mine');
     const eggSection = document.getElementById('game-part-egg');
+    const fishSection = document.getElementById('game-part-fish');
+    const fishXp = document.getElementById('fish-xp-progress-bar');
 
     // Masquer la citymap
     citymap.style.display = 'none';
@@ -17,6 +20,7 @@ function toggleSections(sectionToShow) {
     woodXp.style.display = 'none';
     mineSection.style.display = 'none';
     eggSection.style.display = 'none';
+    fishSection.style.display = 'none';
 
     // Afficher la section demandée
     if (sectionToShow === 'wood') {
@@ -25,25 +29,37 @@ function toggleSections(sectionToShow) {
         minimapWood.style.display = 'flex';
         minimapMine.style.display = 'none';
         minimapEgg.style.display = 'none';
+        minimapFish.style.display = 'none';
     } 
     else if (sectionToShow === 'mine') {
         mineSection.style.display = 'grid';
         minimapMine.style.display = 'flex';
         minimapWood.style.display = 'none';
         minimapEgg.style.display = 'none';
+        minimapFish.style.display = 'none';
     } 
     else if (sectionToShow === 'egg') {
         eggSection.style.display = 'grid';
         minimapMine.style.display = 'none';
         minimapWood.style.display = 'none';
         minimapEgg.style.display = 'flex';
+        minimapFish.style.display = 'none';
     }
     else if (sectionToShow === 'citymap') {
         citymap.style.display = 'flex';
         minimapWood.style.display = 'none';
         minimapMine.style.display = 'none';
         minimapEgg.style.display = 'none';
+        minimapFish.style.display = 'none';
         console.log('citymap');
+    }
+    else if (sectionToShow === 'fish') {
+        fishSection.style.display = 'grid';
+        minimapFish.style.display = 'flex';
+        minimapWood.style.display = 'none';
+        minimapMine.style.display = 'none';
+        minimapEgg.style.display = 'none';
+        console.log('fish');
     }
 
 }
@@ -59,6 +75,10 @@ document.getElementById('mine-button').addEventListener('click', function() {
 
 document.getElementById('egg-button').addEventListener('click', function() {
     toggleSections('egg');
+});
+
+document.getElementById('fish-button').addEventListener('click', function() {
+    toggleSections('fish');
 });
 
 document.addEventListener('DOMContentLoaded', function() {
