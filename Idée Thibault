@@ -1,21 +1,48 @@
-idée pêche 
+# Peche
 
-un système de taille 
-système de rareté 
-mode de pêche spécial ( comme dans stardew valley)
-succès/trophée pour certain poissons rare 
-gerer un aquarium avec des poissons déja pêché -> possiblement les poissons ont des effets ?
-ajouter le fait de pouvoir pêcher des oeufs de familiers avec une très faible proba
-pingouin légendaire ->effet ??
-système d'amélioration de canne à pêche
+## Système de Pêche
+- **Taille des Poissons** : Introduire un système de taille variable pour chaque poisson.
+- **Rareté des Poissons** : Mettre en place un système de rareté, avec des poissons plus ou moins fréquents.
+- **Mode de Pêche Spécial** : Inspiré de Stardew Valley, pour une expérience de pêche unique.
+- **Succès/Trophées** : Récompenser la capture de poissons rares avec des succès ou trophées.
 
-Uppgrade pour changer de niveau de mine automatiquement
-réparation de bloc casser aléatoirement toute les x secondes
+## Gestion de l'Aquarium
+- **Aquarium Interactif** : Permettre aux joueurs de gérer un aquarium avec leurs poissons capturés.
+- **Effets des Poissons** : Explorer l'idée que certains poissons pourraient avoir des effets spéciaux.
 
-rendre plus clair le bois nécéssaire por débloquer la prochaine uprgrade 
+## Éléments de Jeu Additionnels
+- **Pêche d'Oeufs de Familiers** : Intégrer une probabilité faible de pêcher des oeufs de familiers.
+- **Pingouin Légendaire** : Ajouter un pingouin légendaire avec un effet particulier.
+- **Amélioration de la Canne à Pêche** : Permettre aux joueurs d'améliorer leur canne à pêche.
 
-a partir de 1 000 000 afficher 1M, le prochain affiché soit 2M soit 1M1
+# Mine
 
+## Gestion des Mines
+- **Upgrade Automatique** : Faciliter la transition entre différents niveaux de mine.
+- **Réparation de Blocs** : Réparer aléatoirement des blocs cassés toutes les X secondes.
 
+# Bois
+
+## A remplir
+- **..** : ..
+- **..** : ..
+
+# Oeuf
+
+## A remplir
+- **..** : ..
+- **..** : ..
+
+# Combat
+
+## A remplir
+- **..** : ..
+- **..** : ..
+
+# Global
+
+## Interface Utilisateur
+- **Clarté des Upgrades** : Rendre plus clair le bois nécessaire pour débloquer la prochaine upgrade.
+- **Affichage des Chiffres** : Pour les montants supérieurs à 1 000 000, utiliser un format simplifié (ex : 1M, 2M, 1.1M).
 
 
