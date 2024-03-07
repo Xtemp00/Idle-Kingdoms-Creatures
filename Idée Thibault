@@ -20,6 +20,8 @@
 ## Gestion des Mines
 - **Upgrade Automatique** : Faciliter la transition entre différents niveaux de mine.
 - **Réparation de Blocs** : Réparer aléatoirement des blocs cassés toutes les X secondes.
+ajout aléatoirement de blocs qui prenne X coups a casser et qui donne avec plus de proba les minerais rare ou plus de petit minerais
+
 
 # Bois
 
@@ -36,7 +38,7 @@
 # Combat
 
 ## A remplir
-- **..** : ..
+- **utilisation ressource** : système de craft d'équipement utilisant les ressources des autres mode de jeu 
 - **..** : ..
 
 # Global
