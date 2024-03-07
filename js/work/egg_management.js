@@ -117,8 +117,9 @@ function displayNormalEggSection(playerData, PetsData) {
     returnButton.style.bottom = "10px";
     returnButton.style.width = "100%";
     returnButton.style.zIndex = "1"; // Lower z-index to ensure it's below the egg button
-
+ 
     returnButton.addEventListener("click", function() {
+        //TODO :
         let eggmenu = document.getElementById("egg-menu");
         eggmenu.style.display = "grid";
         eggsection.style.display = "none";
