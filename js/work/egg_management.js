@@ -2,6 +2,7 @@ import { updatePlayerStats } from "../player.js";
 
 export function initEggManagement(playerData, PetsData) {
     //on crée le menu de base
+    displayNormalEggSection(playerData, PetsData);
     DisplayMenu(playerData, PetsData);
     /*displayNormalEggSection(playerData, PetsData);
     displayPetInventory(playerData);*/
@@ -12,8 +13,6 @@ function displayNormalEggSection(playerData, PetsData) {
 
     let eggsection = document.getElementById("egg-section");
     eggsection.style.display = "grid";
-    let eggmenu = document.getElementById("egg-menu");
-    eggmenu.style.display = "none";
     // Configuration for normal-egg-section
     let normalEggSection = document.getElementById("normal-egg-section");
     normalEggSection.style.margin = "10px";
@@ -120,7 +119,8 @@ function displayNormalEggSection(playerData, PetsData) {
     returnButton.style.zIndex = "1"; // Lower z-index to ensure it's below the egg button
 
     returnButton.addEventListener("click", function() {
-        eggmenu.style.display = "block";
+        let eggmenu = document.getElementById("egg-menu");
+        eggmenu.style.display = "grid";
         eggsection.style.display = "none";
     });
 }       
@@ -188,6 +188,7 @@ function DisplayMenu(playerData, PetsData) {
 
     // Création de la barre de défilement pour les œufs
     let eggScrollContainer = document.createElement("div");
+    eggScrollContainer.style.display = "block";
     eggScrollContainer.style.width = "100%";
     eggScrollContainer.style.height = "150px"; // Hauteur suffisante pour les images des œufs
     eggScrollContainer.style.overflowX = "auto"; // Active le défilement horizontal
@@ -213,7 +214,9 @@ function DisplayMenu(playerData, PetsData) {
     // Fonction pour la navigation vers la section de l'œuf
     function navigateToEggSection(eggType) {
         console.log("Navigating to section:", eggType);
-        displayNormalEggSection(playerData, PetsData);
+        eggsection.style.display = "grid";
+        eggScrollContainer.style.display = "none";
+        
         // Implémentez la logique de navigation ici
     }
 
