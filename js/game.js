@@ -9,6 +9,7 @@ let woodbuildingsData, resourcesData, playerData, resourcesDataMines, minebuildi
 async function loadGameData() {
     try {
         const buildingsResponse = await fetch('../data/woodbuild.json');
+        console.log(buildingsResponse);
         woodbuildingsData = await buildingsResponse.json();
 
         const buildingsResponseM = await fetch('../data/minebuild.json');
