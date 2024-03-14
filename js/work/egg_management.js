@@ -121,8 +121,9 @@ function displayNormalEggSection(playerData, PetsData) {
     returnButton.addEventListener("click", function() {
         //TODO :
         let eggmenu = document.getElementById("egg-menu");
-        eggmenu.style.display = "grid";
-        eggsection.style.display = "none";
+        DisplayMenu(playerData, PetsData);
+        eggmenu.style.display = "block";
+        eggsection.style.display = "nobe";
     });
 }       
 
