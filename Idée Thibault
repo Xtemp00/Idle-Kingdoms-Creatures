@@ -21,13 +21,13 @@
 - **Upgrade Automatique** : Faciliter la transition entre différents niveaux de mine.
 - **Réparation de Blocs** : Réparer aléatoirement des blocs cassés toutes les X secondes.
 ajout aléatoirement de blocs qui prenne X coups a casser et qui donne avec plus de proba les minerais rare ou plus de petit minerais
-
+- **Profondeur de le mine**: Changement des probabilités de l'obtention des minerais en fonction de l'étage de la mine (Exemple: étage 500 -> proba = proba+Etage/X)
 
 # Bois
 
 ## A remplir
-- **..** : ..
-- **..** : ..
+- **Amélioration** : Afficher un message lors d'un débloquage d'amélioration
+- **Ajout de l'or** : Ajouter l'or gagner seulement apres la fin de l'abbatage du bois
 
 # Oeuf
 
@@ -46,5 +46,6 @@ ajout aléatoirement de blocs qui prenne X coups a casser et qui donne avec plus
 ## Interface Utilisateur
 - **Clarté des Upgrades** : Rendre plus clair le bois nécessaire pour débloquer la prochaine upgrade.
 - **Affichage des Chiffres** : Pour les montants supérieurs à 1 000 000, utiliser un format simplifié (ex : 1M, 2M, 1.1M).
+- **Affichage des Chiffres 2** : A partir d'un seuil de pièce d'or ne plus afficher les virgules
 
 
